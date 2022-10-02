@@ -21,12 +21,9 @@ public class AnimalRepositoryTest {
 
     @Test
     public void whenCalledSave_thenCorrectNumberOfUsers() {
-        Animal animal = Animal.builder().name("Luna").sex(AnimalGender.M).age(10).height(12).weight(150).arrivalDate(LocalDateTime.now()).build();
-        animalRepository.save(animal);
-        Animal animals = Animal.builder().name("Lupe").sex(AnimalGender.M).age(10).height(12).weight(150).arrivalDate(LocalDateTime.now()).build();
-        animalRepository.save(animals);
+        animalRepository.save(Animal.builder().name("Luna").sex(AnimalGender.M).age(10).height(12).weight(150).arrivalDate(LocalDateTime.of(2022, 9, 8, 0, 0, 0)).build());
         List<Animal> a = (List<Animal>) animalRepository.findAll();
 
-        assertThat(a.size()).isEqualTo(2);
+        assertThat(a.size()).isEqualTo(1);
     }
 }
