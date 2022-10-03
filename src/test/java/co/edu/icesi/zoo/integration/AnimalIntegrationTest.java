@@ -29,7 +29,7 @@ import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 public class AnimalIntegrationTest {
 
@@ -45,10 +45,32 @@ public class AnimalIntegrationTest {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
     }
 
+    @SneakyThrows
+    private void firstScenario() {
+        mockMvc.perform(MockMvcRequestBuilders.post("/animals")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(parseResourceToString("createFemaleAnimal.json"))).andExpect(status().isOk())
+                .andReturn();
+    }
+
+    @SneakyThrows
+    private void secondScenario() {
+        mockMvc.perform(MockMvcRequestBuilders.post("/animals")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(parseResourceToString("createMaleAnimal.json"))).andExpect(status().isOk())
+                .andReturn();
+    }
+
+    @SneakyThrows
+    private void thirdScenario() {
+        firstScenario();
+        secondScenario();
+    }
+
     @Test
     @SneakyThrows
-    public void createUserSuccessfully() {
-        String body = parseResourceToString("createAnimal.json");
+    public void createAnimalSuccessfully() {
+        String body = parseResourceToString("createFemaleAnimal.json");
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/animals")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(body)).andExpect(status().isOk())
@@ -57,6 +79,55 @@ public class AnimalIntegrationTest {
         AnimalDTO animalResult = objectMapper.readValue(result.getResponse().getContentAsString(), AnimalDTO.class);
 
         assertThat(animalResult, hasProperty("name", is("Luna")));
+    }
+
+    @Test
+    @SneakyThrows
+    public void createAnimalWithMotherSuccessfully() {
+        firstScenario();
+
+        String body = parseResourceToString("createAnimalWithMother.json");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/animals")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(body)).andExpect(status().isOk())
+                .andReturn();
+
+        AnimalDTO animalResult = objectMapper.readValue(result.getResponse().getContentAsString(), AnimalDTO.class);
+
+        assertThat(animalResult, hasProperty("mother", is("Luna")));
+    }
+
+    @Test
+    @SneakyThrows
+    public void createAnimalWithFatherSuccessfully() {
+        secondScenario();
+
+        String body = parseResourceToString("createAnimalWithFather.json");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/animals")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(body)).andExpect(status().isOk())
+                .andReturn();
+
+        AnimalDTO animalResult = objectMapper.readValue(result.getResponse().getContentAsString(), AnimalDTO.class);
+
+        assertThat(animalResult, hasProperty("father", is("Oscar")));
+    }
+
+    @Test
+    @SneakyThrows
+    public void createAnimalWithParentsSuccessfully() {
+        thirdScenario();
+
+        String body = parseResourceToString("createAnimalWithParents.json");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/animals")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(body)).andExpect(status().isOk())
+                .andReturn();
+
+        AnimalDTO animalResult = objectMapper.readValue(result.getResponse().getContentAsString(), AnimalDTO.class);
+
+        assertThat(animalResult, hasProperty("father", is("Oscar")));
+        assertThat(animalResult, hasProperty("mother", is("Luna")));
     }
 
     @SneakyThrows
