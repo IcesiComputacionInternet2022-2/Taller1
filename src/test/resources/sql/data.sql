@@ -1,2 +1,3 @@
 INSERT INTO "ANIMAL" (id, name, sex, age, height, weight, arrival_date) VALUES ('c1f820e0-4100-4d36-a7af-0a7fade4201b', 'Luna', 'F', '10', '2', '150', '2020-10-11 00:00:00');
 INSERT INTO "ANIMAL" (id, name, sex, age, height, weight, arrival_date) VALUES ('469b5901-b015-4d77-8600-edff702f5f50', 'Pep', 'M', '10', '2', '150', '2020-10-11 00:00:00');
+INSERT INTO "ANIMAL" (id, name, sex, age, height, weight, arrival_date, father_id, mother_id) VALUES ('517a1f99-206a-4d44-857a-ef5775363ddd', 'Nicol', 'F', '10', '2', '150', '2020-10-11 00:00:00', '469b5901-b015-4d77-8600-edff702f5f50', 'c1f820e0-4100-4d36-a7af-0a7fade4201b');
