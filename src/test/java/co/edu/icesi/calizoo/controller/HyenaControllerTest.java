@@ -39,7 +39,7 @@ public class HyenaControllerTest {
         double weight = 40;
         int age = 2;
         int height = 50;
-        LocalDateTime localDateTime = LocalDateTime.now();
+        LocalDateTime localDateTime = LocalDateTime.of(2021,10,7,13, 12);
         return new Hyena(id,name, sex, weight, age, height, localDateTime, null, null);
     }
 
@@ -47,6 +47,7 @@ public class HyenaControllerTest {
     public void testGetHyena() {
         Hyena hyena = exampleHyena();
         when(hyenaService.getHyena(any())).thenReturn(hyena);
+        HyenaDTO returnedHyena = hyenaController.getHyena(hyena.getId());
         verify(hyenaService,times(1)).getHyena(any());
     }
 
@@ -92,6 +93,8 @@ public class HyenaControllerTest {
         hyenaDTO.setId(UUID.randomUUID());
         hyenaDTO.setName("Nico");
 
+        when(hyenaService.getHyena(any())).thenReturn(hyenaMapper.fromDTO(hyenaDTO));
+
         HyenaDTO childHyenaDTO = hyenaMapper.fromHyena(exampleHyena());
         hyenaDTO.setFatherId(hyenaDTO.getId());
 
@@ -104,6 +107,8 @@ public class HyenaControllerTest {
         hyenaDTO.setId(UUID.randomUUID());
         hyenaDTO.setName("Venus");
         hyenaDTO.setSex("Male");
+
+        when(hyenaService.getHyena(any())).thenReturn(hyenaMapper.fromDTO(hyenaDTO));
 
         HyenaDTO childHyenaDTO = hyenaMapper.fromHyena(exampleHyena());
         hyenaDTO.setMotherId(hyenaDTO.getId());
