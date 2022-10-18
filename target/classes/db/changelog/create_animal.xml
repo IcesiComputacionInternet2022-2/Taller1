@@ -6,22 +6,22 @@
 
     <changeSet id="39726ba4-19c3-4282-8074-d67c5e656e53" author="diego.hidalgo" failOnError="true" >
         <createTable tableName="animal">
-            <column name="id" type="UUID">
+            <column name="id" type="UUID" />
+            <column name="name" type="varchar(255)">
                 <constraints nullable="false" primaryKey="true" />
             </column>
-            <column name="name" type="varchar(255)" />
-            <column name="maleParentId" type="UUID" />
-            <column name="femaleParentId" type="UUID" />
+            <column name="male_parent_name" type="varchar(255)" />
+            <column name="female_parent_name" type="varchar(255)" />
             <column name="sex" type="char" />
             <column name="weight" type="varchar(255)" />
             <column name="age" type="integer" />
             <column name="height" type="varchar(255)" />
             <column name="arrival_date" type="date" />
         </createTable>
-        <addForeignKeyConstraint baseTableName="animal" baseColumnNames="maleParentId" constraintName="male_fk" referencedTableName="animal"
-                                 referencedColumnNames="id" />
-        <addForeignKeyConstraint baseTableName="animal" baseColumnNames="femaleParentId" constraintName="female_fk" referencedTableName="animal"
-                                 referencedColumnNames="id" />
+        <addForeignKeyConstraint baseTableName="animal" baseColumnNames="male_parent_name" constraintName="male_fk" referencedTableName="animal"
+                                 referencedColumnNames="name" />
+        <addForeignKeyConstraint baseTableName="animal" baseColumnNames="female_parent_name" constraintName="female_fk" referencedTableName="animal"
+                                 referencedColumnNames="name" />
     </changeSet>
 
 </databaseChangeLog>

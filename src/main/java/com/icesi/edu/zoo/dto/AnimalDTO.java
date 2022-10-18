@@ -15,15 +15,16 @@ import java.util.UUID;
 @NoArgsConstructor
 public class AnimalDTO {
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private UUID id;
 
     private String name;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private UUID maleParentId;
+    private String maleParentName;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private UUID femaleParentId;
+    private String femaleParentName;
 
     private char sex;
 

@@ -33,10 +33,10 @@ public class AnimalServiceImpl implements AnimalService {
         Animal child = getAnimalByName(animalName);
         if(child != null) {
             family.add(child);
-            if(child.getMaleParentId() != null)
-                family.add(animalRepository.findById(child.getMaleParentId()).orElse(null));
-            if(child.getFemaleParentId() != null)
-                family.add(animalRepository.findById(child.getFemaleParentId()).orElse(null));
+            if(child.getMaleParentName() != null)
+                family.add(animalRepository.findById(child.getMaleParentName()).orElse(null));
+            if(child.getMaleParentName() != null)
+                family.add(animalRepository.findById(child.getFemaleParentName()).orElse(null));
             family.removeAll(Collections.singleton(null));
         }
         return family;
@@ -48,35 +48,35 @@ public class AnimalServiceImpl implements AnimalService {
 
     @Override
     public Animal createAnimal(Animal animalDTO) {
-        if(animalExists(animalDTO.getId()))
+        if(animalExists(animalDTO.getName()))
             throw new AnimalException(HttpStatus.I_AM_A_TEAPOT, new AnimalError(CODE_O5, CODE_O5.getMessage()));
-        if(!animalExists(animalDTO.getMaleParentId()))
+        if(!animalExists(animalDTO.getMaleParentName()))
             throw new AnimalException(HttpStatus.NOT_FOUND, new AnimalError(CODE_06, CODE_06.getMessage()));
-        if(!animalExists(animalDTO.getFemaleParentId()))
+        if(!animalExists(animalDTO.getFemaleParentName()))
             throw new AnimalException(HttpStatus.NOT_FOUND, new AnimalError(CODE_06, CODE_06.getMessage()));
-        parentsAreDifferent(animalDTO.getMaleParentId(), animalDTO.getFemaleParentId());
-        checkParentSex(animalDTO.getMaleParentId(), "m");
-        checkParentSex(animalDTO.getFemaleParentId(), "h");
+        parentsAreDifferent(animalDTO.getMaleParentName(), animalDTO.getFemaleParentName());
+        checkParentSex(animalDTO.getMaleParentName(), "m");
+        checkParentSex(animalDTO.getFemaleParentName(), "h");
         nameIsAvailable(animalDTO.getName());
         checkCharacteristics(animalDTO);
         return animalRepository.save(animalDTO);
     }
 
-    private boolean animalExists(UUID animalId) {
-        return animalId == null || animalRepository.findById(animalId).isPresent();
+    private boolean animalExists(String animalName) {
+        return animalName == null || animalRepository.findById(animalName).isPresent();
     }
 
-    private boolean checkParentSex(UUID animalId, String sex) {
-        if(animalId == null)
+    private boolean checkParentSex(String animalName, String sex) {
+        if(animalName == null)
             return true;
-        Animal parent = animalRepository.findById(animalId).orElse(null);
+        Animal parent = animalRepository.findById(animalName).orElse(null);
         if(Character.toString(parent.getSex()).equalsIgnoreCase(sex))
             return true;
         throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_08, CODE_08.getMessage()));
     }
 
-    private boolean parentsAreDifferent(UUID maleId, UUID femaleId) {
-        if(maleId == null || femaleId == null || maleId.compareTo(femaleId) != 0)
+    private boolean parentsAreDifferent(String maleName, String femaleName) {
+        if(maleName == null || femaleName == null || maleName.compareTo(femaleName) != 0)
             return true;
         throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_07, CODE_07.getMessage()));
     }
@@ -95,8 +95,8 @@ public class AnimalServiceImpl implements AnimalService {
         throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_10, CODE_10.getMessage()));
     }
 
-    private <T extends CondorCharacteristics> boolean hasValidCharacteristic(double height, T attr) {
-        return inClosedRange(height, attr.getMin(), attr.getMax());
+    private <T extends CondorCharacteristics> boolean hasValidCharacteristic(double attr, T validRange) {
+        return inClosedRange(attr, validRange.getMin(), validRange.getMax());
     }
 
     private boolean inClosedRange(double num, double min, double max) {

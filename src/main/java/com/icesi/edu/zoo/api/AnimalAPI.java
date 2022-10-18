@@ -8,7 +8,7 @@ import java.util.List;
 public interface AnimalAPI {
 
     @GetMapping("/{animalName}")
-    List<AnimalDTO> getAnimal(@PathVariable String animalId);
+    List<AnimalDTO> getAnimal(@PathVariable String animalName);
 
     @PostMapping()
     AnimalDTO createAnimal(@RequestBody AnimalDTO animalDTO);

@@ -18,17 +18,17 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Animal {
 
-    @Id
     @Type(type="org.hibernate.type.UUIDCharType")
     private UUID id;
 
+    @Id
     private String name;
 
-    @Type(type="org.hibernate.type.UUIDCharType")
-    private UUID maleParentId;
+    //@Type(type="org.hibernate.type.UUIDCharType")
+    private String maleParentName;
 
-    @Type(type="org.hibernate.type.UUIDCharType")
-    private UUID femaleParentId;
+    //@Type(type="org.hibernate.type.UUIDCharType")
+    private String femaleParentName;
 
     private char sex;
 
@@ -42,7 +42,11 @@ public class Animal {
 
     @Override
     public String toString() {
-        return id + " " + name + " " + maleParentId + " " + femaleParentId;
+        return id + " " + name + " " + maleParentName + " " + femaleParentName;
     }
 
+    @PrePersist
+    public void generateId() {
+        this.id = UUID.randomUUID();
+    }
 }
