@@ -29,4 +29,6 @@ public interface AnimalMapper {
      @Mapping(source = "mother", target = "mother")
      @Mapping(source = "father", target = "father")
      AnimalWithParentsDTO fromAnimalAndParentsDTO(Animal animal, AnimalParentsDTO mother, AnimalParentsDTO father);
+
+
 }

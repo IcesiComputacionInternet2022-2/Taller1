@@ -52,11 +52,11 @@ public class ZooController implements ZooAPI {
 
 
     private boolean verifyAnimalNameEmpty(String animalName){
-        if(animalName==null||animalName.isEmpty()) {
-            throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234","Throw AnimalDemoException - Name is empty"));
-        }else{
-            return true;
-        }
+            if(animalName==null||animalName.isEmpty()) {
+                throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234", "Throw AnimalDemoException"));
+            }else{
+                return true;
+            }
     }
 
     private boolean verifyAnimalNameLength(String animalName){
@@ -64,7 +64,7 @@ public class ZooController implements ZooAPI {
         if(animalName.length() <= 120  && animalName.matches("^[a-z A-Z]*$")){
             return true;
         }else{
-            throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234","Throw AnimalDemoException - Name Invalid Format"));
+            throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234","Throw AnimalDemoException"));
         }
     }
 
@@ -72,7 +72,7 @@ public class ZooController implements ZooAPI {
         LocalDateTime now=LocalDateTime.now();
 
         if (!now.isAfter(arrivalDate)){
-            throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234","Throw AnimalDemoException -  Invalid Arrival Date"));
+            throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234","Throw AnimalDemoException"));
         }
             return true;
     }
@@ -84,7 +84,7 @@ public class ZooController implements ZooAPI {
         if (animalHeight<maxHeightZorroCañeroInCm&&animalHeight>minHeightZorroCañeroInCm){
             return true;
         }else{
-            throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234","Throw AnimalDemoException -  Height is anormal for Zorro Cañero, the max value is: "+maxHeightZorroCañeroInCm));
+            throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234","Throw AnimalDemoException"));
         }
     }
 
@@ -95,7 +95,7 @@ public class ZooController implements ZooAPI {
         if (animalWeight<maxHeightZorroCañeroInKg&&animalWeight>minHeightZorroCañeroInKg){
             return true;
         }else{
-            throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234","Throw AnimalDemoException -  Weight is anormal for Zorro Cañero, the max value is "+maxHeightZorroCañeroInKg));
+            throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234","Throw AnimalDemoException"));
         }
     }
 
@@ -105,7 +105,7 @@ public class ZooController implements ZooAPI {
         if (animalAge<maxAgeZorroCañeroInYears){
             return true;
         }else{
-            throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234","Throw AnimalDemoException -  Age is anormal for Zorro Cañero , the max value is "+maxAgeZorroCañeroInYears));
+            throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234","Throw AnimalDemoException"));
         }
     }
 

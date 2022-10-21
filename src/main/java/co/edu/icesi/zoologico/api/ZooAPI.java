@@ -5,12 +5,10 @@ import co.edu.icesi.zoologico.dto.AnimalWithParentsDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 
 @RequestMapping("/animals")
 public interface ZooAPI {
-
 
 
     @GetMapping("/{animalName}")
@@ -18,6 +16,7 @@ public interface ZooAPI {
 
     @PostMapping()
     public AnimalDTO createAnimal(@RequestBody AnimalDTO userDTO);
+
 
 
     @GetMapping

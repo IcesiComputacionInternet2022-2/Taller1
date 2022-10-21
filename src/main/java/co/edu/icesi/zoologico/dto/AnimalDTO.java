@@ -1,14 +1,14 @@
 package co.edu.icesi.zoologico.dto;
 
-import co.edu.icesi.zoologico.config.jackson.LocalDateTimeDeserializer;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
-public class AnimalDTO{
+@AllArgsConstructor
+public class AnimalDTO {
     private UUID id;
 
     private String name;
@@ -20,6 +20,7 @@ public class AnimalDTO{
     private UUID father;
 
     private LocalDateTime arrivalDate;
+
 
 
 }
