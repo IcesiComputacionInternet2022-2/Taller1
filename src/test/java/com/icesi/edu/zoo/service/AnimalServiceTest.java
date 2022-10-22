@@ -64,12 +64,16 @@ public class AnimalServiceTest {
             animalService.createAnimal(toAdd);
             fail();
         } catch(AnimalException e) {
-            assertEquals(HttpStatus.BAD_REQUEST, e.getHttpStatus());
-            assertNotNull(e.getAnimalError());
-            AnimalError animalError = e.getAnimalError();
-            assertEquals(AnimalErrorCode.CODE_10.getMessage(), animalError.getMessage());
-            assertEquals(AnimalErrorCode.CODE_10, animalError.getCode());
+            verifyExceptionAttributes(e, HttpStatus.BAD_REQUEST, AnimalErrorCode.CODE_10);
         }
+    }
+
+    private void verifyExceptionAttributes(AnimalException e, HttpStatus httpStatus, AnimalErrorCode animalErrorCode) {
+        assertEquals(httpStatus, e.getHttpStatus());
+        assertNotNull(e.getAnimalError());
+        AnimalError animalError = e.getAnimalError();
+        assertEquals(animalErrorCode, animalError.getCode());
+        assertEquals(animalErrorCode.getMessage(), animalError.getMessage());
     }
 
     @Test
@@ -80,11 +84,7 @@ public class AnimalServiceTest {
             animalService.createAnimal(toAdd);
             fail();
         } catch(AnimalException e) {
-            assertEquals(HttpStatus.BAD_REQUEST, e.getHttpStatus());
-            assertNotNull(e.getAnimalError());
-            AnimalError animalError = e.getAnimalError();
-            assertEquals(AnimalErrorCode.CODE_10.getMessage(), animalError.getMessage());
-            assertEquals(AnimalErrorCode.CODE_10, animalError.getCode());
+            verifyExceptionAttributes(e, HttpStatus.BAD_REQUEST, AnimalErrorCode.CODE_10);
         }
     }
 
@@ -106,11 +106,7 @@ public class AnimalServiceTest {
             animalService.createAnimal(toAdd);
             fail();
         } catch(AnimalException e) {
-            assertEquals(HttpStatus.BAD_REQUEST, e.getHttpStatus());
-            assertNotNull(e.getAnimalError());
-            AnimalError animalError = e.getAnimalError();
-            assertEquals(AnimalErrorCode.CODE_06.getMessage(), animalError.getMessage());
-            assertEquals(AnimalErrorCode.CODE_06, animalError.getCode());
+            verifyExceptionAttributes(e, HttpStatus.BAD_REQUEST, AnimalErrorCode.CODE_06);
         }
     }
 
@@ -122,11 +118,7 @@ public class AnimalServiceTest {
             animalService.createAnimal(toAdd);
             fail();
         } catch(AnimalException e) {
-            assertEquals(HttpStatus.BAD_REQUEST, e.getHttpStatus());
-            assertNotNull(e.getAnimalError());
-            AnimalError animalError = e.getAnimalError();
-            assertEquals(AnimalErrorCode.CODE_06.getMessage(), animalError.getMessage());
-            assertEquals(AnimalErrorCode.CODE_06, animalError.getCode());
+            verifyExceptionAttributes(e, HttpStatus.BAD_REQUEST, AnimalErrorCode.CODE_06);
         }
     }
 
@@ -141,11 +133,7 @@ public class AnimalServiceTest {
             animalService.createAnimal(toAdd);
             fail();
         } catch(AnimalException e) {
-            assertEquals(HttpStatus.BAD_REQUEST, e.getHttpStatus());
-            assertNotNull(e.getAnimalError());
-            AnimalError animalError = e.getAnimalError();
-            assertEquals(AnimalErrorCode.CODE_08.getMessage(), animalError.getMessage());
-            assertEquals(AnimalErrorCode.CODE_08, animalError.getCode());
+            verifyExceptionAttributes(e, HttpStatus.BAD_REQUEST, AnimalErrorCode.CODE_08);
         }
     }
 
@@ -161,11 +149,7 @@ public class AnimalServiceTest {
             animalService.createAnimal(toAdd);
             fail();
         } catch(AnimalException e) {
-            assertEquals(HttpStatus.BAD_REQUEST, e.getHttpStatus());
-            assertNotNull(e.getAnimalError());
-            AnimalError animalError = e.getAnimalError();
-            assertEquals(AnimalErrorCode.CODE_08.getMessage(), animalError.getMessage());
-            assertEquals(AnimalErrorCode.CODE_08, animalError.getCode());
+            verifyExceptionAttributes(e, HttpStatus.BAD_REQUEST, AnimalErrorCode.CODE_08);
         }
     }
 
@@ -175,11 +159,7 @@ public class AnimalServiceTest {
             animalService.getAnimal("no existo");
             fail();
         } catch (AnimalException e) {
-            assertEquals(HttpStatus.NOT_FOUND, e.getHttpStatus());
-            assertNotNull(e.getAnimalError());
-            AnimalError animalError = e.getAnimalError();
-            assertEquals(AnimalErrorCode.CODE_11.getMessage(), animalError.getMessage());
-            assertEquals(AnimalErrorCode.CODE_11, animalError.getCode());
+            verifyExceptionAttributes(e, HttpStatus.NOT_FOUND, AnimalErrorCode.CODE_11);
         }
     }
 
