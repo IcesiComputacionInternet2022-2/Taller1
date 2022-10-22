@@ -1,5 +1,6 @@
 package com.icesi.edu.zoo.service.impl;
 
+import com.icesi.edu.zoo.constant.AnimalErrorCode;
 import com.icesi.edu.zoo.constant.CondorCharacteristics;
 import com.icesi.edu.zoo.error.exception.AnimalError;
 import com.icesi.edu.zoo.error.exception.AnimalException;
@@ -35,25 +36,26 @@ public class AnimalServiceImpl implements AnimalService {
             family.add(child);
             if(child.getMaleParentName() != null)
                 family.add(animalRepository.findById(child.getMaleParentName()).orElse(null));
-            if(child.getMaleParentName() != null)
+            if(child.getFemaleParentName() != null)
                 family.add(animalRepository.findById(child.getFemaleParentName()).orElse(null));
             family.removeAll(Collections.singleton(null));
+            return family;
         }
-        return family;
+        throw new AnimalException(HttpStatus.NOT_FOUND, new AnimalError(CODE_11, CODE_11.getMessage()));
     }
 
     private Animal getAnimalByName(String animalName) {
-        return getAnimals().stream().peek(System.out::println).filter(a -> a.getName().equalsIgnoreCase(animalName)).findFirst().orElse(null);
+        return getAnimals().stream().filter(a -> a.getName().equalsIgnoreCase(animalName)).findFirst().orElse(null);
     }
 
     @Override
     public Animal createAnimal(Animal animalDTO) {
         if(animalExists(animalDTO.getName()))
-            throw new AnimalException(HttpStatus.I_AM_A_TEAPOT, new AnimalError(CODE_O5, CODE_O5.getMessage()));
+            throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_O5, CODE_O5.getMessage()));
         if(!animalExists(animalDTO.getMaleParentName()))
-            throw new AnimalException(HttpStatus.NOT_FOUND, new AnimalError(CODE_06, CODE_06.getMessage()));
+            throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_06, CODE_06.getMessage()));
         if(!animalExists(animalDTO.getFemaleParentName()))
-            throw new AnimalException(HttpStatus.NOT_FOUND, new AnimalError(CODE_06, CODE_06.getMessage()));
+            throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_06, CODE_06.getMessage()));
         parentsAreDifferent(animalDTO.getMaleParentName(), animalDTO.getFemaleParentName());
         checkParentSex(animalDTO.getMaleParentName(), "m");
         checkParentSex(animalDTO.getFemaleParentName(), "h");

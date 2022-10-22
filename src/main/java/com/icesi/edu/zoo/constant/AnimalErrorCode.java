@@ -18,8 +18,8 @@ public enum AnimalErrorCode {
     CODE_07("El nombre de los padres debe ser distinto"),
     CODE_08("El sexo del padre no corresponde al tipo de padre especificado (padre, madre)"),
     CODE_09("El nombre especificado ya se encuentra en uso. Seleccione otro"),
-    CODE_10("Las caracteristicas no son validas. El peso debe estar entre 9-15 kg y la altura entre 100-130 cm");
-
+    CODE_10("Las caracteristicas no son validas. El peso debe estar entre 9-15 kg y la altura entre 100-130 cm"),
+    CODE_11("El nombre especificado no se encuentra asociado a ningún animal");
     private String message;
 
 }

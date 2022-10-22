@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface AnimalService {
 
-    List<Animal> getAnimal(@PathVariable String animalId);
+    List<Animal> getAnimal(@PathVariable String animalName);
 
     Animal createAnimal(@RequestBody Animal animalDTO);
 
