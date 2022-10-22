@@ -226,5 +226,20 @@ public class AnimalServiceTest {
         assertEquals(found.get(0).getName(), animal.getName());
     }
 
+    @Test
+    public void testGetAnimalsEmptyList() {
+        List<Animal> found = animalService.getAnimals();
+        assertNotNull(found);
+        assertEquals(found.size(), 0);
+    }
+
+    @Test
+    public void testGetAnimalsWithThreeElements() {
+        Animal animal1 = setUpCorrectAnimal();
+        Animal animal2 = createDummyAnimal1();
+        Animal animal3 = createDummyAnimal2();
+        ArrayList<Animal> allAnimals = new ArrayList<>(List.of(new Animal[]{animal1, animal2, animal3}));
+        when(animalRepository.findAll()).thenReturn(allAnimals);
+    }
 
 }
