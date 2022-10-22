@@ -4,7 +4,7 @@
 
     <!-- Refer to https://docs.liquibase.com/change-types/community/create-table.html -->
 
-    <changeSet id="33d4e9bc-7210-47c3-9617-c56ab7c0750d" author="giovanni.mosquera" failOnError="true">
+    <changeSet id="33d4e9bc-7210-47c3-9617-c56ab7c0750d" author="juan.prada" failOnError="true">
 
         <createTable tableName="animal">
             <column name="id" type="UUID">
@@ -12,9 +12,9 @@
             </column>
             <column name="name" type="varchar(255)" />
             <column name="gender" type="varchar(1)" />
-            <column name="weight" type="float" />
+            <column name="weight" type="real" />
             <column name="age" type="int" />
-            <column name="height" type="float" />
+            <column name="height" type="real" />
             <column name="arriveDate" type="date" />
             <column name="fatherId" type="UUID" />
             <column name="motherId" type="UUID" />

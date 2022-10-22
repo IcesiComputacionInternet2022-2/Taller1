@@ -59,7 +59,7 @@ public class AnimalController implements AnimalsAPI {
         }
     }
     private void validateDateOfEntry(LocalDateTime dateArrive) {
-        if(dateArrive.isBefore(LocalDateTime.now())) {
+        if(dateArrive.isAfter(LocalDateTime.now())) {
             throw new AnimalException(HttpStatus.BAD_REQUEST,
                     new AnimalError(CODE_06, CODE_06.getMessage()));
         }

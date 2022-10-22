@@ -47,8 +47,7 @@ public class AnimalServiceImpl implements AnimalService {
         verifyWeight(animalDTO.getWeight());
         verifyLength(animalDTO.getHeight());
 
-        return animalRepository.save(animalDTO);
-    }
+        return animalRepository.save(animalDTO);}
 
     @Override
     public Animal getAnimal(UUID animalId) {
@@ -69,21 +68,14 @@ public class AnimalServiceImpl implements AnimalService {
         List<Animal> animalsCreated = getAnimals();
         for (Animal animal : animalsCreated) {
             if(animal.getName().equalsIgnoreCase(animalDTO.getName())) {
-                throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_03, CODE_03.getMessage()));
-            }
-        }
-    }
+                throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_03, CODE_03.getMessage()));}}}
 
     private int verifyAnimalAlreadyExistsByID(UUID animalId, String optionalMsg) {
         if(animalId == null || animalId.equals("")) {
             return 0;
         }
-        if(getAnimal(animalId) == null) {
-            throw new AnimalException(HttpStatus.BAD_REQUEST,
-                    new AnimalError(CODE_02, CODE_02.getMessage() + optionalMsg));
-        }
-        return 0;
-    }
+        getAnimal(animalId);
+        return 0;}
 
     private int verifyAnimalGenre(UUID animalId, String genre, String optionalMessage) {
         if(animalId == null || animalId.equals("")) {
@@ -92,22 +84,15 @@ public class AnimalServiceImpl implements AnimalService {
         Animal animal = getAnimal(animalId);
         if(!animal.getGender().equalsIgnoreCase(genre)) {
             throw new AnimalException(HttpStatus.BAD_REQUEST,
-                    new AnimalError(CODE_04, CODE_04.getMessage() + optionalMessage));
-        }
-        return 0;
-    }
+                    new AnimalError(CODE_04, CODE_04.getMessage() + optionalMessage));}
+        return 0;}
 
     private void verifyWeight(float weight) {
         if(weight > MAX_WEIGHT_KG || weight < MIN_WEIGHT_KG) {
             throw new AnimalException(HttpStatus.BAD_REQUEST,
-                    new AnimalError(CODE_07, CODE_07.getMessage()));
-        }
-    }
-
+                    new AnimalError(CODE_07, CODE_07.getMessage()));}}
     private void verifyLength(float length) {
         if(length > MAX_LENGTH_CM || length < MIN_LENGTH_CM) {
             throw new AnimalException(HttpStatus.BAD_REQUEST,
                     new AnimalError(CODE_08, CODE_08.getMessage()));
-        }
-    }
-}
+        }}}

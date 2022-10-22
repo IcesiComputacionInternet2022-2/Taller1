@@ -1,0 +1,10 @@
+{
+  "name": "NutriaPadre",
+  "gender": "M",
+  "weight": 8.4,
+  "age": 21,
+  "height": 67.5,
+  "arriveDate": "2021-09-22 10:50:00",
+  "fatherId": null,
+  "motherId": null
+}
