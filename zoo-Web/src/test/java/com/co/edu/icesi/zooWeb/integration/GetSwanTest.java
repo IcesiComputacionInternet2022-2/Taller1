@@ -54,7 +54,7 @@ public class GetSwanTest {
     @SneakyThrows
     public void getSwan() {
 
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/zoowebapplication/" + SWAN_NAME)
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/zooweb/" + SWAN_NAME)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn();
@@ -72,7 +72,7 @@ public class GetSwanTest {
     @SneakyThrows
     public void getSwans() {
 
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/zoowebapplication")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/zooweb")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn();
@@ -98,7 +98,7 @@ public class GetSwanTest {
     @SneakyThrows
     public void testMissing() {
 
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/zoowebapplication/MISSING")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/zooweb/MISSING")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
                 .andReturn();

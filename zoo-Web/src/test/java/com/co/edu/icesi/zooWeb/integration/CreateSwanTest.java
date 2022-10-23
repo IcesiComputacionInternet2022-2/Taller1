@@ -111,7 +111,7 @@ public class CreateSwanTest {
 
     @SneakyThrows
     private MvcResult getBadRequestResult(String body){
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/zoowebapplication")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/zooweb")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(body)).andExpect(status().isBadRequest())
                 .andReturn();

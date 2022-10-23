@@ -62,7 +62,7 @@ public class UpdateSwanTest {
     @SneakyThrows
     public void updateSwan(){
         String body = parseResourceToString("updateSwan.json");
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/zoowebapplication/"+SWAN_NAME)
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/zooweb/"+SWAN_NAME)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(body)).andExpect(status().isOk())
                         .andReturn();
@@ -80,7 +80,7 @@ public class UpdateSwanTest {
     @SneakyThrows
     public void testMissing(){
         String body = parseResourceToString("updateSwan.json");
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/zoowebapplication/MISSING")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/zooweb/MISSING")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(body)).andExpect(status().isBadRequest())
                 .andReturn();
@@ -132,7 +132,7 @@ public class UpdateSwanTest {
 
     @SneakyThrows
     private MvcResult getBadRequestResult(String body){
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/zoowebapplication/"+SWAN_NAME)
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/zooweb/"+SWAN_NAME)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(body)).andExpect(status().isBadRequest())
                 .andReturn();
