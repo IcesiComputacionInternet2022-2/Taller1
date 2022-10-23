@@ -42,7 +42,7 @@ public class GetSwanTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    private static final String SWAN_NAME = "Patricia";
+    private static final String SWAN_NAME = "Carlota";
 
     @BeforeEach
     public void init(){
@@ -63,9 +63,8 @@ public class GetSwanTest {
         BlackSwanDTO[] blackSwanDTOS = blackSwanDTOS(response);
 
 
-        assertThat(blackSwanDTOS[0], hasProperty("name", is("Karen")));
-        assertThat(blackSwanDTOS[1], hasProperty("name", is("Fernando")));
-        assertThat(blackSwanDTOS[2], hasProperty("name", is("Carla")));
+        assertThat(blackSwanDTOS[0], hasProperty("name", is("Carlota")));
+
     }
 
     @Test
@@ -79,9 +78,8 @@ public class GetSwanTest {
 
         String response = result.getResponse().getContentAsString();
         BlackSwanDTO[] blackSwanDTOS = blackSwanDTOS(response);
-        assertThat(blackSwanDTOS[0], hasProperty("name", is("Fernando")));
-        assertThat(blackSwanDTOS[1], hasProperty("name", is("Carla")));
-        assertThat(blackSwanDTOS[2], hasProperty("name", is("Karen")));
+        assertThat(blackSwanDTOS[0], hasProperty("name", is("Andrea")));
+        assertThat(blackSwanDTOS[1], hasProperty("name", is("Carlota")));
     }
     @SneakyThrows
     private BlackSwanDTO[] blackSwanDTOS(String response){

@@ -126,8 +126,7 @@ public class CreateSwanTest {
         String body = objectMapper.writeValueAsString(blackSwanDTO);
         MvcResult result = getBadRequestResult(body);
         BlackSwanError blackSwanError = objectMapper.readValue(result.getResponse().getContentAsString(), BlackSwanError.class);
-        assertThat(blackSwanError,hasProperty("code",is(CODE_09)));
-        assertThat(blackSwanError,hasProperty("message",is(CODE_09.getMessage())));
+        assertThat(blackSwanError,hasProperty("message",is(CODE_13.getMessage())));
     }
 
     @Test

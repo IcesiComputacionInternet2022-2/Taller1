@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a128c95-efa5-499b-9c5f-60a3ef49f86c" name="Changes" comment="Some fixes">
+    <list default="true" id="8a128c95-efa5-499b-9c5f-60a3ef49f86c" name="Changes" comment="Some fixes but still do not clear all the null pointers">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/rest-zoo-registers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/rest-zoo-web.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/src/main/java/com/co/edu/icesi/zooWeb/model/BlackSwan.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/main/java/com/co/edu/icesi/zooWeb/model/BlackSwan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/src/main/resources/db/changelog/create_swan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/main/resources/db/changelog/create_swan.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/src/test/java/com/co/edu/icesi/zooWeb/integration/CreateSwanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/test/java/com/co/edu/icesi/zooWeb/integration/CreateSwanTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/target/classes/com/co/edu/icesi/zooWeb/model/BlackSwan$BlackSwanBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/classes/com/co/edu/icesi/zooWeb/model/BlackSwan$BlackSwanBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/target/classes/com/co/edu/icesi/zooWeb/model/BlackSwan.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/classes/com/co/edu/icesi/zooWeb/model/BlackSwan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/target/classes/db/changelog/create_swan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/classes/db/changelog/create_swan.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/CreateSwanTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/CreateSwanTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoo-Web/src/test/java/com/co/edu/icesi/zooWeb/integration/GetSwanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/test/java/com/co/edu/icesi/zooWeb/integration/GetSwanTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoo-Web/src/test/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/test/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/GetSwanTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/GetSwanTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoo-Web/target/test-classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/test-classes/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +42,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.com.co.edu.icesi.zooWeb in rest-zoo-registers">
+  <component name="RunManager" selected="JUnit.All in rest-zoo-registers">
     <configuration name="ZooWebApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.co.edu.icesi.zooWeb.ZooWebApplication" />
       <module name="rest-zoo-web" />
@@ -99,10 +95,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.com.co.edu.icesi.zooWeb in rest-zoo-registers" />
         <item itemvalue="JUnit.All in rest-zoo-registers" />
         <item itemvalue="Application.ZooWebApplication" />
         <item itemvalue="JUnit.ZooWebApplicationTests" />
+        <item itemvalue="JUnit.com.co.edu.icesi.zooWeb in rest-zoo-registers" />
       </list>
     </recent_temporary>
   </component>
@@ -136,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666544518084</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Some fixes but still do not clear all the null pointers">
+      <created>1666546006398</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666546006398</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,6 +155,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Some fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some fixes" />
+    <MESSAGE value="Some fixes but still do not clear all the null pointers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some fixes but still do not clear all the null pointers" />
   </component>
 </project>

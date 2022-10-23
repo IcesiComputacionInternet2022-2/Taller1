@@ -49,8 +49,8 @@ public class UpdateSwanTest {
     @Autowired
     private ObjectMapper objectMapper;
     private static final String SWAN_NAME = "Carla";
-    private static final String FATHER_UUID = "44466439-4444-2425-2h44-4562442h3131";
-    private static final String MOTHER_UUID = "4423437-5673-2425-2h11-4446423h131";
+    private static final String FATHER_UUID = "f06f879d-e262-4d10-a63d-a411e0c1f2e1";
+    private static final String MOTHER_UUID = "e1eb87b8-cdb1-4d3a-8464-9303f1951a8e";
 
 
     @BeforeEach
