@@ -23,8 +23,6 @@ public class AnimalController implements AnimalAPI {
     public final AnimalMapper animalMapper;
     public final AnimalService animalService;
 
-
-
     @Override
     public List<AnimalDTO> getAnimalUsingName(String name) {
         return animalService.getAnimalUsingName(name).stream().map(animalMapper::fromAnimal).collect(Collectors.toList());
@@ -37,18 +35,28 @@ public class AnimalController implements AnimalAPI {
 
     @Override
     public AnimalDTO createAnimal(@Valid AnimalDTO animalDTO){
-            return animalMapper.fromAnimal(animalService.createAnimal(animalMapper.fromDTO(animalDTO)));
+        return animalMapper.fromAnimal(animalService.createAnimal(animalMapper.fromDTO(animalDTO)));
     }
 
 
     @Override
     public AnimalWithParentsDTO createAnimal(@Valid AnimalWithParentsDTO animalDTO) {
+        if (animalDTO.getFatherId() != null) {
+            parentValidSex(animalMapper.fromAnimal(animalService.getAnimalUsingId(animalDTO.getFatherId())), "M");
+        } else if (animalDTO.getMotherId() != null) {
+            parentValidSex(animalMapper.fromAnimal(animalService.getAnimalUsingId(animalDTO.getMotherId())), "F");
+        }
         return animalMapper.fromAnimalWithParents(animalService.createAnimal(animalMapper.fromDTOWithParents(animalDTO)));
-
     }
 
     @Override
     public List<AnimalDTO> getAnimals(){
         return animalService.getAnimals().stream().map(animalMapper::fromAnimal).collect(Collectors.toList());
+    }
+
+    private void parentValidSex(AnimalDTO parent, String expectedSex) {
+        if (!parent.getSex().equalsIgnoreCase(expectedSex)) {
+            throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(AnimalErrorCode.CODE_09, AnimalErrorCode.CODE_09.getMessage()));
+        }
     }
 }

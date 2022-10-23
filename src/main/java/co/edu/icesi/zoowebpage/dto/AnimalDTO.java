@@ -1,10 +1,12 @@
 package co.edu.icesi.zoowebpage.dto;
 
 import co.edu.icesi.zoowebpage.constant.AnimalConstant;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.UniqueElements;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
 import java.time.LocalDateTime;
@@ -24,7 +26,7 @@ public class AnimalDTO {
     private String name;
 
     @NotNull
-    @Pattern(regexp = "[MnFf]", message = "The sex has only has 4 valid characters: 'M', 'm', 'F', 'f'")
+    @Pattern(regexp = "[MmFf]", message = "The sex has only has 4 valid characters: 'M', 'm', 'F', 'f'")
     private String sex;
 
     @DecimalMin(value = AnimalConstant.RTL_LOWER_BOUND_WEIGHT + "", message = "It's weight it's too low, you should feed it more :c")
@@ -40,5 +42,7 @@ public class AnimalDTO {
 
     @NotNull
     @PastOrPresent(message = "This lemur has just broke the spacial time continuity, or it's just a typo error")
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime arrivalDate;
 }
