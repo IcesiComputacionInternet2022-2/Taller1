@@ -6,7 +6,6 @@ import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
 @Getter
-@Setter
 @AllArgsConstructor
 public class AnimalException extends RuntimeException {
     private HttpStatus httpStatus;

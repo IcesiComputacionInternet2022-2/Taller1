@@ -70,7 +70,7 @@ public class AnimalServiceImpl implements AnimalService {
             //Mother exists
             Animal mother = animalRepository.findById(motherId).orElseThrow(() -> new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(AnimalErrorCode.CODE_02, AnimalErrorCode.CODE_02.getMessage())));
             //Mother is a female
-            if (mother.isSex() == AnimalSex.FEMALE.isValue())
+            if (mother.isSex() != AnimalSex.FEMALE.isValue())
                 throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(AnimalErrorCode.CODE_03, AnimalErrorCode.CODE_03.getMessage()));
         });
     }
@@ -80,7 +80,7 @@ public class AnimalServiceImpl implements AnimalService {
             //Father exists
             Animal father = animalRepository.findById(fatherId).orElseThrow(() -> new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(AnimalErrorCode.CODE_02, AnimalErrorCode.CODE_02.getMessage())));
             //Father is a male
-            if (father.isSex() == AnimalSex.MALE.isValue())
+            if (father.isSex() != AnimalSex.MALE.isValue())
                 throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(AnimalErrorCode.CODE_04, AnimalErrorCode.CODE_04.getMessage()));
         });
     }

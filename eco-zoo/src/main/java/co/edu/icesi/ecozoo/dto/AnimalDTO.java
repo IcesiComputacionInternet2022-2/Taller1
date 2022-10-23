@@ -2,6 +2,7 @@ package co.edu.icesi.ecozoo.dto;
 
 import co.edu.icesi.ecozoo.constant.AnimalSex;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

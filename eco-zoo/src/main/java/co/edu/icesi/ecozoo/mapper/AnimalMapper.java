@@ -11,9 +11,11 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface AnimalMapper {
 
-    Animal fromDTO(AnimalDTO userDTO);
+    Animal fromDTO(AnimalDTO animalDTO);
 
-    AnimalDTO fromUser(Animal user);
+    AnimalDTO fromAnimal(Animal animal);
+
+    CapybaraDTO fromAnimalDTO(AnimalDTO animalDTO);
 
     CapybaraDTO animalToCapybara(Animal animal);
 

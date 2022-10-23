@@ -4,12 +4,10 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
-    <changeSet id="" author="DevPachon" failOnError="false">
-
+    <changeSet id="1666311363164-1" author="DevPachon" failOnError="true">
         <createTable tableName="animal">
             <column name="id" type="uuid">
-                <constraints primaryKey="true" unique="true"
-                />
+                <constraints primaryKey="true" unique="true"/>
             </column>
             <column name="name" type="varchar(255)">
                 <constraints nullable="false"/>
@@ -26,10 +24,13 @@
             <column name="height" type="float">
                 <constraints nullable="false"/>
             </column>
-            <column name="arrival_date" type="date">
+            <column name="arrival_date" type="timestamp">
                 <constraints nullable="false"/>
             </column>
-
+            <column name="father_id" type="uuid">
+            </column>
+            <column name="mother_id" type="uuid">
+            </column>
         </createTable>
     </changeSet>
 

@@ -9,5 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface AnimalRepository extends CrudRepository<Animal, UUID> {
-    public Optional<Animal> findByName(String name);
+    Optional<Animal> findByName(String name);
 }

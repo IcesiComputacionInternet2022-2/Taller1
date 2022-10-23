@@ -6,17 +6,12 @@ import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.PrePersist;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
-@Getter
-@Setter
-@ToString
+@Data
 @Table
 @Entity
 @Builder
@@ -25,7 +20,6 @@ import java.util.UUID;
 @JsonInclude(Include.NON_NULL)
 public class Animal {
     @Id
-    @Type(type = "org.hibernate.type.UUIDCharType")
     private UUID id;
 
     private String name;
@@ -38,27 +32,17 @@ public class Animal {
 
     private Double height;
 
+    @Column(name = "arrival_date")
     private LocalDateTime arrivalDate;
 
+    @Column(name = "father_id")
     private UUID fatherID;
 
+    @Column(name = "mother_id")
     private UUID motherID;
 
     @PrePersist
     public void generateId() {
         this.id = UUID.randomUUID();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Animal animal = (Animal) o;
-        return id != null && Objects.equals(id, animal.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
     }
 }

@@ -7,14 +7,19 @@ import co.edu.icesi.ecozoo.mapper.AnimalMapper;
 import co.edu.icesi.ecozoo.model.Animal;
 import co.edu.icesi.ecozoo.service.AnimalService;
 import lombok.AllArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
+
 
 @RestController
 @AllArgsConstructor
@@ -25,7 +30,6 @@ public class AnimalController implements CapybaraAPI {
 
     @Override
     public AnimalResponseDTO getAnimal(UUID capybaraId) {
-        Optional.ofNullable(capybaraId).orElseThrow(() -> new RuntimeException("The id is null"));
 
         Animal child = animalService.getAnimal(capybaraId);
 
@@ -34,7 +38,6 @@ public class AnimalController implements CapybaraAPI {
 
     @Override
     public AnimalResponseDTO getAnimalByName(String capybaraName) {
-        Optional.ofNullable(capybaraName).orElseThrow(() -> new RuntimeException("The name is null"));
 
         Animal child = animalService.getAnimalByName(capybaraName);
 
@@ -42,15 +45,12 @@ public class AnimalController implements CapybaraAPI {
     }
 
     @Override
-    public CapybaraDTO createAnimal(@Valid CapybaraDTO capybaraDTO) {
-        Optional.ofNullable(capybaraDTO).orElseThrow(() -> new RuntimeException("The capybara is null"));
-
+    public CapybaraDTO createAnimal(CapybaraDTO capybaraDTO) {
         return animalMapper.animalToCapybara(animalService.createAnimal(animalMapper.capybaraToAnimal(capybaraDTO)));
     }
 
     @Override
     public List<CapybaraDTO> getAnimals() {
-
         return animalService.getAnimals().stream().map(animalMapper::animalToCapybara).collect(Collectors.toList());
     }
 
