@@ -1,6 +1,7 @@
 package co.edu.icesi.ecozoo.controller;
 
 import co.edu.icesi.ecozoo.api.CapybaraAPI;
+import co.edu.icesi.ecozoo.dto.AnimalDTO;
 import co.edu.icesi.ecozoo.dto.AnimalResponseDTO;
 import co.edu.icesi.ecozoo.dto.CapybaraDTO;
 import co.edu.icesi.ecozoo.mapper.AnimalMapper;
