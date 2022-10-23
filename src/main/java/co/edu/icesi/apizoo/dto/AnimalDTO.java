@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -12,13 +13,23 @@ import java.util.UUID;
 @NoArgsConstructor
 public class AnimalDTO {
 
-    private UUID ID;
+    private UUID id;
+
     private String name;
+
     private String sex;
-    private Double weight;
+
+    private Integer weight;
+
     private Integer age;
-    private Double height;
+
+    private Integer height;
+
     private LocalDateTime arrivalDate;
+
     private UUID fatherID;
+
     private UUID motherID;
+
+
 }

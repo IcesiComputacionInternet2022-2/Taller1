@@ -12,11 +12,11 @@ import java.util.UUID;
 
 public interface AnimalService {
 
-    Animal getAnimal(@PathVariable UUID animalID);
+    Animal getAnimalById(@PathVariable UUID animalID);
 
     List<Animal> getAnimals();
 
-    Animal createAnimal(@RequestBody Animal animal);
+    Animal createAnimal(@RequestBody Animal animalDTO);
 
-    Animal updateAnimal(@PathVariable Animal animal);
+    Animal updateAnimal(@RequestBody Animal animalDTO);
 }
