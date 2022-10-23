@@ -4,7 +4,6 @@ import com.edu.icesi.CaliZoo.constants.ErrorCodes;
 import com.edu.icesi.CaliZoo.dto.ToucanDTO;
 import com.edu.icesi.CaliZoo.error.exception.ToucanError;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.exc.InvalidDefinitionException;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,7 +21,6 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.io.InputStreamReader;
@@ -115,14 +113,25 @@ public class ToucanIntegrationTest {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/toucans")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(body)).andExpect(status().isBadRequest()).andReturn();
-        assertThrows(InvalidDefinitionException.class, () -> objectMapper.readValue(result.getResponse().getContentAsString(),
-                InvalidDefinitionException.class));
+        ToucanError userResult = objectMapper.readValue(result.getResponse().getContentAsString(), ToucanError.class);
+        assertThat(userResult, hasProperty("code", is(ErrorCodes.INVALID_FORMAT.getCode()) ));
     }//End testNotCreateToucanWithInvalidParents
 
     @SneakyThrows
     @Test
     public void testNotCreateToucanWithInvalidWeight(){
         String body = parseResourceToString("createToucanWrongWeight.json");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/toucans")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body)).andExpect(status().isBadRequest()).andReturn();
+        assertThrows(MismatchedInputException.class, () -> objectMapper.readValue(result.getResponse().getContentAsString(),
+                MismatchedInputException.class));
+    }//End testNotCreateToucanWithInvalidParents
+
+    @SneakyThrows
+    @Test
+    public void testNotCreateToucanWithInvalidHeight(){
+        String body = parseResourceToString("createToucanWrongHeight.json");
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/toucans")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(body)).andExpect(status().isBadRequest()).andReturn();
@@ -139,6 +148,17 @@ public class ToucanIntegrationTest {
                 .content(body)).andExpect(status().isBadRequest()).andReturn();
         ToucanError userResult = objectMapper.readValue(result.getResponse().getContentAsString(), ToucanError.class);
         assertThat(userResult, hasProperty("code", is(ErrorCodes.BAD_DATA.getCode()) ));
+    }//End testNotCreateToucanWithInvalidParents
+
+    @SneakyThrows
+    @Test
+    public void testNotCreateToucanWithInvalidAge(){
+        String body = parseResourceToString("createToucanWrongAge.json");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/toucans")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body)).andExpect(status().isBadRequest()).andReturn();
+        assertThrows(MismatchedInputException.class, () -> objectMapper.readValue(result.getResponse().getContentAsString(),
+                MismatchedInputException.class));
     }//End testNotCreateToucanWithInvalidParents
 
     @SneakyThrows

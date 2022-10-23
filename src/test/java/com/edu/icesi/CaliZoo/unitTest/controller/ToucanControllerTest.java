@@ -6,6 +6,7 @@ import com.edu.icesi.CaliZoo.error.exception.ToucanException;
 import com.edu.icesi.CaliZoo.mapper.ToucanMapper;
 import com.edu.icesi.CaliZoo.model.Toucan;
 import com.edu.icesi.CaliZoo.service.ToucanService;
+import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,11 +14,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import static org.mockito.ArgumentMatchers.any;
+
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.times;
 
 public class ToucanControllerTest {
 
