@@ -49,10 +49,9 @@ public class ToucanServiceImpl implements ToucanService {
     }
 
     private void thereIsToucanWithName(final String toucanName){
-        try{
-            getToucans().stream().filter(toucan->toucan.getName().equalsIgnoreCase(toucanName)).findFirst().get();
+        if(getToucans().stream().filter(a -> a.getName().equalsIgnoreCase(toucanName)).findFirst().orElse(null) != null){
             throw new ToucanException(HttpStatus.BAD_REQUEST,new ToucanError(ErrorCodes.BAD_DATA.getCode(), "There is already a Toucan with that name"));
-        }catch (NoSuchElementException e){System.out.println("No existe un tucan con ese nombre :)");}
+        }
     }//End thereIsToucanWithName
 
     private void validateParentSex(UUID parentId, String sex){

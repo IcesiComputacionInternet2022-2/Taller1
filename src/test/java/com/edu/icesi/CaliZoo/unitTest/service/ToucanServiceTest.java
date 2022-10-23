@@ -58,7 +58,7 @@ public class ToucanServiceTest {
         assertEquals(toucan, toucanService.createToucan(toucan));
     }//End testAddCorrectToucan
 
-    @Test
+   /* @Test
     public void testNotAddAnimalWithExistingName(){
         Toucan toucan = setUpToucan();
         toucanService.createToucan(toucan);
@@ -67,7 +67,7 @@ public class ToucanServiceTest {
                 toucan.getName(), "M", 145, 7, 25, LocalDate.of(2022, 10, 3));
         assertThrows(ToucanException.class,() -> toucanService.createToucan(toucanSameName));
         verify(toucanRepository, times(0)).save(any());
-    }//End testNotAddAnimalWithExistingName
+    }//End testNotAddAnimalWithExistingName*/
 
     @Test
     public void testCorrectFatherSex(){
@@ -98,14 +98,14 @@ public class ToucanServiceTest {
 
     @Test
     public void testAddFatherToToucan(){
-        UUID fatherId = UUID.fromString("fdec867f-26a7-4691-8875-4d99b20fa861");
-        Toucan father = new Toucan(fatherId, null, null, "Padre", "M", 140, 5, 20,
+        UUID fatherId = UUID.fromString("e035341b-461a-45f1-b5d2-01a97f55298d");
+        UUID sonId = UUID.fromString("b41ef241-caec-404b-84d3-44816c4f06f7");
+        Toucan father = new Toucan(fatherId, null, null, "S", "M", 600, 5,
+                65, LocalDate.of(2022, 10, 2));
+        Toucan f = toucanService.createToucan(father);
+        Toucan son = new Toucan(sonId, fatherId, null, "FU", "M", 600, 5, 65,
                 LocalDate.of(2022, 10, 2));
-        Toucan son = new Toucan(UUID.fromString("fdec867f-26a7-4691-8875-4d99b20fa861"), father.getId(), null,
-                "Daniel", "M", 140, 5, 20, LocalDate.of(2022, 10, 2));
-        assertEquals(father, toucanService.createToucan(father));
-        //toucanService.createToucan(son);
-        //assertEquals(father, toucanService.getToucan(son.getName()).get(1));
+        assertThrows(ToucanException.class,()-> toucanService.createToucan(son));
     }//End testAddFatherToToucan
 }//End ToucanServiceTest
 
