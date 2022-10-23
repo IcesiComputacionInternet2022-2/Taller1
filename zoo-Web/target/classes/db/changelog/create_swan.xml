@@ -4,7 +4,7 @@
 
     <!-- Refer to https://docs.liquibase.com/change-types/community/create-table.html -->
 
-    <changeSet  failOnError="true" author="Juanperezaa" id="33d4e9bc-7210-47c3-9617-c56ab7c0750d">
+    <changeSet  failOnError="true" author="Juanperezaa" id="8caf1cbc-31e5-4fd6-aeec-64b1f0350f2d">
 
         <createTable tableName="SWAN">
             <column name="id" type="UUID">
@@ -15,7 +15,7 @@
             <column name="weight" type="number" />
             <column name="age" type="number" />
             <column name="height" type="number" />
-            <column name="arrival_date" type="datetime" />
+            <column name="arrival_date" type="varchar2(50)" />
             <column name="fatherid" type="UUID" />
             <column name="motherid" type="UUID" />
         </createTable>

@@ -6,16 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8a128c95-efa5-499b-9c5f-60a3ef49f86c" name="Changes" comment="Some fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/src/main/java/com/co/edu/icesi/zooWeb/model/BlackSwan.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/main/java/com/co/edu/icesi/zooWeb/model/BlackSwan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoo-Web/src/main/resources/db/changelog/create_swan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/main/resources/db/changelog/create_swan.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/src/test/java/com/co/edu/icesi/zooWeb/integration/config/DataConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/test/java/com/co/edu/icesi/zooWeb/integration/config/DataConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoo-Web/src/test/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/test/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoo-Web/target/classes/com/co/edu/icesi/zooWeb/api/BlackSwanAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/classes/com/co/edu/icesi/zooWeb/api/BlackSwanAPI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoo-Web/target/classes/com/co/edu/icesi/zooWeb/model/BlackSwan.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/classes/com/co/edu/icesi/zooWeb/model/BlackSwan.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoo-Web/target/classes/db/changelog/create_swan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/classes/db/changelog/create_swan.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/CreateSwanTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/CreateSwanTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/GetSwanTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/GetSwanTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/UpdateSwanTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/UpdateSwanTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/config/DataConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/config/DataConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoo-Web/target/test-classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/test-classes/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +43,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.All in rest-zoo-registers">
+  <component name="RunManager" selected="JUnit.com.co.edu.icesi.zooWeb in rest-zoo-registers">
     <configuration name="ZooWebApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.co.edu.icesi.zooWeb.ZooWebApplication" />
       <module name="rest-zoo-registers" />
@@ -101,9 +96,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.com.co.edu.icesi.zooWeb in rest-zoo-registers" />
         <item itemvalue="JUnit.All in rest-zoo-registers" />
         <item itemvalue="Application.ZooWebApplication" />
-        <item itemvalue="JUnit.com.co.edu.icesi.zooWeb in rest-zoo-registers" />
         <item itemvalue="JUnit.ZooWebApplicationTests" />
       </list>
     </recent_temporary>
@@ -124,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666541120837</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Some fixes">
+      <created>1666543410895</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666543410895</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
