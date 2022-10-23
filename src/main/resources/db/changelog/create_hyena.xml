@@ -15,7 +15,7 @@
             <column name="weight" type="double" />
             <column name="age" type="varchar(255)" />
             <column name="height" type="integer" />
-            <column name="arrival_date" type="date" />
+            <column name="arrival_date" type="timestamp" />
             <column name="father_id" type="UUID">
                 <constraints nullable="true" foreignKeyName="fk_father_id" referencedTableName="hyena" referencedColumnNames="id"/>
             </column>
