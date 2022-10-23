@@ -1,7 +1,11 @@
 package com.edu.icesi.CaliZoo.integrationTest;
 
+import com.edu.icesi.CaliZoo.constants.ErrorCodes;
 import com.edu.icesi.CaliZoo.dto.ToucanDTO;
+import com.edu.icesi.CaliZoo.error.exception.ToucanError;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.exc.InvalidDefinitionException;
+import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,6 +22,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.io.InputStreamReader;
@@ -27,6 +32,7 @@ import java.nio.charset.StandardCharsets;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
@@ -57,6 +63,83 @@ public class ToucanIntegrationTest {
         ToucanDTO userResult = objectMapper.readValue(result.getResponse().getContentAsString(), ToucanDTO.class);
         assertThat(userResult, hasProperty("name", is("Brian") ));
     }//End createToucanSuccessfully
+
+    @SneakyThrows
+    @Test
+    public void testNotCreateToucanWithIncorrectArrivalDate(){
+        String body = parseResourceToString("createToucanWrongDate.json");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/toucans")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body)).andExpect(status().isBadRequest()).andReturn();
+        ToucanError userResult = objectMapper.readValue(result.getResponse().getContentAsString(), ToucanError.class);
+        assertThat(userResult, hasProperty("code", is(ErrorCodes.INVALID_FORMAT.getCode()) ));
+    }//End testNotCreateToucanWithIncorrectArrivalDate
+
+    @SneakyThrows
+    @Test
+    public void testNotCreateToucanWithInvalidParents(){
+        String body = parseResourceToString("createToucanInvalidParents.json");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/toucans")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body)).andExpect(status().isBadRequest()).andReturn();
+        ToucanError userResult = objectMapper.readValue(result.getResponse().getContentAsString(), ToucanError.class);
+        assertThat(userResult, hasProperty("code", is(ErrorCodes.BAD_DATA.getCode()) ));
+    }//End testNotCreateToucanWithInvalidParents
+
+    @SneakyThrows
+    @Test
+    public void testNotCreateToucanWithLongerName(){
+        String body = parseResourceToString("createToucanNameLonger.json");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/toucans")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body)).andExpect(status().isBadRequest()).andReturn();
+        assertThrows(MismatchedInputException.class, () -> objectMapper.readValue(result.getResponse().getContentAsString(),
+                MismatchedInputException.class));
+    }//End testNotCreateToucanWithInvalidParents
+
+    @SneakyThrows
+    @Test
+    public void testNotCreateToucanWithWrongName(){
+        String body = parseResourceToString("createToucanWrongName.json");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/toucans")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body)).andExpect(status().isBadRequest()).andReturn();
+        ToucanError userResult = objectMapper.readValue(result.getResponse().getContentAsString(), ToucanError.class);
+        assertThat(userResult, hasProperty("code", is(ErrorCodes.INVALID_FORMAT.getCode()) ));
+    }//End testNotCreateToucanWithInvalidParents
+
+    @SneakyThrows
+    @Test
+    public void testNotCreateToucanWithWrongSex(){
+        String body = parseResourceToString("createToucanWrongSex.json");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/toucans")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body)).andExpect(status().isBadRequest()).andReturn();
+        assertThrows(InvalidDefinitionException.class, () -> objectMapper.readValue(result.getResponse().getContentAsString(),
+                InvalidDefinitionException.class));
+    }//End testNotCreateToucanWithInvalidParents
+
+    @SneakyThrows
+    @Test
+    public void testNotCreateToucanWithInvalidWeight(){
+        String body = parseResourceToString("createToucanWrongWeight.json");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/toucans")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body)).andExpect(status().isBadRequest()).andReturn();
+        assertThrows(MismatchedInputException.class, () -> objectMapper.readValue(result.getResponse().getContentAsString(),
+                MismatchedInputException.class));
+    }//End testNotCreateToucanWithInvalidParents
+
+    @SneakyThrows
+    @Test
+    public void testNotCreateRepeatedToucan(){
+        String body = parseResourceToString("createToucan.json");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/toucans")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body)).andExpect(status().isBadRequest()).andReturn();
+        ToucanError userResult = objectMapper.readValue(result.getResponse().getContentAsString(), ToucanError.class);
+        assertThat(userResult, hasProperty("code", is(ErrorCodes.BAD_DATA.getCode()) ));
+    }//End testNotCreateToucanWithInvalidParents
 
     @SneakyThrows
     private String parseResourceToString(String classPath) {
