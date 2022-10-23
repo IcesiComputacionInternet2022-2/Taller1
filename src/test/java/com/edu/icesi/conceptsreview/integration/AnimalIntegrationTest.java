@@ -49,7 +49,7 @@ public class AnimalIntegrationTest {
 
     @Autowired
     private WebApplicationContext webApplicationContext;
-    private final UUID uuidForParentsTests = UUID.fromString("ace03cec-5262-11ed-bdc3-0242ac120002");
+    private UUID uuidForParentsTests;
 
     @BeforeEach
     private void init()
@@ -69,6 +69,7 @@ public class AnimalIntegrationTest {
 
         AnimalDTO animalDTO = objectMapper.readValue(result.getResponse().getContentAsString(), AnimalDTO.class);
         assertThat(animalDTO, hasProperty("name", is("NutriaPadre")));
+        uuidForParentsTests = animalDTO.getId();
     }
 
     /*@Test
@@ -121,6 +122,7 @@ public class AnimalIntegrationTest {
     @SneakyThrows
     public void createAnimalParentIDDoesNotExists(){
         AnimalParentsDTO animalParentsDTO = createDummyAnimal();
+        animalParentsDTO.setName("RandomName");
         animalParentsDTO.setFatherId(UUID.randomUUID());
         String body = objectMapper.writeValueAsString(animalParentsDTO);
 
@@ -201,18 +203,30 @@ public class AnimalIntegrationTest {
         assertThat(animalError,hasProperty("message",is(CODE_06.getMessage())));
     }
 
-    @Test
+    /*@Test
     @SneakyThrows
-    public void getAnimals()
+    public void getAnimalsTest()
     {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/animals")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("")).andExpect(status().isBadRequest()).andReturn();
+                .content("")).andExpect(status().isOk()).andReturn();
 
-        AnimalError animalError = objectMapper.readValue(result.getResponse().getContentAsString(), AnimalError.class);
-        assertThat(animalError,hasProperty("code",is(CODE_06)));
-        assertThat(animalError,hasProperty("message",is(CODE_06.getMessage())));
-    }
+        AnimalDTO[] animalDTOS = objectMapper.readValue(result.getResponse().getContentAsString(), AnimalDTO[].class);
+        AnimalDTO animalDTO1 = animalDTOS[1];
+
+
+    }*/
+
+    /*@Test
+    @SneakyThrows
+    public void getAnimalTest()
+    {
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/animals/"+uuidForParentsTests)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("")).andExpect(status().isOk()).andReturn();
+
+        AnimalDTO animalDTO = objectMapper.readValue(result.getResponse().getContentAsString(), AnimalDTO.class);
+    }*/
 
     @SneakyThrows
     private String parseResourceToString(String classpath)
@@ -234,7 +248,6 @@ public class AnimalIntegrationTest {
         animalParentsDTO.setAge(10);
         animalParentsDTO.setHeight((float)67.5);
         animalParentsDTO.setWeight(10);
-        animalParentsDTO.setId(uuidForParentsTests);
         animalParentsDTO.setGender("W");
         return animalParentsDTO;
     }
