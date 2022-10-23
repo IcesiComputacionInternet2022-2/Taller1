@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "7def1325-c990-40b3-8f22-fcc5b398afc3",
+		"name": "AfricanLion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22749464"
+	},
+	"item": [
+		{
+			"name": "Create Lion Father",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"lionfather\",\r\n    \"sex\": \"MALE\",\r\n    \"weight\": 240,\r\n    \"age\": 5,\r\n    \"height\": 110,\r\n    \"arrivedZooDate\": \"2020-09-10 08:10:59\",\r\n    \"fatherId\" : null,\r\n    \"motherId\" : null\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/african-lion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"african-lion"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Lion Father",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"lionfather\",\r\n    \"sex\": \"MALE\",\r\n    \"weight\": 240,\r\n    \"age\": 5,\r\n    \"height\": 110,\r\n    \"arrivedZooDate\": \"2020-09-10 08:10:59\",\r\n    \"fatherId\" : null,\r\n    \"motherId\" : null\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/african-lion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"african-lion"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Oct 2022 15:41:35 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6403aa6a-7c08-4c9b-b914-b262473f10cd\",\n    \"name\": \"lionfather\",\n    \"sex\": \"MALE\",\n    \"weight\": 240,\n    \"age\": 5,\n    \"height\": 110,\n    \"arrivedZooDate\": \"2020-09-10 08:10:59\",\n    \"fatherId\": null,\n    \"motherId\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Lion Child",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"lionchild\",\r\n    \"sex\": \"MALE\",\r\n    \"weight\": 200,\r\n    \"age\": 0,\r\n    \"height\": 105,\r\n    \"arrivedZooDate\": \"2021-12-10 08:10:59\",\r\n    \"fatherId\" : \"69a91b05-4621-4a79-9c94-372fa108d132\",\r\n    \"motherId\" : \"cbe5ea52-0edb-4d2e-a883-1488f1520b20\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/african-lion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"african-lion"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Lion Child",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"lionchild\",\r\n    \"sex\": \"MALE\",\r\n    \"weight\": 200,\r\n    \"age\": 0,\r\n    \"height\": 105,\r\n    \"arrivedZooDate\": \"2021-12-10 08:10:59\",\r\n    \"fatherId\" : \"69a91b05-4621-4a79-9c94-372fa108d132\",\r\n    \"motherId\" : \"cbe5ea52-0edb-4d2e-a883-1488f1520b20\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/african-lion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"african-lion"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Oct 2022 19:14:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"aaa6ad08-1dc0-4015-9e21-614afd01b2c9\",\n    \"name\": \"lionchild\",\n    \"sex\": \"MALE\",\n    \"weight\": 200,\n    \"age\": 0,\n    \"height\": 105,\n    \"arrivedZooDate\": \"2021-12-10 08:10:59\",\n    \"fatherId\": \"69a91b05-4621-4a79-9c94-372fa108d132\",\n    \"motherId\": \"cbe5ea52-0edb-4d2e-a883-1488f1520b20\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Lion Mother",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"lionmother\",\r\n    \"sex\": \"FEMALE\",\r\n    \"weight\": 170,\r\n    \"age\": 2,\r\n    \"height\": 100,\r\n    \"arrivedZooDate\": \"2021-10-30 10:45:50\",\r\n    \"fatherId\" : null,\r\n    \"motherId\" : null\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/african-lion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"african-lion"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Lion Mother",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"lionmother\",\r\n    \"sex\": \"FEMALE\",\r\n    \"weight\": 170,\r\n    \"age\": 2,\r\n    \"height\": 100,\r\n    \"arrivedZooDate\": \"2021-10-30 10:45:50\",\r\n    \"fatherId\" : null,\r\n    \"motherId\" : null\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/african-lion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"african-lion"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Oct 2022 15:43:24 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"72786b9d-5485-4512-995c-b658e098f46a\",\n    \"name\": \"lionmother\",\n    \"sex\": \"FEMALE\",\n    \"weight\": 170,\n    \"age\": 2,\n    \"height\": 100,\n    \"arrivedZooDate\": \"2021-10-30 10:45:50\",\n    \"fatherId\": null,\n    \"motherId\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Lion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/african-lion/lionfather",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"african-lion",
+						"lionfather"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Lion",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/african-lion/lionfather",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"african-lion",
+								"lionfather"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Oct 2022 19:23:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"requestedLion\": {\n        \"id\": \"69a91b05-4621-4a79-9c94-372fa108d132\",\n        \"name\": \"lionfather\",\n        \"sex\": \"MALE\",\n        \"weight\": 240,\n        \"age\": 5,\n        \"height\": 110,\n        \"arrivedZooDate\": \"2020-09-10 08:10:59\",\n        \"fatherId\": null,\n        \"motherId\": null\n    },\n    \"lionFather\": null,\n    \"lionMother\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all lions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/african-lion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"african-lion"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all lions",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/african-lion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"african-lion"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Oct 2022 19:23:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"69a91b05-4621-4a79-9c94-372fa108d132\",\n        \"name\": \"lionfather\",\n        \"sex\": \"MALE\",\n        \"weight\": 240,\n        \"age\": 5,\n        \"height\": 110,\n        \"arrivedZooDate\": \"2020-09-10 08:10:59\",\n        \"fatherId\": null,\n        \"motherId\": null\n    },\n    {\n        \"id\": \"cbe5ea52-0edb-4d2e-a883-1488f1520b20\",\n        \"name\": \"lionmother\",\n        \"sex\": \"FEMALE\",\n        \"weight\": 170,\n        \"age\": 2,\n        \"height\": 100,\n        \"arrivedZooDate\": \"2021-10-30 10:45:50\",\n        \"fatherId\": null,\n        \"motherId\": null\n    },\n    {\n        \"id\": \"aaa6ad08-1dc0-4015-9e21-614afd01b2c9\",\n        \"name\": \"lionchild\",\n        \"sex\": \"MALE\",\n        \"weight\": 200,\n        \"age\": 0,\n        \"height\": 105,\n        \"arrivedZooDate\": \"2021-12-10 08:10:59\",\n        \"fatherId\": \"69a91b05-4621-4a79-9c94-372fa108d132\",\n        \"motherId\": \"cbe5ea52-0edb-4d2e-a883-1488f1520b20\"\n    }\n]"
+				}
+			]
+		}
+	]
+}

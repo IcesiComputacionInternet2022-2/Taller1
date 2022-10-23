@@ -1,0 +1,35 @@
+[
+  {
+    "id": "69a91b05-4621-4a79-9c94-372fa108d132",
+    "name": "lionfather",
+    "sex": "MALE",
+    "weight": 240,
+    "age": 5,
+    "height": 110,
+    "arrivedZooDate": "2020-09-10 08:10:59",
+    "fatherId": null,
+    "motherId": null
+  },
+  {
+    "id": "cbe5ea52-0edb-4d2e-a883-1488f1520b20",
+    "name": "lionmother",
+    "sex": "FEMALE",
+    "weight": 170,
+    "age": 2,
+    "height": 100,
+    "arrivedZooDate": "2021-10-30 10:45:50",
+    "fatherId": null,
+    "motherId": null
+  },
+  {
+    "id": "729734fc-014f-46d5-9e2e-958809363c6a",
+    "name": "lionother",
+    "sex": "MALE",
+    "weight": 202,
+    "age": 1,
+    "height": 110,
+    "arrivedZooDate": "2021-12-10 08:10:59",
+    "fatherId": "69a91b05-4621-4a79-9c94-372fa108d132",
+    "motherId": "cbe5ea52-0edb-4d2e-a883-1488f1520b20"
+  }
+]
