@@ -6,16 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.PrePersist;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 
 @Data
-@Table(name = "animals")
+@Table
 @Entity
 @Builder
 @NoArgsConstructor
@@ -23,11 +20,14 @@ import java.util.UUID;
 public class Animal {
 
     @Id
-    @Type(type="org.hibernate.type.UUIDCharType")
+    //@Type(type="org.hibernate.type.UUIDCharType")
     private UUID id;
 
+    @Column(name = "father_id")
     private UUID fatherId;
+    @Column(name = "mother_id")
     private UUID motherId;
+
 
 
     private String name;
@@ -39,6 +39,7 @@ public class Animal {
 
     private float height;
 
+    @Column(name = "arrival_date")
     private LocalDateTime arrivalDate;
 
 

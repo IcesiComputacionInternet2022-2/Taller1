@@ -1,4 +1,4 @@
-package co.edu.icesi.zoowebpage.config;
+package co.edu.icesi.Zootopia.config;
 
 import liquibase.integration.spring.SpringLiquibase;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +12,7 @@ public class LiquibaseConfig {
     @Bean
     public SpringLiquibase liquibase(DataSource dataSource) {
         SpringLiquibase liquibase = new SpringLiquibase();
-        liquibase.setChangeLog("/db.changelog/master.xml");
+        liquibase.setChangeLog("classpath:db/changelog/master.xml");
         liquibase.setDataSource(dataSource);
         return liquibase;
     }
