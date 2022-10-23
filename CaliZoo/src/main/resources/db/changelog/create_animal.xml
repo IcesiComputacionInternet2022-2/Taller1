@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <!-- Refer to https://docs.liquibase.com/change-types/community/create-table.html -->
+
+    <changeSet id="029" author="Diego Torres" failOnError="true">
+
+        <createTable tableName="animal">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="name" type="varchar(255)" />
+            <column name="sex" type="varchar(255)" />
+            <column name="weight" type="decimal" />
+            <column name="age" type="number" />
+            <column name="height" type="decimal" />
+            <column name="arrival_date" type="datetime" />
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
