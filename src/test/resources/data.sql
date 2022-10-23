@@ -1,0 +1,3 @@
+INSERT INTO "HYENA" (id,name,sex,weight,age,height,arrival_date) VALUES ('5631cbd3-cf53-415f-bd06-4e995ee3c322','Abby','Female',20.0,3,90.0,'2022-10-29 00:00:00');
+INSERT INTO "HYENA" (id,name,sex,weight,age,height,arrival_date) VALUES ('3aa14da4-43b0-4921-91b8-b2aa0950d215','Nico','Male',30.0,10,60.0,'2012-10-29 10:03:40');
+INSERT INTO "HYENA" (id,name,sex,weight,age,height,arrival_date) VALUES ('dceb78b9-a0bb-492f-a1c2-9f6d1bb9ff87','Venus','Female',25.0,15,450.0,'2007-10-29 10:03:40')
