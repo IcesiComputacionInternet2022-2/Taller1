@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-    @RequestMapping("/black-swan")
+    @RequestMapping("/zooweb")
     public interface BlackSwanAPI{
 
         @GetMapping("/{swanName}")

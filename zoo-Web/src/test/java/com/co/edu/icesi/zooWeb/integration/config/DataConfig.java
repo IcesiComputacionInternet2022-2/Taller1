@@ -8,6 +8,7 @@ import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 
 import javax.sql.DataSource;
 
+
 public class DataConfig {
     @Autowired
     public void configureInitialData(DataSource dataSource, SpringLiquibase liquibase) {
