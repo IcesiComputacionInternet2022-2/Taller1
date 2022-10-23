@@ -5,15 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.PrePersist;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
-@Table(name = "`tatabros`")
+@Table(name = "tatabros")
 @Entity
 @Builder
 @NoArgsConstructor
@@ -21,7 +19,6 @@ import java.util.UUID;
 public class Tatabro {
 
     @Id
-    @Type(type="org.hibernate.type.UUIDCharType")
     private UUID id;
 
     private String name;
@@ -34,12 +31,13 @@ public class Tatabro {
 
     private double height;
 
+    @Column(name = "arrival_date")
     private LocalDateTime arrivalDate;
 
-    @Type(type="org.hibernate.type.UUIDCharType")
+    @Column(name = "father_id")
     private UUID fatherID;
 
-    @Type(type="org.hibernate.type.UUIDCharType")
+    @Column(name = "mother_id")
     private UUID motherID;
 
     @PrePersist

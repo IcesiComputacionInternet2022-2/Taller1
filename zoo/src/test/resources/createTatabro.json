@@ -1,8 +1,10 @@
 {
-  "name": "",
-  "sex": "",
-  "weight": "",
-  "age": "",
-  "height": "",
-  "arrivalDate": ""
+  "name": "Sammy Pig",
+  "sex": "M",
+  "weight": 20.0,
+  "age": 15,
+  "height": 50.0,
+  "arrivalDate": "2021-01-16T10:30:25",
+  "fatherID": null,
+  "motherID": null
 }

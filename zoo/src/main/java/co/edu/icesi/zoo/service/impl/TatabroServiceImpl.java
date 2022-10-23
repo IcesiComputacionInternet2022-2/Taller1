@@ -1,8 +1,11 @@
 package co.edu.icesi.zoo.service.impl;
 
 import co.edu.icesi.zoo.constant.TatabroErrorCode;
+import co.edu.icesi.zoo.dto.TatabroDTO;
+import co.edu.icesi.zoo.dto.TatabroParentsDTO;
 import co.edu.icesi.zoo.error.exception.TatabroError;
 import co.edu.icesi.zoo.error.exception.TatabroException;
+import co.edu.icesi.zoo.mapper.TatabroMapper;
 import co.edu.icesi.zoo.model.Tatabro;
 import co.edu.icesi.zoo.repository.TatabroRepository;
 import co.edu.icesi.zoo.service.TatabroService;
@@ -20,6 +23,7 @@ import java.util.stream.StreamSupport;
 public class TatabroServiceImpl implements TatabroService {
 
     public final TatabroRepository tatabroRepository;
+    public final TatabroMapper tatabroMapper;
 
     @Override
     public Tatabro getTatabroByID(UUID tatabroId) {
@@ -27,14 +31,17 @@ public class TatabroServiceImpl implements TatabroService {
     }
 
     @Override
-    public Tatabro getTatabroByName(String tatabroName) {
-        return tatabroRepository.findByName(tatabroName).orElseThrow(() -> new TatabroException(HttpStatus.BAD_REQUEST, new TatabroError(TatabroErrorCode.CODE_02, TatabroErrorCode.CODE_02.getMessage())));
+    public TatabroParentsDTO getTatabroByName(String tatabroName) {
+        TatabroDTO child = tatabroMapper.fromTatabro(tatabroRepository.findByName(tatabroName).orElseThrow(() -> new TatabroException(HttpStatus.BAD_REQUEST, new TatabroError(TatabroErrorCode.CODE_02, TatabroErrorCode.CODE_02.getMessage()))));
+        TatabroDTO father = tatabroMapper.fromTatabro(Optional.ofNullable(child.getFatherID()).map(this::getTatabroByID).orElse(null));
+        TatabroDTO mother = tatabroMapper.fromTatabro(Optional.ofNullable(child.getMotherID()).map(this::getTatabroByID).orElse(null));
+        return tatabroMapper.fromTatabroDTO(child, father, mother);
     }
 
     @Override
     public Tatabro createTatabro(Tatabro tatabro) {
-        validateUniqueName(tatabro.getName());
         validateParents(Optional.ofNullable(tatabro.getFatherID()), Optional.ofNullable(tatabro.getMotherID()));
+        validateUniqueName(tatabro.getName());
         return tatabroRepository.save(tatabro);
     }
 

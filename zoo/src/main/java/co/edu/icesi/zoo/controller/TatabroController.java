@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -27,10 +26,7 @@ public class TatabroController implements TatabroAPI {
 
     @Override
     public TatabroParentsDTO getTatabroByName(String tatabroName) {
-        TatabroDTO child = tatabroMapper.fromTatabro(tatabroService.getTatabroByName(tatabroName));
-        TatabroDTO father = tatabroMapper.fromTatabro(Optional.ofNullable(child.getFatherID()).map(tatabroService::getTatabroByID).orElse(null));
-        TatabroDTO mother = tatabroMapper.fromTatabro(Optional.ofNullable(child.getMotherID()).map(tatabroService::getTatabroByID).orElse(null));
-        return tatabroMapper.fromTatabroDTO(child, father, mother);
+        return tatabroService.getTatabroByName(tatabroName);
     }
 
     @Override

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>co.edu.icesi</groupId>
-	<artifactId>zoo</artifactId>
+	<artifactId>Taller1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>zoo</name>
+	<name>Taller1</name>
 	<description>Zoo project for Internet Computing</description>
 	<properties>
 		<java.version>11</java.version>
@@ -31,6 +31,11 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.5.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.liquibase</groupId>

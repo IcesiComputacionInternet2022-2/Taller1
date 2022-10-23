@@ -6,7 +6,7 @@
 
     <changeSet id="33d4e9bc-7210-47c3-9617-c56ab7c0750d" author="juan_esteban.caicedo" failOnError="true">
         <createTable tableName="tatabros">
-            <column name="id" type="UUID">
+            <column name="id" type="uuid">
                 <constraints nullable="false" primaryKey="true" />
             </column>
             <column name="name" type="varchar(255)" >
@@ -15,23 +15,23 @@
             <column name="sex" type="varchar(255)" >
                 <constraints nullable="false" />
             </column>
-            <column name="weight" type="real" >
+            <column name="weight" type="double" >
                 <constraints nullable="false" />
             </column>
             <column name="age" type="int" >
                 <constraints nullable="false" />
             </column>
-            <column name="height" type="real" >
+            <column name="height" type="double" >
                 <constraints nullable="false" />
             </column>
-            <column name="arrivalDate" type="datetime" >
+            <column name="arrival_date" type="datetime" >
                 <constraints nullable="false" />
             </column>
-            <column name="father" type="varchar(255)" >
-                <constraints nullable="false" />
+            <column name="father_id" type="uuid" >
+                <constraints nullable="true" />
             </column>
-            <column name="mother" type="varchar(255)" >
-                <constraints nullable="false" />
+            <column name="mother_id" type="uuid" >
+                <constraints nullable="true" />
             </column>
         </createTable>
     </changeSet>
