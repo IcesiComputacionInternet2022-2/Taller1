@@ -1,0 +1,5 @@
+INSERT INTO "caripiare" (id, name, gender, weight, age, height, arrival_date) VALUES ('f3bf9478-4be3-4f4b-a4b1-b2f84495a1eb', 'father', 'M', 3.5, 9, 0.15, '2022-08-24')
+INSERT INTO "caripiare" (id, name, gender, weight, age, height, arrival_date) VALUES ('a5756676-c059-4881-a0ea-3c8d2907e3b8', 'fathertwo', 'M', 3.5, 9, 0.15, '2022-08-24')
+INSERT INTO "caripiare" (id, name, gender, weight, age, height, arrival_date) VALUES ('c51e2f97-aaae-449b-87ae-1a38e4414132', 'mother', 'F', 3.5, 9, 0.15, '2022-08-24')
+INSERT INTO "caripiare" (id, name, gender, weight, age, height, arrival_date) VALUES ('fcb02990-c111-445a-8c3f-37ef9b162c3a', 'mothertwo', 'F', 3.5, 9, 0.15, '2022-08-24')
+INSERT INTO "caripiare" (id, name, gender, weight, age, height, arrival_date, father_id, mother_id) VALUES ('502807ed-21f1-4b69-a8b6-0c365cafe117', 'children', 'M', 3.5, 9, 0.15, '2022-08-24', 'f3bf9478-4be3-4f4b-a4b1-b2f84495a1eb', 'c51e2f97-aaae-449b-87ae-1a38e4414132')

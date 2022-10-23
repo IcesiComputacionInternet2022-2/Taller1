@@ -19,6 +19,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Caripiare {
 
+//    @Type(type = "uuid-char")
     @Type(type = "org.hibernate.type.UUIDCharType")
     @Id
     private UUID id;

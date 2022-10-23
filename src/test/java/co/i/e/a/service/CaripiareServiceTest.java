@@ -175,8 +175,9 @@ public class CaripiareServiceTest {
         setUpStage();
         when(caripiareMapper.fromCaripiareDTOtoCaripiareAndParentsDTO(
                 caripiareChildren, caripiareFather, caripiareMother)).thenReturn(caripiareAndParentsDTO);
+        when(caripiareRepository.findAll()).thenReturn(caripiareList);
         CaripiareAndParentsDTO actualCaripiareAndParentsDTO = caripiareService.getCaripiareAndParents(caripiareChildren.getName());
-        verify(caripiareMapper, times(1)).fromCaripiareDTOtoCaripiareAndParentsDTO(any(), any(), any());
+        verify(caripiareMapper, times(2)).fromCaripiareDTOtoCaripiareAndParentsDTO(any(), any(), any());
         assertEquals(caripiareAndParentsDTO, actualCaripiareAndParentsDTO);
     }
 

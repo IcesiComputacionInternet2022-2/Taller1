@@ -1,8 +1,8 @@
 {
-  "name": "son",
+  "name": "newCaripiare",
   "gender": "M",
   "weight": 3.5,
-  "age": 9,
-  "height": 0.15,
+  "age": "9",
+  "height": "0.15",
   "arrivalDate": "2022-08-24"
 }

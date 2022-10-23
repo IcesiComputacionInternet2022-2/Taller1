@@ -16,8 +16,8 @@
             <column name="age" type="int" />
             <column name="height" type="double" />
             <column name="arrival_date" type="date" />
-            <column name="fatherId" type="UUID" />
-            <column name="motherId" type="UUID" />
+            <column name="father_id" type="UUID" />
+            <column name="mother_id" type="UUID" />
         </createTable>
     </changeSet>
 </databaseChangeLog>

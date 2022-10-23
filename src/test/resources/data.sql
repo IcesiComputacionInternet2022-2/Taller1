@@ -1,1 +1,0 @@
-INSERT INTO "caripiare" (id, name, gender, weight, age, height, arrival_date) VALUES ('502807ed-21f1-4b69-a8b6-0c365cafe117', 'father', 'M', 3.5, 9, 0.15, '2022-08-24')

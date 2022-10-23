@@ -43,12 +43,6 @@ public class CaripiareDTO {
     @Size(max = MAX_NAME_LENGTH, message = "'name' may not be longer than 120 characters.")
     private String name;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private UUID fatherId;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private UUID motherId;
-
     @NotEmpty(message = "'gender' may not be empty.")
     @Pattern(regexp = GENDER_REGEX, message = "'gender' may only be 'M' or 'm' for male and 'F' or 'f' for female.")
     private String gender;
@@ -70,4 +64,10 @@ public class CaripiareDTO {
     @NotNull(message = "'arrivalDate' may not be null.")
     @PastOrPresent(message = "'arrivalDate' may not come after the current date.")
     private LocalDate arrivalDate;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private UUID fatherId;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private UUID motherId;
 }

@@ -61,7 +61,8 @@ public class CaripiareServiceImpl implements CaripiareService {
     @Override
     public CaripiareAndParentsDTO getCaripiareAndParents(String name) {
         Optional<Caripiare> optionalCaripiare = searchByUniqueName(name);
-        if (optionalCaripiare.isEmpty()) return null;
+        if (optionalCaripiare.isEmpty())
+            throw new CaripiareException(HttpStatus.BAD_REQUEST, new CaripiareError(CaripiareErrorCode.CODE_02, CaripiareErrorCode.CODE_02.getMessage()));
         Caripiare father = Optional.ofNullable(optionalCaripiare.get().getFatherId()).map(this::getCaripiare).orElse(null);
         Caripiare mother = Optional.ofNullable(optionalCaripiare.get().getMotherId()).map(this::getCaripiare).orElse(null);
         return caripiareMapper.fromCaripiareDTOtoCaripiareAndParentsDTO(optionalCaripiare.get(), father, mother);
