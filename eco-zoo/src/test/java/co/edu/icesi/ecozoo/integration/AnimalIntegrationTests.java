@@ -241,10 +241,6 @@ public class AnimalIntegrationTests {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn();
-
-        List<CapybaraDTO> animalResult = objectMapper.readValue(result.getResponse().getContentAsString(), List.class);
-
-        
     }
 
 

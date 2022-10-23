@@ -1,2 +1,2 @@
-INSERT INTO "ANIMAL" (id, name,sex, weight,age, height, arrival_date,father_id,mother_id) VALUES ('5631cbd3-cf53-415f-bd06-4e995ee3c322', 'Shirohige', 0, 1.5, 10,3.5,'2020-10-0T10:30',null,null);
+INSERT INTO "ANIMAL" (id, name,sex, weight,age, height, arrival_date,father_id,mother_id) VALUES ('5631cbd3-cf53-415f-bd06-4e995ee3c322', 'Shirohige', 0, 1.5, 10,3.5,'2020-10-09T10:30',null,null);
 INSERT INTO "ANIMAL" (id, name,sex, weight,age, height, arrival_date,father_id,mother_id) VALUES ('5631cbd3-cf53-415f-bd06-4e995ee3c323', 'Bonnie', 1, 1.6, 8,3.2,'2020-10-08T10:30',null,null);
