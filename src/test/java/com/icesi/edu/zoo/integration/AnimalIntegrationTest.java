@@ -7,8 +7,6 @@ import com.icesi.edu.zoo.dto.AnimalDTO;
 import com.icesi.edu.zoo.error.exception.AnimalError;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

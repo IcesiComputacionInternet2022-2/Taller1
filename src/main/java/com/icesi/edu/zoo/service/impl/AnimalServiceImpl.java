@@ -1,7 +1,5 @@
 package com.icesi.edu.zoo.service.impl;
 
-import com.icesi.edu.zoo.constant.AnimalErrorCode;
-import com.icesi.edu.zoo.constant.CondorCharacteristics;
 import com.icesi.edu.zoo.error.exception.AnimalError;
 import com.icesi.edu.zoo.error.exception.AnimalException;
 import com.icesi.edu.zoo.model.Animal;
@@ -12,7 +10,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -56,11 +53,9 @@ public class AnimalServiceImpl implements AnimalService {
             throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_06, CODE_06.getMessage()));
         if(!animalExists(animalDTO.getFemaleParentName()))
             throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_06, CODE_06.getMessage()));
-        //parentsAreDifferent(animalDTO.getMaleParentName(), animalDTO.getFemaleParentName());
         checkParentSex(animalDTO.getMaleParentName(), "m");
         checkParentSex(animalDTO.getFemaleParentName(), "h");
         nameIsAvailable(animalDTO.getName());
-        checkCharacteristics(animalDTO);
         return animalRepository.save(animalDTO);
     }
 
@@ -68,41 +63,19 @@ public class AnimalServiceImpl implements AnimalService {
         return animalName == null || animalRepository.findById(animalName).isPresent();
     }
 
-    private boolean checkParentSex(String animalName, String sex) {
+    private void checkParentSex(String animalName, String sex) {
         if(animalName == null)
-            return true;
+            return;
         Animal parent = animalRepository.findById(animalName).orElse(null);
         if(Character.toString(parent.getSex()).equalsIgnoreCase(sex))
-            return true;
+            return;
         throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_08, CODE_08.getMessage()));
     }
 
-    private boolean parentsAreDifferent(String maleName, String femaleName) {
-        if(maleName == null || femaleName == null || maleName.compareTo(femaleName) != 0)
-            return true;
-        throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_07, CODE_07.getMessage()));
-    }
-
-    private boolean nameIsAvailable(String animalName) {
+    private void nameIsAvailable(String animalName) {
         if(getAnimals().stream().noneMatch(a -> a.getName().equalsIgnoreCase(animalName)))
-            return true;
+            return;
         throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_09, CODE_09.getMessage()));
-    }
-
-    private boolean checkCharacteristics(final Animal animalDTO) {
-        double height = animalDTO.getHeight();
-        double weight = animalDTO.getWeight();
-        if(hasValidCharacteristic(height, CondorCharacteristics.HEIGHT) && hasValidCharacteristic(weight, CondorCharacteristics.WEIGHT))
-            return true;
-        throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_10, CODE_10.getMessage()));
-    }
-
-    private <T extends CondorCharacteristics> boolean hasValidCharacteristic(double attr, T validRange) {
-        return inClosedRange(attr, validRange.getMin(), validRange.getMax());
-    }
-
-    private boolean inClosedRange(double num, double min, double max) {
-        return (num >= min) && (num <= max);
     }
 
     @Override

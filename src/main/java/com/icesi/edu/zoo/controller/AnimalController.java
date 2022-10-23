@@ -1,6 +1,7 @@
 package com.icesi.edu.zoo.controller;
 
 import com.icesi.edu.zoo.api.AnimalAPI;
+import com.icesi.edu.zoo.constant.CondorCharacteristics;
 import com.icesi.edu.zoo.dto.AnimalDTO;
 import com.icesi.edu.zoo.error.exception.AnimalError;
 import com.icesi.edu.zoo.error.exception.AnimalException;
@@ -36,30 +37,47 @@ public class AnimalController implements AnimalAPI {
         nameIsValid(animalDTO.getName());
         sexIsValid(animalDTO.getSex());
         dateIsValid(animalDTO.getArrivalDate());
+        checkCharacteristics(animalDTO);
         return animalMapper.fromAnimal(animalService.createAnimal(animalMapper.fromDTO(animalDTO)));
     }
 
-    private boolean checkNotNull(final AnimalDTO animalDTO) {
+    private void checkNotNull(final AnimalDTO animalDTO) {
         if(animalDTO != null)
-            return true;
+            return;
         throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_01, CODE_01.getMessage()));
     }
 
-    private boolean nameIsValid(String name) {
+    private void nameIsValid(String name) {
         if(name != null && !name.isBlank() && name.length() <= MAX_NAME_LENGTH && name.matches(NAME_REGEX))
-            return true;
+            return;
         throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_02, CODE_02.getMessage()));
     }
 
-    private boolean sexIsValid(char sex) {
+    private void sexIsValid(char sex) {
         if(Character.toString(sex).matches(SEX_REGEX))
-            return true;
+            return;
         throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_03, CODE_03.getMessage()));
     }
 
-    private boolean dateIsValid(Date date) {
+    private void checkCharacteristics(final AnimalDTO animalDTO) {
+        double height = animalDTO.getHeight();
+        double weight = animalDTO.getWeight();
+        if(hasValidCharacteristic(height, CondorCharacteristics.HEIGHT) && hasValidCharacteristic(weight, CondorCharacteristics.WEIGHT))
+            return;
+        throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_10, CODE_10.getMessage()));
+    }
+
+    private <T extends CondorCharacteristics> boolean hasValidCharacteristic(double attr, T validRange) {
+        return inClosedRange(attr, validRange.getMin(), validRange.getMax());
+    }
+
+    private boolean inClosedRange(double num, double min, double max) {
+        return (num >= min) && (num <= max);
+    }
+
+    private void dateIsValid(Date date) {
         if(date != null && date.compareTo(new Date()) <= 0)
-            return true;
+            return;
         throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_04, CODE_04.getMessage()));
     }
 

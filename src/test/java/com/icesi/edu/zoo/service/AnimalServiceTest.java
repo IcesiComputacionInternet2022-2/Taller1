@@ -56,36 +56,12 @@ public class AnimalServiceTest {
         verify(animalRepository, times(0)).save(any());
     }
 
-    @Test
-    public void testAddAnimalWithInvalidHeight() {
-        UUID id = UUID.fromString("9b3266e1-176a-4b14-b0c8-f5dc96f52d8f");
-        Animal toAdd = new Animal(id, "otro condor", null, null, 'M', 12, 6, 200, new Date());
-        try {
-            animalService.createAnimal(toAdd);
-            fail();
-        } catch(AnimalException e) {
-            verifyExceptionAttributes(e, HttpStatus.BAD_REQUEST, AnimalErrorCode.CODE_10);
-        }
-    }
-
     private void verifyExceptionAttributes(AnimalException e, HttpStatus httpStatus, AnimalErrorCode animalErrorCode) {
         assertEquals(httpStatus, e.getHttpStatus());
         assertNotNull(e.getAnimalError());
         AnimalError animalError = e.getAnimalError();
         assertEquals(animalErrorCode, animalError.getCode());
         assertEquals(animalErrorCode.getMessage(), animalError.getMessage());
-    }
-
-    @Test
-    public void testAddAnimalWithInvalidWeight() {
-        UUID id = UUID.fromString("d4b9e964-1427-4bf5-bb99-c1767f879157");
-        Animal toAdd = new Animal(id, "ave ave", null, null, 'M', 100, 6, 113, new Date());
-        try {
-            animalService.createAnimal(toAdd);
-            fail();
-        } catch(AnimalException e) {
-            verifyExceptionAttributes(e, HttpStatus.BAD_REQUEST, AnimalErrorCode.CODE_10);
-        }
     }
 
     private Animal createDummyAnimal1() {

@@ -53,6 +53,14 @@ public class AnimalControllerTest {
         toAdd = new AnimalDTO(null, name, null, null, 'H', 13, 3, 111, new Date());
     }
 
+    private void createAnimalWithInvalidHeight() {
+        toAdd = new AnimalDTO(null, "otro condor", null, null, 'M', 12, 6, 200, new Date());
+    }
+
+    private void createAnimalWithInvalidWeight() {
+        toAdd = new AnimalDTO(null, "cesar", null, null, 'M', 120, 6, 111, new Date());
+    }
+
     private void createAnimalWithInvalidSex() {
         toAdd = new AnimalDTO(null, "condorito", null, null, 'j', 13, 8, 111, new Date());
     }
@@ -101,6 +109,28 @@ public class AnimalControllerTest {
         } catch(AnimalException e) {
             verify(animalService, times(0)).createAnimal(any());
             verifyExceptionAttributes(e, HttpStatus.BAD_REQUEST, AnimalErrorCode.CODE_01);
+        }
+    }
+
+    @Test
+    public void testAddAnimalWithInvalidHeight() {
+        createAnimalWithInvalidHeight();
+        try {
+            animalController.createAnimal(toAdd);
+            fail();
+        } catch(AnimalException e) {
+            verifyExceptionAttributes(e, HttpStatus.BAD_REQUEST, AnimalErrorCode.CODE_10);
+        }
+    }
+
+    @Test
+    public void testAddAnimalWithInvalidWeight() {
+        createAnimalWithInvalidWeight();
+        try {
+            animalController.createAnimal(toAdd);
+            fail();
+        } catch(AnimalException e) {
+            verifyExceptionAttributes(e, HttpStatus.BAD_REQUEST, AnimalErrorCode.CODE_10);
         }
     }
 

@@ -22,7 +22,6 @@
                                  referencedColumnNames="name" />
         <addForeignKeyConstraint baseTableName="animal" baseColumnNames="female_parent_name" constraintName="female_fk" referencedTableName="animal"
                                  referencedColumnNames="name" />
-    <sqlFile path="test_inserts.sql"/>
     </changeSet>
 
 </databaseChangeLog>
