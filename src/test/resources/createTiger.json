@@ -1,0 +1,10 @@
+{
+  "mother":null,
+  "father":null,
+  "name":"Loki",
+  "gender":"Male",
+  "weight":290,
+  "age":"8",
+  "height":"120",
+  "arriveDate":"2021-06-10 20:43:00"
+}
