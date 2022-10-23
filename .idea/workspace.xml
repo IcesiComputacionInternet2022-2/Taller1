@@ -6,12 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8a128c95-efa5-499b-9c5f-60a3ef49f86c" name="Changes" comment="Some fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoo-Web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoo-Web/rest-zoo-registers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/rest-zoo-web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoo-Web/src/main/java/com/co/edu/icesi/zooWeb/model/BlackSwan.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/main/java/com/co/edu/icesi/zooWeb/model/BlackSwan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoo-Web/src/main/resources/db/changelog/create_swan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/main/resources/db/changelog/create_swan.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/src/test/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/test/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/target/classes/com/co/edu/icesi/zooWeb/api/BlackSwanAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/classes/com/co/edu/icesi/zooWeb/api/BlackSwanAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoo-Web/src/test/java/com/co/edu/icesi/zooWeb/integration/CreateSwanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/test/java/com/co/edu/icesi/zooWeb/integration/CreateSwanTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoo-Web/target/classes/com/co/edu/icesi/zooWeb/model/BlackSwan$BlackSwanBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/classes/com/co/edu/icesi/zooWeb/model/BlackSwan$BlackSwanBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoo-Web/target/classes/com/co/edu/icesi/zooWeb/model/BlackSwan.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/classes/com/co/edu/icesi/zooWeb/model/BlackSwan.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoo-Web/target/classes/db/changelog/create_swan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/classes/db/changelog/create_swan.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/target/test-classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/test-classes/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/CreateSwanTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/CreateSwanTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +49,7 @@
   <component name="RunManager" selected="JUnit.com.co.edu.icesi.zooWeb in rest-zoo-registers">
     <configuration name="ZooWebApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.co.edu.icesi.zooWeb.ZooWebApplication" />
-      <module name="rest-zoo-registers" />
+      <module name="rest-zoo-web" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.co.edu.icesi.zooWeb.*" />
@@ -58,7 +61,7 @@
       </method>
     </configuration>
     <configuration name="All in rest-zoo-registers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rest-zoo-registers" />
+      <module name="rest-zoo-web" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
@@ -66,7 +69,7 @@
       </method>
     </configuration>
     <configuration name="ZooWebApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rest-zoo-registers" />
+      <module name="rest-zoo-web" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.co.edu.icesi.zooWeb.*" />
@@ -81,7 +84,7 @@
       </method>
     </configuration>
     <configuration name="com.co.edu.icesi.zooWeb in rest-zoo-registers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rest-zoo-registers" />
+      <module name="rest-zoo-web" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.co.edu.icesi.zooWeb.*" />
@@ -126,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666543410895</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Some fixes">
+      <created>1666544518084</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666544518084</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -60,7 +60,7 @@ public class CreateSwanTest {
     @SneakyThrows
     public void createSwan(){
         String body = parseResourceToString("createSwan.json");
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/zooregisters")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/zooweb")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(body)).andExpect(status().isOk())
                 .andReturn();
@@ -72,8 +72,8 @@ public class CreateSwanTest {
     @Test
     @SneakyThrows
     public void createSwanRepeated(){
-        String body = parseResourceToString("createAnimal.json");
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/zooregisters")
+        String body = parseResourceToString("createSwan.json");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/zooweb")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(body)).andExpect(status().isConflict())
                 .andReturn();
@@ -105,8 +105,8 @@ public class CreateSwanTest {
         MvcResult result = getBadRequestResult(body);
 
         BlackSwanError blackSwanError = objectMapper.readValue(result.getResponse().getContentAsString(), BlackSwanError.class);
-        assertThat(blackSwanError,hasProperty("code",is(CODE_02)));
-        assertThat(blackSwanError,hasProperty("message",is(CODE_02.getMessage())));
+        assertThat(blackSwanError,hasProperty("code",is(CODE_07)));
+        assertThat(blackSwanError,hasProperty("message",is(CODE_07.getMessage())));
     }
 
     @SneakyThrows

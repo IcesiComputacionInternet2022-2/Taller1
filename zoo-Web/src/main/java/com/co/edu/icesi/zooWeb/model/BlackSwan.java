@@ -6,10 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.PrePersist;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -35,10 +32,13 @@ public class BlackSwan {
 
     private double height;
 
+    @Column(name = "arrival_date")
     private LocalDateTime arrivedZooDate;
 
+    @Column(name = "fatherid")
     private UUID fatherId;
 
+    @Column(name = "motherid")
     private UUID motherId;
 
     @PrePersist

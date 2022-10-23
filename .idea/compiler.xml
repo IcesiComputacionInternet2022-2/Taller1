@@ -17,16 +17,16 @@
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.2.Final/mapstruct-processor-1.5.2.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.2.Final/mapstruct-1.5.2.Final.jar" />
         </processorPath>
-        <module name="rest-zoo-registers" />
+        <module name="rest-zoo-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="rest-zoo-registers" target="11" />
+      <module name="rest-zoo-web" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="rest-zoo-registers" options="-parameters" />
+      <module name="rest-zoo-web" options="-parameters" />
     </option>
   </component>
 </project>

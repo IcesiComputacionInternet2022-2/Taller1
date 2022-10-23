@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>co.edu.icesi</groupId>
-	<artifactId>rest-zoo-registers</artifactId>
+	<artifactId>rest-zoo-web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>rest-zoo-registers</name>
-	<description>Registering animals is fun :0</description>
+	<name>rest-zoo-web</name>
+	<description>Register</description>
 	<properties>
 		<java.version>18</java.version>
 	</properties>
