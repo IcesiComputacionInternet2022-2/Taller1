@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface CusumboService {
 
-    List<Cusumbo> getCusumboFamily(@PathVariable String cusumboName);
+    List<Cusumbo> getCusumboWithParents(@PathVariable String cusumboName);
 
     public Cusumbo createCusumbo(@RequestBody Cusumbo cusumbo);
 

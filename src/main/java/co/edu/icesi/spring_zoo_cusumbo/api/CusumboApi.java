@@ -10,7 +10,7 @@ import java.util.UUID;
 public interface CusumboApi {
 
     @GetMapping("/{cusumboName}")
-    public List<CusumboDTO> getCusumboFamily(@PathVariable String cusumboName);
+    public List<CusumboDTO> getCusumboWithParents(@PathVariable String cusumboName);
 
     @PostMapping()
     public CusumboDTO createCusumbo(@RequestBody CusumboDTO cusumboDTO);

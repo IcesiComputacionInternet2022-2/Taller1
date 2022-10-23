@@ -14,4 +14,5 @@ public class CusumboException extends RuntimeException{
     private HttpStatus httpStatus;
 
     private CusumboError error;
+
 }

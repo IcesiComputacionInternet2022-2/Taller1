@@ -1,0 +1,10 @@
+{
+  "name": "Son",
+  "sex":"M",
+  "weight":7 ,
+  "age": 1,
+  "height":32,
+  "arrivalDate":"2016-04-08T12:30",
+  "fatherId": null,
+  "motherId":null
+}

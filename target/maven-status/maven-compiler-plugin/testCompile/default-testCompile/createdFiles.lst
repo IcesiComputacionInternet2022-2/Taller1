@@ -1,0 +1,6 @@
+co\edu\icesi\spring_zoo_cusumbo\integration\GetCusumboByNameIntegrationTest.class
+co\edu\icesi\spring_zoo_cusumbo\integration\GetAllCusumbosIntegrationTest.class
+co\edu\icesi\spring_zoo_cusumbo\service\CusumboServiceTest.class
+co\edu\icesi\spring_zoo_cusumbo\integration\CreateCusumboIntegrationTest.class
+co\edu\icesi\spring_zoo_cusumbo\controller\CusumboControllerTest.class
+co\edu\icesi\spring_zoo_cusumbo\SpringZooCusumboApplicationTests.class
