@@ -106,7 +106,7 @@ public class SuricatoServiceTest {
         }
     }
     @Test
-    public void verifyAnimalAlreadyExistsById() {
+    public void foundSuricatobyIdTest() {
         setupScenery1();
         setupScenery2();
         List<Suricato> suricatoList = new ArrayList<>();
