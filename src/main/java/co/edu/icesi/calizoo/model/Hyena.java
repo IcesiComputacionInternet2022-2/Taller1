@@ -1,12 +1,10 @@
 package co.edu.icesi.calizoo.model;
 
-import co.edu.icesi.calizoo.constant.SexConstants;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.NaturalId;
 import org.hibernate.annotations.Type;
 import org.springframework.lang.Nullable;
 
