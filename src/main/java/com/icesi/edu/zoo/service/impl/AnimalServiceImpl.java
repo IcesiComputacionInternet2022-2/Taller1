@@ -56,7 +56,7 @@ public class AnimalServiceImpl implements AnimalService {
             throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_06, CODE_06.getMessage()));
         if(!animalExists(animalDTO.getFemaleParentName()))
             throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_06, CODE_06.getMessage()));
-        parentsAreDifferent(animalDTO.getMaleParentName(), animalDTO.getFemaleParentName());
+        //parentsAreDifferent(animalDTO.getMaleParentName(), animalDTO.getFemaleParentName());
         checkParentSex(animalDTO.getMaleParentName(), "m");
         checkParentSex(animalDTO.getFemaleParentName(), "h");
         nameIsAvailable(animalDTO.getName());
