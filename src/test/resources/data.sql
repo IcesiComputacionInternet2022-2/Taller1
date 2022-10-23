@@ -1,0 +1,3 @@
+INSERT INTO "ANIMAL" (id, name, sex, weight, age, length, arrival_date, father, mother) VALUES ('af1a5314-bd9e-4529-85be-e1decade567a', 'Papa Oso', 'M', '28000', '18','150','2003-04-10T09:36:45','No father registry in zoo','No mother registry in zoo')
+INSERT INTO "ANIMAL" (id, name, sex, weight, age, length, arrival_date, father, mother) VALUES ('ac3e3c7c-b466-4c9b-84ca-0c4c35ce1189', 'Mama Oso', 'F', '26000', '19','130','2002-08-22T16:20:28','No father registry in zoo','No mother registry in zoo')
+INSERT INTO "ANIMAL" (id, name, sex, weight, age, length, arrival_date, father, mother) VALUES ('32b68f4d-86d3-4c92-ae01-674afb2b1b21', 'Osito', 'M', '12000', '7','80','2015-07-29T07:51:30','Papa Oso','Mama Oso')

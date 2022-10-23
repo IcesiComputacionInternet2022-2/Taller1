@@ -21,7 +21,7 @@
             <column name="length" type="numeric(12,4)">
                 <constraints nullable="false"/>
             </column>
-            <column name="arrival_date" type="date">
+            <column name="arrival_date" type="datetime">
                 <constraints nullable="false" checkConstraint="sysdate >= arrival_date"/>
             </column>
             <column name="father" type="varchar(32)">

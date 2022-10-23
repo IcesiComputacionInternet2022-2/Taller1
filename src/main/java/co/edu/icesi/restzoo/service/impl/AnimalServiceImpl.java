@@ -1,6 +1,7 @@
 package co.edu.icesi.restzoo.service.impl;
 
 import co.edu.icesi.restzoo.constant.AnimalErrorCode;
+import co.edu.icesi.restzoo.constant.Constants;
 import co.edu.icesi.restzoo.error.exception.AnimalError;
 import co.edu.icesi.restzoo.error.exception.AnimalException;
 import co.edu.icesi.restzoo.model.Animal;
@@ -32,6 +33,15 @@ public class AnimalServiceImpl implements AnimalService {
     public Animal createAnimal(Animal animal) {
         uniqueAnimalName(animal.getName());
         dateIsInThePast(animal.getArrivalDate());
+
+        if (animal.getFather() != null ||
+                animal.getMother() != null)
+            parentsValidations(animal);
+        else {
+            animal.setFather(Constants.NO_FATHER.getValue());
+            animal.setMother(Constants.NO_MOTHER.getValue());
+        }
+
         return zooRepository.save(animal);
     }
 
@@ -50,5 +60,32 @@ public class AnimalServiceImpl implements AnimalService {
         if (arrivalDate.isAfter(LocalDateTime.now()))
             throw new AnimalException(HttpStatus.BAD_REQUEST,
                     new AnimalError(AnimalErrorCode.SER_E0x04, AnimalErrorCode.SER_E0x04.getMessage()));
+    }
+
+    private void parentsValidations(Animal animal) {
+        exactlyTwoParents(animal);
+        parentsExist(animal.getFather(), animal.getMother());
+        parentsSexMatch(animal.getFather(), animal.getMother());
+    }
+
+    private void exactlyTwoParents(Animal animal) {
+        if (animal.getFather() == null || animal.getMother() == null)
+            throw new AnimalException(HttpStatus.NOT_ACCEPTABLE,
+                    new AnimalError(AnimalErrorCode.SER_E0x02_3, AnimalErrorCode.SER_E0x02_3.getMessage()));
+    }
+
+    private void parentsExist(String father, String mother) {
+        if (getAnimal(getAnimal(father).getId()) == null)
+            throw new AnimalException(HttpStatus.NOT_FOUND,
+                    new AnimalError(AnimalErrorCode.SER_E0x02_1, AnimalErrorCode.SER_E0x02_1.getMessage()));
+        if (getAnimal(getAnimal(mother).getId()) == null)
+            throw new AnimalException(HttpStatus.NOT_FOUND,
+                    new AnimalError(AnimalErrorCode.SER_E0x02_2, AnimalErrorCode.SER_E0x02_2.getMessage()));
+    }
+
+    private void parentsSexMatch(String father, String mother) {
+        if (getAnimal(father).getSex() != 'M' || getAnimal(mother).getSex() != 'F')
+            throw new AnimalException(HttpStatus.BAD_REQUEST,
+                    new AnimalError(AnimalErrorCode.SER_E0x03, AnimalErrorCode.SER_E0x03.getMessage()));
     }
 }
