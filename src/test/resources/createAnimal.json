@@ -1,0 +1,10 @@
+{
+  "name" : "Venao Cola Blanca",
+  "sex" : "Male",
+  "weight" : 60,
+  "age" : 15,
+  "height" : 100,
+  "arrivalDate" : "2020-10-23T11:17:00",
+  "fatherID" : null,
+  "motherID" : null
+}
