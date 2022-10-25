@@ -1,12 +1,13 @@
 package co.edu.icesi.zoologico.service.impl;
 
+import co.edu.icesi.zoologico.constant.AnimalErrorCode;
 import co.edu.icesi.zoologico.dto.AnimalParentsDTO;
 import co.edu.icesi.zoologico.dto.AnimalWithParentsDTO;
 import co.edu.icesi.zoologico.error.exception.AnimalDemoError;
 import co.edu.icesi.zoologico.error.exception.AnimalDemoException;
 import co.edu.icesi.zoologico.mapper.AnimalMapper;
 import co.edu.icesi.zoologico.model.Animal;
-import co.edu.icesi.zoologico.model.Gender;
+import co.edu.icesi.zoologico.constant.Gender;
 import co.edu.icesi.zoologico.repository.ZooRepository;
 import co.edu.icesi.zoologico.service.ZooService;
 import lombok.AllArgsConstructor;
@@ -68,7 +69,7 @@ public class ZooServiceImpl implements ZooService {
     public void verifyNameRepeated(String animalName){
         for (Animal i:getAnimals()) {
             if (i.getName().equals(animalName)){
-                throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234","Throw AnimalDemoException"));
+                throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError(AnimalErrorCode.CODE_06,"Throw AnimalDemoException - Animal name exist in the system"));
             }
         }
     }
@@ -79,10 +80,10 @@ public class ZooServiceImpl implements ZooService {
 
             Animal animalMother =zooRepository.findById(animalMotherId).orElse(null);
             if (animalMother==null){
-                throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234","Throw AnimalDemoException"));
+                throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError(AnimalErrorCode.CODE_07,"Throw AnimalDemoException - Animal's mother does not exist in the system"));
             }
             if (!animalMother.getGender().equals(Gender.GENDER_FEMALE)){
-                throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234","Throw AnimalDemoException"));
+                throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError(AnimalErrorCode.CODE_08,"Throw AnimalDemoException - Animal's mother is male"));
             }
         }
     }
@@ -93,10 +94,10 @@ public class ZooServiceImpl implements ZooService {
         if ( (animalFatherId!=null) && (!animalFatherId.toString().equals("")) ){
             Animal animalFather = zooRepository.findById(animalFatherId).orElse(null);
             if (animalFather == null) {
-                throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234", "Throw AnimalDemoException"));
+                throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError(AnimalErrorCode.CODE_09, "Throw AnimalDemoException - Animal's father does not exist in the system"));
             }
             if (!animalFather.getGender().equals(Gender.GENDER_MALE)) {
-                throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError("1234", "Throw AnimalDemoException"));
+                throw new AnimalDemoException(HttpStatus.BAD_REQUEST, new AnimalDemoError(AnimalErrorCode.CODE_10, "Throw AnimalDemoException - Animal's father is female"));
             }
         }
     }

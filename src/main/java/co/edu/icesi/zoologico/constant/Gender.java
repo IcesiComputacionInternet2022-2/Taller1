@@ -1,4 +1,4 @@
-package co.edu.icesi.zoologico.model;
+package co.edu.icesi.zoologico.constant;
 
 public class Gender {
     public final static String GENDER_FEMALE="Female";

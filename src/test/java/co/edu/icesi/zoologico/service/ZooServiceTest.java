@@ -19,7 +19,6 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -102,7 +101,7 @@ public class ZooServiceTest {
 
 
     @Test
-    public void testVerifyNameRepeated(){
+    public void testNameRepeated(){
         createAnimalsParentsAndSon();
 
         Animal animalToAdd = new Animal(UUID.randomUUID(),"Topo Son","Male",20,500,20,animalMother.getId(),animalFather.getId(), LocalDateTime.now());
@@ -113,12 +112,12 @@ public class ZooServiceTest {
             zooService.createAnimal(animalToAdd);
             fail();
         }catch (AnimalDemoException animalDemoException){
-            assertEquals(animalDemoException.getError().getMessage(),"Throw AnimalDemoException");
+            assertEquals(animalDemoException.getError().getMessage(),"Throw AnimalDemoException - Animal name exist in the system");
         }
     }
 
     @Test
-    public void testVerifyFatherIsMale(){
+    public void testFatherIsFemale(){
         Animal animalFather= new Animal(UUID.randomUUID(),"Topa Father","Female",20,500,20,null,null, LocalDateTime.now());
         when(zooRepository.findById(animalFather.getId())).thenReturn(Optional.ofNullable(animalFather));
 
@@ -129,12 +128,12 @@ public class ZooServiceTest {
             zooService.createAnimal(animalToAdd);
             fail();
         }catch (AnimalDemoException animalDemoException){
-            assertEquals(animalDemoException.getError().getMessage(),"Throw AnimalDemoException");
+            assertEquals(animalDemoException.getError().getMessage(),"Throw AnimalDemoException - Animal's father is female");
         }
     }
 
     @Test
-    public void testVerifyFatherExist(){
+    public void testFatherExist(){
 
         Animal animalToAdd = new Animal(UUID.randomUUID(),"Topito","Male",20,500,20,null,UUID.randomUUID(), LocalDateTime.now());
         when(zooRepository.save(ArgumentMatchers.any())).thenReturn(animalToAdd);
@@ -143,7 +142,7 @@ public class ZooServiceTest {
             zooService.createAnimal(animalToAdd);
             fail();
         }catch (AnimalDemoException animalDemoException){
-            assertEquals(animalDemoException.getError().getMessage(),"Throw AnimalDemoException");
+            assertEquals(animalDemoException.getError().getMessage(),"Throw AnimalDemoException - Animal's father does not exist in the system");
         }
     }
     @Test
@@ -156,7 +155,7 @@ public class ZooServiceTest {
     }
 
     @Test
-    public void testVerifyMotherIsFemale(){
+    public void testMotherIsFemaleUnsucesfully(){
         Animal animalMother= new Animal(UUID.randomUUID(),"Topa Mother","Male",20,500,20,null,null, LocalDateTime.now());
         when(zooRepository.findById(animalMother.getId())).thenReturn(Optional.ofNullable(animalMother));
 
@@ -167,12 +166,12 @@ public class ZooServiceTest {
             zooService.createAnimal(animalToAdd);
             fail();
         }catch (AnimalDemoException animalDemoException){
-            assertEquals(animalDemoException.getError().getMessage(),"Throw AnimalDemoException");
+            assertEquals(animalDemoException.getError().getMessage(),"Throw AnimalDemoException - Animal's mother is male");
         }
     }
 
     @Test
-    public void testVerifyMotherExist(){
+    public void testMotherExist(){
 
         Animal animalToAdd = new Animal(UUID.randomUUID(),"Topito","Male",20,500,20, UUID.randomUUID(),null, LocalDateTime.now());
         when(zooRepository.save(ArgumentMatchers.any())).thenReturn(animalToAdd);
@@ -181,12 +180,12 @@ public class ZooServiceTest {
             zooService.createAnimal(animalToAdd);
             fail();
         }catch (AnimalDemoException animalDemoException){
-            assertEquals(animalDemoException.getError().getMessage(),"Throw AnimalDemoException");
+            assertEquals(animalDemoException.getError().getMessage(),"Throw AnimalDemoException - Animal's mother does not exist in the system");
         }
     }
 
     @Test
-    public void testVerifyMotherCorrect(){
+    public void testVerifyMotherCorrectSucesfull(){
         Animal animalMother= new Animal(UUID.randomUUID(),"Topa Mother","Male",20,500,20,null,null, LocalDateTime.now());
         when(zooRepository.findById(animalMother.getId())).thenReturn(Optional.ofNullable(animalMother));
 

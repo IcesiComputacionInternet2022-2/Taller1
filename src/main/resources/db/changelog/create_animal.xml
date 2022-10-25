@@ -17,7 +17,7 @@
             <column name="height" type="varchar(255)" />
             <column name="mother" type="UUID" />
             <column name="father" type="UUID" />
-            <column name="arrivalDate" type="varchar(255)" />
+            <column name="arrival_date" type="TIMESTAMP" />
 
         </createTable>
     </changeSet>

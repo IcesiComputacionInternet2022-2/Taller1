@@ -1,0 +1,11 @@
+{
+  "id": "393fe13d-eb98-4d4e-a43b-e562883c900e",
+  "name":"Antonia",
+  "gender":"Female",
+  "weight": 40,
+  "age": 5,
+  "height": 80,
+  "mother":"061761a9-e4c3-44c7-8066-2d3481db0a15",
+  "father":"d45bb1c6-354f-4052-9381-009679b8f289",
+  "arrivalDate":"2022-09-22 17:54:44"
+}

@@ -21,6 +21,7 @@ public class AnimalWithParentsDTO {
     private AnimalParentsDTO mother;
     private AnimalParentsDTO father;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime arrivalDate;
 
 

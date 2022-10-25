@@ -82,7 +82,7 @@ public class ZooControllerTest {
 
         animalDTO.setName(animalName);
         AnimalDemoException exception =assertThrows(AnimalDemoException.class, () -> {zooController.createAnimal(animalDTO);} );
-        assertEquals("Throw AnimalDemoException",exception.getError().getMessage());
+        assertEquals("Throw AnimalDemoException - Animal name have an incorrect format",exception.getError().getMessage());
     }
 
     @Test
@@ -92,7 +92,7 @@ public class ZooControllerTest {
             zooController.createAnimal(animalDTO);
             fail();
         }catch (AnimalDemoException exception){
-            assertEquals("Throw AnimalDemoException",exception.getError().getMessage());
+            assertEquals("Throw AnimalDemoException - Animal name have an incorrect format",exception.getError().getMessage());
         }
     }
 
@@ -103,7 +103,7 @@ public class ZooControllerTest {
             zooController.createAnimal(animalDTO);
             fail();
         }catch (AnimalDemoException exception){
-            assertEquals("Throw AnimalDemoException",exception.getError().getMessage());
+            assertEquals("Throw AnimalDemoException - Animal name empty",exception.getError().getMessage());
         }
     }
 
@@ -113,12 +113,12 @@ public class ZooControllerTest {
         LocalDateTime dateBefore = LocalDateTime.now();
         LocalDateTime dateAfter = dateBefore.plusDays(2);
 
-        AnimalDTO animalDTO = new AnimalDTO(UUID.randomUUID(),null,"Male",20,5,20,null,null,dateAfter);
+        AnimalDTO animalDTO = new AnimalDTO(UUID.randomUUID(),"Pablo","Male",20,5,20,null,null,dateAfter);
         try{
             zooController.createAnimal(animalDTO);
             fail();
         }catch (AnimalDemoException exception){
-            assertEquals("Throw AnimalDemoException",exception.getError().getMessage());
+            assertEquals("Throw AnimalDemoException - Wrong animal arrival date",exception.getError().getMessage());
         }
 
     }
@@ -141,7 +141,7 @@ public class ZooControllerTest {
             zooController.createAnimal(animalDTO);
             fail();
         }catch (AnimalDemoException exception){
-            assertEquals("Throw AnimalDemoException",exception.getError().getMessage());
+            assertEquals("Throw AnimalDemoException - The height of the animal must be between 10 and 90",exception.getError().getMessage());
         }
     }
 
@@ -162,7 +162,7 @@ public class ZooControllerTest {
             zooController.createAnimal(animalDTO);
             fail();
         }catch (AnimalDemoException exception){
-            assertEquals("Throw AnimalDemoException",exception.getError().getMessage());
+            assertEquals("Throw AnimalDemoException - The weight of the animal must be between 10 and 50",exception.getError().getMessage());
         }
     }
 
@@ -183,7 +183,7 @@ public class ZooControllerTest {
             zooController.createAnimal(animalDTO);
             fail();
         }catch (AnimalDemoException exception){
-            assertEquals("Throw AnimalDemoException",exception.getError().getMessage());
+            assertEquals("Throw AnimalDemoException - The age of the animal must be between 0 and 90",exception.getError().getMessage());
         }
     }
 

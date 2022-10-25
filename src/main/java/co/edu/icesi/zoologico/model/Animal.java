@@ -1,5 +1,6 @@
 package co.edu.icesi.zoologico.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.hibernate.annotations.Type;
 
@@ -30,6 +31,8 @@ public class Animal {
     private Integer height;
     private UUID mother;
     private UUID father;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime arrivalDate;
 
 
