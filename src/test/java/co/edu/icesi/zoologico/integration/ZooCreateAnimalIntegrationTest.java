@@ -146,20 +146,6 @@ public class ZooCreateAnimalIntegrationTest {
         assertThat(err, hasProperty("code", is(AnimalErrorCode.CODE_05)));
     }
 
-    @Test
-    @SneakyThrows
-    void createAnimalNameRepeatedTest(){
-        AnimalDTO baseAnimal = baseAnimal();
-        baseAnimal.setName("Gustavo");
-        String body = objectMapper.writeValueAsString(baseAnimal);
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/animals")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(body)).andExpect(status().isBadRequest())
-                .andReturn();
-
-        AnimalDemoError err = objectMapper.readValue(result.getResponse().getContentAsString(), AnimalDemoError.class);
-        assertThat(err, hasProperty("code", is(AnimalErrorCode.CODE_06)));
-    }
 
     @Test
     @SneakyThrows
