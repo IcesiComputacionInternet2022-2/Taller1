@@ -20,7 +20,7 @@ public class AnimalDTO {
 
     @NotNull(message = "The name of the animal cannot be null")
     @Size(min = 1, max = 120, message = "The name of the animal must be between 1 and 120 characters")
-    @Pattern(regexp = "[a-zA-Z]+\\w*[a-zA-Z]*", message = "The name of the animal can only contain letters")
+    @Pattern(regexp = "[a-zA-Z]+[\\Wa-zA-Z]*[a-zA-Z]+", message = "The name of the animal can only contain letters")
     private String name;
 
     @NotNull(message = "The sex of the animal cannot be null")
@@ -36,7 +36,7 @@ public class AnimalDTO {
     @NotNull(message = "The arrival date cannot be null")
     @Past(message = "The arrival date must be a past or present date")
     private LocalDateTime arrivalDate;
-
+    
     private UUID motherID;
 
     private UUID fatherID;
