@@ -35,8 +35,8 @@ public class AnimalResponseDTO {
     private LocalDateTime arrivalDate;
 
     @Valid
-    private Animal mother;
+    private AnimalDTO mother;
 
     @Valid
-    private Animal father;
+    private AnimalDTO father;
 }

@@ -18,13 +18,7 @@ export default async function handler(
         const data = await response.json()
         res.status(response.status).json(data)
 
-    }else if (req.method === 'GET') {
-
-        const capybaraID = req.body.capybaraID
-
-        const response = await fetch("http://localhost:8080/capybaras/" + capybaraID)
-        const data = await response.json()
-
-        res.status(response.status).json(data)
     }
+
+    res.status(400)
 }

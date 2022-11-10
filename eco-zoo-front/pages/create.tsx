@@ -13,8 +13,8 @@ export default function Create() {
             age: data.get("age"),
             height: data.get("height"),
             arrivalDate: data.get("date"),
-            motherID: null,
-            fatherID: null
+            motherID: data.get("motherID"),
+            fatherID: data.get("fatherID")
         }
 
         const res = await fetch('/api/capybaras', {
@@ -106,13 +106,13 @@ export default function Create() {
                                 <label className="label">
                                     <span className="label-text"> Mother ID</span>
                                 </label>
-                                <input name="name" type="text" placeholder="e.g: 53421b12-2e37-47d7-9576-d76f3bac17f9" className="input input-bordered grow"/>
+                                <input name="motherID" type="text" placeholder="e.g: 53421b12-2e37-47d7-9576-d76f3bac17f9" className="input input-bordered grow"/>
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text"> Father ID</span>
                                 </label>
-                                <input name="name" type="text" placeholder="e.g: 0583a217-7f82-4984-bc8e-83963e5fab00" className="input input-bordered grow"/>
+                                <input name="fatherID" type="text" placeholder="e.g: 0583a217-7f82-4984-bc8e-83963e5fab00" className="input input-bordered grow"/>
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Create</button>

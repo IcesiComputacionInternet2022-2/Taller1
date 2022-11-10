@@ -1,8 +1,11 @@
 import Layout from "../components/layout";
 
 export default function GetAll({capybaras}: {capybaras: any[]}){
+
+    if(capybaras.length === 0) return <div className="margin auto">No data found</div>
+
     return (
-        <div className="overflow-x-auto mb-16">
+        <div className="overflow-x-auto min-h-screen pb-16 bg-base-200">
             <table className="table-compact table-zebra w-full">
                 <thead>
                 <tr>
