@@ -97,7 +97,7 @@ public class AnimalControllerTest {
                 .age(animal2.getAge())
                 .weight(animal2.getWeight())
                 .arrivalDate(animal2.getArrivalDate())
-                .mother(animal1)
+                .mother(animalMapper.animalToCapybara(animal1))
                 .build();
         AnimalResponseDTO animalDTO3 = AnimalResponseDTO.builder()
                 .id(animal3.getId())
@@ -107,8 +107,8 @@ public class AnimalControllerTest {
                 .age(animal3.getAge())
                 .weight(animal3.getWeight())
                 .arrivalDate(animal3.getArrivalDate())
-                .mother(animal1)
-                .father(animal2)
+                .mother(animalMapper.animalToCapybara(animal1))
+                .father(animalMapper.animalToCapybara(animal2))
                 .build();
         animalsDTO.add(animalDTO1);
         animalsDTO.add(animalDTO2);

@@ -13,10 +13,6 @@ public interface AnimalMapper {
 
     Animal fromDTO(AnimalDTO animalDTO);
 
-    AnimalDTO fromAnimal(Animal animal);
-
-    CapybaraDTO fromAnimalDTO(AnimalDTO animalDTO);
-
     CapybaraDTO animalToCapybara(Animal animal);
 
     Animal capybaraToAnimal(CapybaraDTO capybaraDTO);
