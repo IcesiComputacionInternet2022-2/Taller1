@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -29,6 +30,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<AnimalError> handleConstraintException(ConstraintViolationException constraintViolationException) {
         AnimalException animalException = new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(AnimalErrorCode.CODE_06, Objects.requireNonNull(constraintViolationException.getConstraintViolations().stream().reduce("",(s, constraintViolation) ->  constraintViolation.getMessage(), (s, s2) -> s + s2))));
+        return new ResponseEntity<>(animalException.getError(), animalException.getHttpStatus());
+    }
+    @ExceptionHandler
+    public ResponseEntity<AnimalError> handleAnnotationTypeMismatch(MethodArgumentTypeMismatchException methodArgumentTypeMismatchException) {
+        AnimalException animalException = new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(AnimalErrorCode.CODE_06, AnimalErrorCode.CODE_06.getMessage()));
         return new ResponseEntity<>(animalException.getError(), animalException.getHttpStatus());
     }
 }

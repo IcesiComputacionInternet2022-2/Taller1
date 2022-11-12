@@ -2,7 +2,7 @@ import Navbar from './navbar'
 import {useState} from "react";
 import {useRouter} from "next/router";
 
-export default function Layout({children}: {children: any}) {
+export default function Layout({children}: { children: any }) {
 
     const router = useRouter()
 
