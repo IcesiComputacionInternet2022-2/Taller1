@@ -1,4 +1,4 @@
-package co.edu.icesi.zoowebpage.config.jackson;
+package co.edu.icesi.Zootopia.config.jackson;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;

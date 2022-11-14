@@ -1,4 +1,4 @@
-package co.edu.icesi.zoowebpage.config.jackson;
+package co.edu.icesi.Zootopia.config.jackson;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;

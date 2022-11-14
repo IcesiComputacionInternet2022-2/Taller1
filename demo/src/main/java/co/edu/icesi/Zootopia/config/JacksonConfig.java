@@ -1,7 +1,7 @@
 package co.edu.icesi.Zootopia.config;
 
-import co.edu.icesi.zoowebpage.config.jackson.LocalDateTimeDeserializer;
-import co.edu.icesi.zoowebpage.config.jackson.LocalDateTimeSerializer;
+import co.edu.icesi.Zootopia.config.jackson.LocalDateTimeDeserializer;
+import co.edu.icesi.Zootopia.config.jackson.LocalDateTimeSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.springframework.context.annotation.Bean;
