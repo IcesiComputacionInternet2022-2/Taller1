@@ -1,0 +1,3 @@
+com\icesi\edu\zoo\service\AnimalServiceTest.class
+com\icesi\edu\zoo\controller\AnimalControllerTest.class
+com\icesi\edu\zoo\integration\AnimalIntegrationTest.class

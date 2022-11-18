@@ -49,9 +49,9 @@ public class AnimalServiceImpl implements AnimalService {
     public Animal createAnimal(Animal animalDTO) {
         if(animalExists(animalDTO.getName()))
             throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_O5, CODE_O5.getMessage()));
-        if(!animalExists(animalDTO.getMaleParentName()))
+        if(!parentExists(animalDTO.getMaleParentName()))
             throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_06, CODE_06.getMessage()));
-        if(!animalExists(animalDTO.getFemaleParentName()))
+        if(!parentExists(animalDTO.getFemaleParentName()))
             throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_06, CODE_06.getMessage()));
         checkParentSex(animalDTO.getMaleParentName(), "m");
         checkParentSex(animalDTO.getFemaleParentName(), "h");
@@ -60,11 +60,17 @@ public class AnimalServiceImpl implements AnimalService {
     }
 
     private boolean animalExists(String animalName) {
-        return animalName == null || animalRepository.findById(animalName).isPresent();
+        return animalRepository.findById(animalName).isPresent();
+    }
+
+    private boolean parentExists(String animalName) {
+        return animalName.isBlank() || animalExists(animalName);
     }
 
     private void checkParentSex(String animalName, String sex) {
         if(animalName == null)
+            return;
+        if(animalName.isBlank())
             return;
         Animal parent = animalRepository.findById(animalName).orElse(null);
         if(Character.toString(parent.getSex()).equalsIgnoreCase(sex))

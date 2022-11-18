@@ -1,6 +1,7 @@
 com\icesi\edu\zoo\dto\AnimalDTO.class
 com\icesi\edu\zoo\controller\AnimalController.class
 com\icesi\edu\zoo\repository\AnimalRepository.class
+com\icesi\edu\zoo\error\GlobalExceptionHandler.class
 com\icesi\edu\zoo\service\impl\AnimalServiceImpl.class
 com\icesi\edu\zoo\ZooApplication.class
 com\icesi\edu\zoo\mapper\AnimalMapper.class

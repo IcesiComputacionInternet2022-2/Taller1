@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequestMapping("/animal")
+@CrossOrigin(origins = "http://localhost:3000/")
 public interface AnimalAPI {
 
     @GetMapping("/{animalName}")

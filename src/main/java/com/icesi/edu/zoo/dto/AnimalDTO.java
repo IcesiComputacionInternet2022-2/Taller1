@@ -34,7 +34,7 @@ public class AnimalDTO {
 
     private double height;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date arrivalDate;
 
 }
