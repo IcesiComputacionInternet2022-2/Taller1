@@ -24,8 +24,7 @@ class List extends Component {
   render() {
     return (
       <div class="d-flex justify-content-center align-items-center">
-        <section class="w-75" style={{ backgroundColor: "#2779e2" }}>
-          <div class="vh-100">
+        <section class="w-75" style={{ backgroundColor: "#2779e2", height: "70vh" }}>
             <div class="d-flex justify-content-center align-items-center h-100">
               <div class="card card-container text-center">
                 <div class="card card-header">
@@ -59,7 +58,6 @@ class List extends Component {
                 </div>
               </div>
             </div>
-          </div>
         </section>
       </div>
     );
