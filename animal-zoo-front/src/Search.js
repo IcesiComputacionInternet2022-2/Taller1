@@ -11,6 +11,9 @@ class Search extends Component {
 
   findFamily() {
     const name = document.getElementById("to-search").value;
+    if(name === '') {
+        return;
+    }
     fetch(`http://localhost:8080/animal/${name}`)
       .then((res) => res.json())
       .then(
@@ -25,14 +28,6 @@ class Search extends Component {
           alert(error);
         }
       );
-  }
-
-  componentDidMount() {
-    const name = document.getElementById("to-search").value;
-    console.log(name)
-    if (name != "") {
-      this.findFamily();
-    }
   }
 
   render() {
