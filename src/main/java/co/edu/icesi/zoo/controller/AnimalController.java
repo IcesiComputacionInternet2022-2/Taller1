@@ -2,9 +2,12 @@ package co.edu.icesi.zoo.controller;
 
 import co.edu.icesi.zoo.api.AnimalAPI;
 import co.edu.icesi.zoo.dto.AnimalDTO;
+import co.edu.icesi.zoo.dto.AnimalNoParentsDTO;
+import co.edu.icesi.zoo.dto.AnimalSearchDTO;
 import co.edu.icesi.zoo.error.exception.AnimalError;
 import co.edu.icesi.zoo.error.exception.AnimalException;
 import co.edu.icesi.zoo.mapper.AnimalMapper;
+import co.edu.icesi.zoo.model.Animal;
 import co.edu.icesi.zoo.service.AnimalService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -29,8 +32,11 @@ public class AnimalController implements AnimalAPI{
     public final AnimalMapper animalMapper;
 
     @Override
-    public AnimalDTO getAnimal(UUID animalId) {
-        return animalMapper.fromAnimal(animalService.getAnimal(animalId));
+    public AnimalSearchDTO getAnimal(UUID animalId) {
+        Animal animal = animalService.getAnimal(animalId);
+        AnimalNoParentsDTO father = animalMapper.fromAnimalToNoParentsDTO(animalService.getAnimal(animal.getFatherId()));
+        AnimalNoParentsDTO mother = animalMapper.fromAnimalToNoParentsDTO(animalService.getAnimal(animal.getMotherId()));
+        return animalMapper.fromAnimalToSearchDTO(animal, father, mother);
     }
 
     @Override
@@ -39,12 +45,12 @@ public class AnimalController implements AnimalAPI{
         validateNameCharacters(animalDTO.getName());
         validateGender(animalDTO.getGender());
         validateArrivalDate(animalDTO.getArrivalDate());
-        return animalMapper.fromAnimal(animalService.createAnimal(animalMapper.fromDTO(animalDTO)));
+        return animalMapper.fromAnimalToDTO(animalService.createAnimal(animalMapper.fromDTO(animalDTO)));
     }
 
     @Override
     public List<AnimalDTO> getAnimals() {
-        return animalService.getAnimals().stream().map(animalMapper::fromAnimal).collect(Collectors.toList());
+        return animalService.getAnimals().stream().map(animalMapper::fromAnimalToDTO).collect(Collectors.toList());
     }
 
     private void validateNameSize(String name){

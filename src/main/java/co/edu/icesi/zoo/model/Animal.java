@@ -7,10 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 import org.springframework.lang.Nullable;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.PrePersist;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -28,9 +25,9 @@ public class Animal {
     private UUID id;
     private String name;
     private String gender;
-    private float weight;
-    private Integer age;
-    private float height;
+    private int age;
+    private double weight;
+    private double height;
     private LocalDateTime arrivalDate;
     @Type(type="org.hibernate.type.UUIDCharType")
     @Nullable

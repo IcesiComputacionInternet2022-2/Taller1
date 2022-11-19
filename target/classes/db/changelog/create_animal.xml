@@ -11,13 +11,17 @@
                 <constraints nullable="false" primaryKey="true" />
             </column>
             <column name="name" type="varchar(255)" />
-            <column name="gender" type="varchar(255)" />
-            <column name="weight" type="float" />
+            <column name="gender" type="char" />
             <column name="age" type="int" />
-            <column name="height" type="float" />
-            <column name="arrivalDate" type="datetime" />
-            <column name="fatherId" type="UUID" />
-            <column name="motherId" type="UUID" />
+            <column name="weight" type="double" />
+            <column name="height" type="double" />
+            <column name="arrival_date" type="datetime" />
+            <column name="father_id" type="UUID" />
+            <column name="mother_id" type="UUID" />
         </createTable>
+        <addForeignKeyConstraint baseTableName="animal" baseColumnNames="father_id" constraintName="father_fk" referencedTableName="animal"
+                                 referencedColumnNames="id" />
+        <addForeignKeyConstraint baseTableName="animal" baseColumnNames="mother_id" constraintName="mother_fk" referencedTableName="animal"
+                                 referencedColumnNames="id" />
     </changeSet>
 </databaseChangeLog>

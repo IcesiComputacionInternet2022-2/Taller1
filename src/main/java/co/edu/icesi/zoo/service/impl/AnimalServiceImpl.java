@@ -41,30 +41,31 @@ public class AnimalServiceImpl implements AnimalService {
     public List<Animal> getAnimals() {
         return StreamSupport.stream(animalRepository.findAll().spliterator(),false).collect(Collectors.toList());
     }
-
-    private void validateWeight(float weight){
-        if( weight < WEIGHT.getMin() || weight > WEIGHT.getMax() ){
-            throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_S1, CODE_S1.getErrorMessage()) );
-        }
-    }
-
     private void validateAge(int age){
         if( age < AGE.getMin() || age > AGE.getMax() ){
             throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_S2, CODE_S2.getErrorMessage()) );
         }
     }
 
-    private void validateHeight(float height){
+    private void validateWeight(double weight){
+        if( weight < WEIGHT.getMin() || weight > WEIGHT.getMax() ){
+            throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_S1, CODE_S1.getErrorMessage()) );
+        }
+    }
+
+
+    private void validateHeight(double height){
         if( height < HEIGHT.getMin() || height > HEIGHT.getMax() ){
             throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_S3, CODE_S3.getErrorMessage()) );
         }
     }
 
     private void validateParentsGender(UUID fatherId, UUID motherId){
-        Animal father = animalRepository.findById(fatherId).orElse(null);
-        Animal mother = animalRepository.findById(motherId).orElse(null);
 
-        if(father != null && mother != null){
+        if(fatherId != null && motherId != null){
+            Animal father = animalRepository.findById(fatherId).orElse(null);
+            Animal mother = animalRepository.findById(motherId).orElse(null);
+
             if(father.getGender().equals(mother.getGender())){
                 throw new AnimalException( HttpStatus.BAD_REQUEST, new AnimalError( CODE_S4, CODE_S4.getErrorMessage() ) );
             }

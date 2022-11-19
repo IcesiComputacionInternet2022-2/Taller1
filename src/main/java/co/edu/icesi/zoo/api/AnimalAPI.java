@@ -11,7 +11,7 @@ import java.util.UUID;
 public interface AnimalAPI {
 
     @GetMapping("/{animalId}")
-    public AnimalDTO getAnimal(@PathVariable UUID animalId);
+    public AnimalSearchDTO getAnimal(@PathVariable UUID animalId);
 
     @PostMapping()
     public AnimalDTO createAnimal(@RequestBody AnimalDTO animalDTO);
