@@ -1,0 +1,10 @@
+{
+  "name":"Asmodeus",
+  "sex": "F",
+  "weight": 1.5,
+  "age": 30,
+  "height":0.1,
+  "arrivalDate":"2020-09-24T23:37:42",
+  "motherId":"6c9e1336-13b8-4ecd-aa6f-f473c3c2e018",
+  "fatherId": "b55d9d91-2d6f-48f6-9442-8f654a0aba47"
+}

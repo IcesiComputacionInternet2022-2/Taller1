@@ -1,0 +1,7 @@
+co/edu/icesi/zoo/integration/GetAnimalWithParentsIntegrationTest.class
+co/edu/icesi/zoo/integration/GetAnimalsIntegrationTest.class
+co/edu/icesi/zoo/service/AnimalServiceTest.class
+co/edu/icesi/zoo/ZooApplicationTests.class
+co/edu/icesi/zoo/integration/CreateAnimalIntegrationTest.class
+co/edu/icesi/zoo/integration/config/InitialDataConfig.class
+co/edu/icesi/zoo/controller/AnimalRestControllerTests.class

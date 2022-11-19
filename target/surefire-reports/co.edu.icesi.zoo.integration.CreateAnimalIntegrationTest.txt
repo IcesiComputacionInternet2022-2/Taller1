@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: co.edu.icesi.zoo.integration.CreateAnimalIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 7.004 s <<< FAILURE! - in co.edu.icesi.zoo.integration.CreateAnimalIntegrationTest
+wrongMotherSexTest  Time elapsed: 0.264 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<400> but was:<200>
+	at co.edu.icesi.zoo.integration.CreateAnimalIntegrationTest.wrongMotherSexTest(CreateAnimalIntegrationTest.java:281)
+
+wrongFatherSexTest  Time elapsed: 0.017 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Wrong father sex: father has to be male (sex='M')> but was: <Not unique name: the name of the animal must be unique>
+	at co.edu.icesi.zoo.integration.CreateAnimalIntegrationTest.verifyAnimalError(CreateAnimalIntegrationTest.java:338)
+	at co.edu.icesi.zoo.integration.CreateAnimalIntegrationTest.wrongFatherSexTest(CreateAnimalIntegrationTest.java:307)
+
