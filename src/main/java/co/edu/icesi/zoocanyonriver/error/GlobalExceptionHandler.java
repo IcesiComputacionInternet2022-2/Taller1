@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler
-    public ResponseEntity<TigerDemoError> handleException(TigerDemoException userDemoException){
-        return new ResponseEntity<>(userDemoException.getError(),userDemoException.getHttpStatus());
+    public ResponseEntity<TigerDemoError> handleException(TigerDemoException tigerDemoException){
+        return new ResponseEntity<>(tigerDemoException.getError(),tigerDemoException.getHttpStatus());
     }
 }

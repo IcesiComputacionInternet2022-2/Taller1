@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class TigerDemoError extends Throwable {
+public class TigerDemoError{
 
     private String code;
     private String message;
