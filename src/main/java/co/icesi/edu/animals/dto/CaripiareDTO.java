@@ -38,12 +38,12 @@ public class CaripiareDTO {
 
     private UUID id;
 
-    @NotEmpty(message = "'name' may not be empty.")
+    @NotBlank(message = "'name' may not be empty.")
     @Pattern(regexp = NAME_REGEX, message = "'name' may only contain letters and spaces.")
     @Size(max = MAX_NAME_LENGTH, message = "'name' may not be longer than 120 characters.")
     private String name;
 
-    @NotEmpty(message = "'gender' may not be empty.")
+    @NotBlank(message = "'gender' may not be empty.")
     @Pattern(regexp = GENDER_REGEX, message = "'gender' may only be 'M' or 'm' for male and 'F' or 'f' for female.")
     private String gender;
 

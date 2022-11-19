@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RequestMapping("/caripiares")
+@CrossOrigin(origins = "http://localhost:8081")
 public interface CaripiareAPI {
 
     @PostMapping()
@@ -24,6 +25,6 @@ public interface CaripiareAPI {
     @GetMapping
     List<CaripiareDTO> getCaripiares();
 
-    @PostMapping("/id/{id}")
+    @PutMapping("/id/{id}")
     CaripiareDTO updateCaripiare(@PathVariable @NotNull UUID id, @NotNull @Valid @RequestBody CaripiareDTO caripiareDTO);
 }

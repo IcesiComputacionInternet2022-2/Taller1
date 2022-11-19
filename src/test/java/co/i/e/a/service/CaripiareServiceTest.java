@@ -66,7 +66,7 @@ public class CaripiareServiceTest {
     public void testCreateCaripiareAndParents() {
         setUpStage();
         when(caripiareRepository.save(any())).thenReturn(caripiareChildren);
-        when(caripiareRepository.findById(caripiareFather.getId())).thenReturn(Optional.of(caripiareFather));
+        when(caripiareRepository.findById(      caripiareFather.getId())).thenReturn(Optional.of(caripiareFather));
         when(caripiareRepository.findById(caripiareMother.getId())).thenReturn(Optional.of(caripiareMother));
 
         caripiareChildren.setFatherId(caripiareFather.getId());

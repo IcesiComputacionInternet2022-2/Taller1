@@ -3,7 +3,6 @@ package co.icesi.edu.animals.integration;
 import co.icesi.edu.animals.constant.CaripiareErrorCode;
 import co.icesi.edu.animals.dto.CaripiareDTO;
 import co.icesi.edu.animals.error.exception.CaripiareError;
-import co.icesi.edu.animals.integration.config.InitialDataConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
@@ -34,9 +32,8 @@ import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Import({InitialDataConfig.class})
 public class AnimalsCreateCaripiareIntegrationTest {
 
     private static final UUID FATHER_CARIPIARE_UUID = UUID.fromString("f3bf9478-4be3-4f4b-a4b1-b2f84495a1eb");
