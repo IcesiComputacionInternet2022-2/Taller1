@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -69,6 +70,13 @@ public class AnimalServiceImpl implements AnimalService {
             if(father.getGender().equals(mother.getGender())){
                 throw new AnimalException( HttpStatus.BAD_REQUEST, new AnimalError( CODE_S4, CODE_S4.getErrorMessage() ) );
             }
+        }
+    }
+
+    private void validateNameUniqueness(String name){
+        Optional<Animal> animalSearched = animalRepository.findByName(name);
+        if(animalSearched.isPresent()){
+            throw new AnimalException( HttpStatus.BAD_REQUEST, new AnimalError( CODE_S5, CODE_S5.getErrorMessage()) );
         }
     }
 
