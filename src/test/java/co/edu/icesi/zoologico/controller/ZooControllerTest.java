@@ -84,7 +84,6 @@ public class ZooControllerTest {
         AnimalDemoException exception =assertThrows(AnimalDemoException.class, () -> {zooController.createAnimal(animalDTO);} );
         assertEquals("Throw AnimalDemoException - Animal name have an incorrect format",exception.getError().getMessage());
     }
-
     @Test
     public void testVerifyNameHaveSpecialCharacters(){
         AnimalDTO animalDTO = new AnimalDTO(UUID.randomUUID(),"Paco.","Male",20,5,20,null,null,LocalDateTime.now());

@@ -23,7 +23,6 @@ public class Animal {
     @Id
     @Type(type="org.hibernate.type.UUIDCharType")
     private UUID id;
-
     private String name;
     private String gender;
     private Integer weight;

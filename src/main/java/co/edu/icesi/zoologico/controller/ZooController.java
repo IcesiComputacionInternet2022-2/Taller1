@@ -10,6 +10,7 @@ import co.edu.icesi.zoologico.mapper.AnimalMapper;
 import co.edu.icesi.zoologico.service.ZooService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class ZooController implements ZooAPI {
 
     private final AnimalMapper animalMapper;
@@ -29,7 +31,6 @@ public class ZooController implements ZooAPI {
     public AnimalWithParentsDTO getAnimalByName(String animalName) {
         return zooService.getAnimalByName(animalName);
     }
-
 
 
     @Override

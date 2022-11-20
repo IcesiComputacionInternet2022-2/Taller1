@@ -29,17 +29,20 @@ public class ZooServiceImpl implements ZooService {
 
     @Override
     public AnimalWithParentsDTO getAnimalByName(String animalName) {
-
         List<Animal> animalListDB= StreamSupport.stream(zooRepository.findAll().spliterator(),false).collect(Collectors.toList());
         Animal animal= new Animal();
-        Animal animalMother= new Animal();
-        Animal animalFather= new Animal();
+        Animal animalMother= null;
+        Animal animalFather= null;
         System.out.println(animalListDB.size()+" size");
         for (Animal animalDB: animalListDB ) {
             if (animalDB.getName().equals(animalName)){
                 animal=animalDB;
-                animalMother= getAnimalParent(animalDB.getMother());
-                animalFather= getAnimalParent(animalDB.getFather());
+                if(animalDB.getMother()!=null){
+                    animalMother= getAnimalParent(animalDB.getMother());
+                }
+                if(animalDB.getFather()!=null){
+                    animalFather= getAnimalParent(animalDB.getFather());
+                }
                 break;}}
         AnimalParentsDTO animalMotherDTO = animalMapper.fromAnimalParent(animalMother);
         AnimalParentsDTO animalFatherDTO = animalMapper.fromAnimalParent(animalFather);
@@ -48,15 +51,16 @@ public class ZooServiceImpl implements ZooService {
     }
 
     private Animal getAnimalParent(UUID fatherId){
+
         return zooRepository.findById(fatherId).orElse(null);}
 
 
     @Override
     public Animal createAnimal(Animal animal) {
-
         verifyNameRepeated(animal.getName());
         verifyFatherIdIsCorrectOrIsFemale(animal.getFather());
         verifyMotherIdIsCorrectOrIsMale(animal.getMother());
+
         return zooRepository.save(animal);
     }
 

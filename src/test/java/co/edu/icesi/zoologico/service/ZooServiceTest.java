@@ -119,10 +119,11 @@ public class ZooServiceTest {
     @Test
     public void testFatherIsFemale(){
         Animal animalFather= new Animal(UUID.randomUUID(),"Topa Father","Female",20,500,20,null,null, LocalDateTime.now());
-        when(zooRepository.findById(animalFather.getId())).thenReturn(Optional.ofNullable(animalFather));
 
         Animal animalToAdd = new Animal(UUID.randomUUID(),"Topito","Male",20,500,20,null,animalFather.getId(), LocalDateTime.now());
         when(zooRepository.save(ArgumentMatchers.any())).thenReturn(animalToAdd);
+        when(zooRepository.findById(animalFather.getId())).thenReturn(Optional.ofNullable(animalFather));
+
 
         try{
             zooService.createAnimal(animalToAdd);

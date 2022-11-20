@@ -62,12 +62,9 @@ public class ZooGetAnimalByNameIntegrationTest {
     }
 
 
-
-
     @Test
     @SneakyThrows
     public void getAnimalByNameSucesfully() {
-
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/animals/Gustavo")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -78,8 +75,6 @@ public class ZooGetAnimalByNameIntegrationTest {
         assertEquals("Gustavo",userResult.getName());
         assertNotNull(userResult);
         assertThat(userResult, hasProperty("name", is("Gustavo")));
-
     }
-
 
 }
