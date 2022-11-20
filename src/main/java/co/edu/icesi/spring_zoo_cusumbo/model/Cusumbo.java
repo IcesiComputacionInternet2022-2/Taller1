@@ -2,6 +2,7 @@ package co.edu.icesi.spring_zoo_cusumbo.model;
 
 import lombok.*;
 import org.hibernate.annotations.Type;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -36,6 +37,7 @@ public class Cusumbo {
 
     private float height;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'hh:mm")
     private LocalDateTime arrivalDate;
 
     private UUID fatherId;

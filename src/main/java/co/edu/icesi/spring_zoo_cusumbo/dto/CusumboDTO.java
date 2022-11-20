@@ -3,6 +3,7 @@ package co.edu.icesi.spring_zoo_cusumbo.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 
 import java.time.LocalDateTime;
@@ -25,6 +26,7 @@ public class CusumboDTO {
 
     private float height;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'hh:mm")
     private LocalDateTime arrivalDate;
 
     @Nullable

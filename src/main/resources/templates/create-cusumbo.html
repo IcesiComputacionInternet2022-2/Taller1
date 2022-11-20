@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cusumbo Zoo - Create Cusumbo</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand bg-dark navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Cusumbo Zoo</a>
+        <div class="navbar-nav">
+            <a class="nav-link active" href="../home">Home</a>
+            <a class="nav-link active" href="">Add Cusumbo</a>
+            <a class="nav-link active" href="./find-cusumbo">Find Cusumbo</a>
+            <a class="nav-link active" href="./view-cusumbos">View Cusumbos</a>
+        </div>
+    </div>
+</nav>
+<br>
+<div class="container">
+    <form th:action="@{/cusumbos/create-cusumbo/save}" th:object="${cusumboDTO}" method="post">
+        <div class="mb-3">
+            <label for="c-name" class="form-label">Name</label>
+            <input type="text"  th:field="*{name}" class="form-control" id="c-name">
+        </div>
+        <label for="c-sex" class="form-label">Sex</label>
+        <select class="form-select" id="c-sex" th:field="*{sex}">
+            <option selected value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+        <br>
+        <div class="mb-3">
+            <label for="c-weight" class="form-label">Weight (Kg)</label>
+            <input type="number" step = ".01" min = 0 class="form-control" id="c-weight" th:field="*{weight}">
+        </div>
+        <div class="mb-3">
+            <label for="c-height" class="form-label">Height (cm)</label>
+            <input type="number" step=".01" min = 0 class="form-control" id="c-height" th:field="*{height}">
+        </div>
+        <div class="mb-3">
+            <label for="c-age" class="form-label">Age (Years)</label>
+            <input type="number" min=0 max=15 class="form-control" id="c-age" th:field="*{age}">
+        </div>
+
+        <div class="mb-3">
+            <label for="c-arrivaldate" class="form-label">Arrival Date</label>
+            <input type="datetime-local" class="form-control" id="c-arrivaldate" th:name="arrivalDate2">
+        </div>
+        <div class="mb-3">
+            <label for="c-fid" class="form-label">Father Id</label>
+            <input type="text" class="form-control" id="c-fid" th:field="*{fatherId}">
+        </div>
+        <div class="mb-3">
+            <label for="c-mid" class="form-label">Mother Id</label>
+            <input type="text" class="form-control" id="c-mid" th:field="*{motherId}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Cusumbo</button>
+    </form>
+</div>
+</body>
+</html>

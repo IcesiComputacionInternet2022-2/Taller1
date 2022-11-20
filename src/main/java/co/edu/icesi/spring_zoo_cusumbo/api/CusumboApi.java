@@ -4,7 +4,6 @@ import co.edu.icesi.spring_zoo_cusumbo.dto.CusumboDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RequestMapping("/animals/cusumbo")
 public interface CusumboApi {
