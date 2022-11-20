@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Create animal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="text-white" style="background-image: url('https://images.pexels.com/photos/1766838/pexels-photo-1766838.jpeg?cs=srgb&dl=pexels-baskin-creative-studios-1766838.jpg&fm=jpg'); background-size: cover;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="#">Animals Website</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/animals/animals">List of animals</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/animals/create">Register an animal</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/animals/searchAnimal">Search an animal</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="row text-center mt-2">
+    <span class="h2">Animals index</span>
+  </div>
+  <div class="row">
+    <div class="col-5 offset-1">
+      <form method="post" th:action="@{/animals/create}" th:object="${animalParentsDTO}">
+        <div class="form-group">
+          <label for="txtAnimalName">Animal name</label>
+          <input type="text" class="form-control" placeholder="Name" th:field="*{name}" name="name" id="txtAnimalName">
+        </div>
+        <div class="form-group">
+          <label for="txtAnimalGender">Animal gender</label>
+          <input type="text" class="form-control" placeholder="M/W" th:field="*{gender}" name="gender" id="txtAnimalGender">
+        </div>
+        <div class="form-group">
+          <label for="txtAnimalweight">Animal weight</label>
+          <input type="number" class="form-control" placeholder="8.4" step="0.01" th:field="*{weight}" name="weight" id="txtAnimalweight">
+        </div>
+        <div class="form-group">
+          <label for="txtAnimalAge">Animal age</label>
+          <input type="number" class="form-control" placeholder="21" th:field="*{age}" name="age" id="txtAnimalAge">
+        </div>
+        <div class="form-group">
+          <label for="txtAnimalHeight">Animal height</label>
+          <input type="number" class="form-control" placeholder="67.5" step="0.01" th:field="*{height}" name="height" id="txtAnimalheight">
+        </div>
+        <div class="form-group">
+          <label for="txtAnimalArriveDate">Animal arrive date</label>
+          <input type="date" class="form-control" th:field="*{arriveDate}" name="arriveDate" id="txtAnimalArriveDate">
+        </div>
+        <div class="form-group">
+          <label for="txtAnimalFather">Animal father id</label>
+          <input type="text" class="form-control" placeholder="Animal id" th:field="*{fatherId}" name="fatherId" id="txtAnimalFather">
+        </div>
+        <div class="form-group">
+          <label for="txtAnimalMother">Animal mother id</label>
+          <input type="text" class="form-control" placeholder="Animal id" th:field="*{motherId}" name="motherId" id="txtAnimalMother">
+        </div>
+        <input type="submit" value="Submit" class="btn btn-success mt-2"/>
+      </form>
+    </div>
+    <div class="col-5">
+      <div th:if="${animalCreationResponse}">
+        <div class="h3 text-white" th:text="${message}"></div>
+        <div th:if="${createdSuccessfully}">
+          <a th:href="@{/animals/searchAnimal/{animalId}(animalId=${animalCreatedId})}"><button class="btn btn-success">Click here to see it</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

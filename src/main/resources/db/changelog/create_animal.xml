@@ -19,5 +19,41 @@
             <column name="fatherId" type="UUID" />
             <column name="motherId" type="UUID" />
         </createTable>
+
+        <insert tableName="animal">
+            <column name="id" value="69f5d262-6869-11ed-9022-0242ac120002"/>
+            <column name="name" value="Nutria padre"/>
+            <column name="gender" value="M"/>
+            <column name="weight" value="8.4"/>
+            <column name="age" value="21"/>
+            <column name="height" value="67.5"/>
+            <column name="arriveDate" value="2022-11-20"/>
+            <column name="fatherId" value="NULL"/>
+            <column name="motherId" value="NULL"/>
+        </insert>
+
+        <insert tableName="animal">
+            <column name="id" value="b281ae7a-6869-11ed-9022-0242ac120002"/>
+            <column name="name" value="Nutria Madre"/>
+            <column name="gender" value="W"/>
+            <column name="weight" value="8.4"/>
+            <column name="age" value="21"/>
+            <column name="height" value="67.5"/>
+            <column name="arriveDate" value="2022-11-20"/>
+            <column name="fatherId" value="NULL"/>
+            <column name="motherId" value="NULL"/>
+        </insert>
+
+        <insert tableName="animal">
+            <column name="id" value="dd2e5b0a-6869-11ed-9022-0242ac120002"/>
+            <column name="name" value="Nutria hija"/>
+            <column name="gender" value="M"/>
+            <column name="weight" value="8.4"/>
+            <column name="age" value="21"/>
+            <column name="height" value="67.5"/>
+            <column name="arriveDate" value="2022-11-20"/>
+            <column name="fatherId" value="69f5d262-6869-11ed-9022-0242ac120002"/>
+            <column name="motherId" value="b281ae7a-6869-11ed-9022-0242ac120002"/>
+        </insert>
     </changeSet>
 </databaseChangeLog>

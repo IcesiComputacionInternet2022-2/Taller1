@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="text-white" style="background-image: url('https://images.pexels.com/photos/1766838/pexels-photo-1766838.jpeg?cs=srgb&dl=pexels-baskin-creative-studios-1766838.jpg&fm=jpg'); background-size: cover;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="#">Animals Website</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/animals/animals">List of animals</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/animals/create">Register an animal</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/animals/searchAnimal">Search an animal</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="row text-center mt-2">
+    <span class="h2" th:text="${title}">List of animals</span>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col" class="text-white">Id</th>
+        <th scope="col" class="text-white">Name</th>
+        <th scope="col" class="text-white">Gender</th>
+        <th scope="col" class="text-white">Weight</th>
+        <th scope="col" class="text-white">Age</th>
+        <th scope="col" class="text-white">Height</th>
+        <th scope="col" class="text-white">Arrive date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="animal: ${animals}">
+        <td th:text="${animal.id}" class="text-white"></td>
+        <td th:text="${animal.name}" class="text-white"></td>
+        <td th:text="${animal.gender}" class="text-white"></td>
+        <td th:text="${animal.weight}" class="text-white"></td>
+        <td th:text="${animal.age}" class="text-white"></td>
+        <td th:text="${animal.height}" class="text-white"></td>
+        <td th:text="${animal.arriveDate}" class="text-white"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

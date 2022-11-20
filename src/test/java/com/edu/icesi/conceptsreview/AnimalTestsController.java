@@ -14,10 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -33,7 +30,7 @@ public class AnimalTestsController {
             "NutriaPadre", "M", Float.parseFloat("8.4"),
             Integer.parseInt("8"),
             Float.parseFloat("67.5"),
-            LocalDateTime.now(),
+            new Date(),
             null, null
     );
 

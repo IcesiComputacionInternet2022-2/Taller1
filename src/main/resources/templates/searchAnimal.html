@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="text-white" style="background-image: url('https://images.pexels.com/photos/1766838/pexels-photo-1766838.jpeg?cs=srgb&dl=pexels-baskin-creative-studios-1766838.jpg&fm=jpg'); background-size: cover;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="#">Animals Website</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/animals/animals">List of animals</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/animals/create">Register an animal</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/animals/searchAnimal">Search an animal</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="row text-center mt-2">
+    <span class="h2 text-white">Search for an animal</span>
+  </div>
+  <form method="GET" th:action="@{/searchAnimal/}">
+    <div class="form-group">
+      <label for="txtAnimalId">Animal UUID</label>
+      <input type="text" class="form-control" placeholder="UUID" name="animalId" id="txtAnimalId">
+    </div>
+    <button type="submit" class="btn btn-success mt-3">Search</button>
+  </form>
+  <div id="divFoundedAnimal" class="text-dark row" th:if="${animalPresent}">
+    <div class="col-4 mt-3">
+      <div class="card border-dark" style="width: 18rem;">
+        <span class="text-center py-1">Nutria Searched</span>
+        <img class="card-img-top" src="https://dam.ngenespanol.com/wp-content/uploads/2020/12/nutrias-tienen-piedra-favorita.jpg" alt="Card image cap">
+        <div class="card-body"><b>Name:</b>
+          <h5 class="card-title" th:text="${animal.name}"></h5>
+          <div><b>Gender: </b><span th:text="${animal.gender}"></span></div>
+          <div><b>Weight: </b><span th:text="${animal.weight}"></span> Kg</div>
+          <div><b>Age: </b><span th:text="${animal.age}"></span> Años</div>
+          <div><b>Height: </b><span th:text="${animal.height}"></span> Cm</div>
+          <div><b>Arrive Date: </b><span th:text="${animal.arriveDate}"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+      <div class="col-4 mt-3" th:if="${fatherPresent}">
+        <div class="card border-dark" style="width: 18rem;">
+          <span class="text-center py-1">Father</span>
+          <img class="card-img-top" src="https://dam.ngenespanol.com/wp-content/uploads/2020/12/nutrias-tienen-piedra-favorita.jpg" alt="Card image cap">
+          <div class="card-body"><b>Name:</b>
+            <h5 class="card-title" th:text="${father.name}"></h5>
+            <div><b>Gender: </b><span th:text="${father.gender}"></span></div>
+            <div><b>Peso: </b><span th:text="${father.weight}"></span> Kg</div>
+            <div><b>Age: </b><span th:text="${father.age}"></span> Años</div>
+            <div><b>Height: </b><span th:text="${father.height}"></span> Cm</div>
+            <div><b>Arrive Date: </b><span th:text="${father.arriveDate}"></span>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-4 mt-3" th:if="${motherPresent}">
+      <div class="card border-dark" style="width: 18rem;">
+        <span class="text-center py-1">Mother</span>
+        <img class="card-img-top" src="https://dam.ngenespanol.com/wp-content/uploads/2020/12/nutrias-tienen-piedra-favorita.jpg" alt="Card image cap">
+        <div class="card-body"><b>Name:</b>
+          <h5 class="card-title" th:text="${mother.name}"></h5>
+          <div><b>Gender: </b><span th:text="${mother.gender}"></span></div>
+          <div><b>Weight: </b><span th:text="${mother.weight}"></span> Kg</div>
+          <div><b>Age: </b><span th:text="${mother.age}"></span> Años</div>
+          <div><b>Height: </b><span th:text="${mother.height}"></span> Cm</div>
+          <div><b>Arrive Date: </b><span th:text="${mother.arriveDate}"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  <div th:unless="${animalPresent}">
+    <div class="row text-center mt-1 h3">
+      <span th:text="${message}"></span>
+    </div>
+  </div>
+</body>
+</html>
