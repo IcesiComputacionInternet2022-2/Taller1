@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RequestMapping("/toucans")
+@CrossOrigin(origins = "http://localhost:3000/")
 public interface ToucanAPI {
 
     @GetMapping("/{toucanName}")

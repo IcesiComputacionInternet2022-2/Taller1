@@ -16,8 +16,8 @@
             <column name="age" type="numeric"/>
             <column name="height" type="numeric"/>
             <column name="dateOfArrival" type="date"/>
-            <column name="fatherId" type="UUID"/>
-            <column name="motherId" type="UUID"/>
+            <column name="fatherId" type="varchar(120)"/>
+            <column name="motherId" type="varchar(120)"/>
         </createTable>
         <addForeignKeyConstraint baseTableName="animal" baseColumnNames="fatherId" constraintName="father_fk" referencedTableName="animal"
                                  referencedColumnNames="id" />

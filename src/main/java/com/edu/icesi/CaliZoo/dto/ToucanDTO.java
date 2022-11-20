@@ -17,8 +17,8 @@ import java.util.UUID;
 public class ToucanDTO {
 
     private UUID id;
-    private UUID fatherId;
-    private UUID motherId;
+    private String fatherName;
+    private String motherName;
     @NotBlank
     @NotNull
     @Size(min = 1, max = 120)

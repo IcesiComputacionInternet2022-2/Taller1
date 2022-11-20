@@ -21,8 +21,8 @@ public class Toucan {
     @Id
     @Type(type="org.hibernate.type.UUIDCharType")
     private UUID id;
-    private UUID fatherId;
-    private UUID motherId;
+    private String fatherName;
+    private String motherName;
     private String name;
     private String sex;
     private double weight;

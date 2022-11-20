@@ -73,7 +73,7 @@ public class ToucanServiceTest {
     public void testCorrectFatherSex(){
         List<Toucan> parents = setUpToucanParents();
         Toucan son = setUpToucan();
-        son.setFatherId(parents.get(1).getId());
+        son.setFatherName(parents.get(1).getName());
         assertThrows(ToucanException.class,()-> toucanService.createToucan(son));
         verify(toucanRepository, times(0)).save(any());
     }//End testNotAddAnimalWithExistingName
@@ -82,7 +82,7 @@ public class ToucanServiceTest {
     public void testCorrectMotherSex(){
         List<Toucan> parents = setUpToucanParents();
         Toucan son = setUpToucan();
-        son.setMotherId(parents.get(0).getId());
+        son.setMotherName(parents.get(0).getName());
         assertThrows(ToucanException.class,()-> toucanService.createToucan(son));
         verify(toucanRepository, times(0)).save(any());
     }//End testNotAddAnimalWithExistingName
@@ -90,8 +90,8 @@ public class ToucanServiceTest {
     @Test
     public void testVerifyThereIsParentWithId(){
         Toucan toucan = setUpToucan();
-        UUID notExistingId = UUID.fromString("fdec867f-26a7-4691-a875-4d99b208b861");
-        toucan.setFatherId(notExistingId);
+        String notExistingName = "Angel";
+        toucan.setFatherName(notExistingName);
         assertThrows(ToucanException.class,()-> toucanService.createToucan(toucan));
         verify(toucanRepository, times(0)).save(any());
     }//End testVerifyThereIsParentWithId
@@ -103,7 +103,7 @@ public class ToucanServiceTest {
         Toucan father = new Toucan(fatherId, null, null, "S", "M", 600, 5,
                 65, LocalDate.of(2022, 10, 2));
         Toucan f = toucanService.createToucan(father);
-        Toucan son = new Toucan(sonId, fatherId, null, "FU", "M", 600, 5, 65,
+        Toucan son = new Toucan(sonId, father.getName(), null, "FU", "M", 600, 5, 65,
                 LocalDate.of(2022, 10, 2));
         assertThrows(ToucanException.class,()-> toucanService.createToucan(son));
     }//End testAddFatherToToucan

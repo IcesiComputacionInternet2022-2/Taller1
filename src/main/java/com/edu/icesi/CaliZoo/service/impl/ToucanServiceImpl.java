@@ -36,10 +36,10 @@ public class ToucanServiceImpl implements ToucanService {
         if(toucanDTO == null)
             throw new ToucanException(HttpStatus.BAD_REQUEST,new ToucanError(ErrorCodes.BAD_DATA.getCode(), "Null data is not valid to create a Toucan"));
         thereIsToucanWithName(toucanDTO.getName());
-        validateParentSex(toucanDTO.getMotherId(),"F");
-        validateParentSex(toucanDTO.getFatherId(),"M");
-        thereIsParent(toucanDTO.getFatherId());
-        thereIsParent(toucanDTO.getMotherId());
+        validateParentSex(toucanDTO.getMotherName(),"F");
+        validateParentSex(toucanDTO.getFatherName(),"M");
+        thereIsParent(toucanDTO.getFatherName());
+        thereIsParent(toucanDTO.getMotherName());
         return toucanRepository.save(toucanDTO);
     }//End createToucan
 
@@ -54,10 +54,10 @@ public class ToucanServiceImpl implements ToucanService {
         }
     }//End thereIsToucanWithName
 
-    private void validateParentSex(UUID parentId, String sex){
-        if(parentId != null){
-            Optional<Toucan> parent = toucanRepository.findById(parentId);
-            if(parent.isPresent() && !parent.get().getSex().toUpperCase().matches(sex))
+    private void validateParentSex(String parentName, String sex){
+        if(parentName != null){
+            Toucan parent = getParent(parentName);
+            if(parent != null && !parent.getSex().toUpperCase().matches(sex))
                 throw new ToucanException(HttpStatus.BAD_REQUEST,new ToucanError(ErrorCodes.BAD_DATA.getCode(), "Invalid parent sex"));
         }//End if
     }//End validateParentsSex
@@ -65,15 +65,26 @@ public class ToucanServiceImpl implements ToucanService {
     private List<Toucan> getToucanParents(Toucan toucan){
         List<Toucan> toucanAndParents = new ArrayList<>();
         toucanAndParents.add(toucan);
-        UUID fatherId = toucan.getFatherId();
-        UUID motherId = toucan.getMotherId();
-        if(fatherId != null ) toucanAndParents.add(toucanRepository.findById(fatherId).orElse(null));
-        if(motherId != null ) toucanAndParents.add(toucanRepository.findById(motherId).orElse(null));
+        Toucan father = getParent(toucan.getFatherName());
+        Toucan mother = getParent(toucan.getMotherName());
+        toucanAndParents.add(father);
+        toucanAndParents.add(mother);
         return toucanAndParents;
     }//End getToucanParents
 
-    private void thereIsParent(UUID parentId){
-        if(parentId != null && toucanRepository.findById(parentId).orElse(null) == null)
+    private Toucan getParent(String name){
+        Toucan parent = null;
+        if(name != null ){
+            try{
+                parent = getToucans().stream().filter(f->f.getName().equalsIgnoreCase(name)).findFirst().get();
+            }catch (NoSuchElementException e){
+                parent = null;
+            }//End try..catch
+        }
+        return parent;
+    }
+    private void thereIsParent(String parentName){
+        if(parentName != null && getParent(parentName) == null)
             throw new ToucanException(HttpStatus.BAD_REQUEST, new ToucanError(ErrorCodes.BAD_DATA.getCode(), "There is not a parent with that ID"));
     }//End thereIsParent
 }//End ToucanServiceImpl
