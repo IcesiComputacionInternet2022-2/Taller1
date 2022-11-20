@@ -10,6 +10,7 @@ import co.edu.icesi.calizoowebapp.mapper.AfricanLionMapper;
 import co.edu.icesi.calizoowebapp.service.AfricanLionService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -35,6 +36,7 @@ public class AfricanLionController implements AfricanLionAPI {
         validateAfricanLionFields(africanLionDTO);
         return africanLionMapper.fromAfricanLion(africanLionService.createLion(africanLionMapper.fromAfricanLionDTO(africanLionDTO)));
     }
+
 
     @Override
     public List<AfricanLionDTO> getLions() {

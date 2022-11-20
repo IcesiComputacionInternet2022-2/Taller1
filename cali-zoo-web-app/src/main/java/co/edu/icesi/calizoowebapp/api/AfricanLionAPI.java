@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RequestMapping("/african-lion")
 public interface AfricanLionAPI {
 
