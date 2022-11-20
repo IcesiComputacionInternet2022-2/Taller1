@@ -40,7 +40,7 @@ public class ToucanDTO {
     @Min(value = 18)
     private double height;
     @NotNull
-    @JsonFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfArrival;
 
 }//End ToucanDTO

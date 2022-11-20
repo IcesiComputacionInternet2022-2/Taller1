@@ -28,7 +28,7 @@ public class Toucan {
     private double weight;
     private int age;
     private double height;
-    @JsonFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfArrival;
 
     @PrePersist
