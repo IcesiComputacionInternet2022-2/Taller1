@@ -9,19 +9,21 @@ import java.util.List;
 import java.util.UUID;
 
 @RequestMapping("/animals")
+@CrossOrigin(origins ="http://localhost:3000")
 public interface AnimalAPI {
 
     @GetMapping("/name/{name}")
-    public List<AnimalDTO> getAnimalUsingName(@PathVariable String name);
+    List<AnimalDTO> getAnimalUsingName(@PathVariable String name);
 
     @GetMapping("/id/{id}")
-    public AnimalDTO getAnimalUsingId(@PathVariable UUID id);
+    AnimalDTO getAnimalUsingId(@PathVariable UUID id);
+
     @PostMapping("/createAnimalNoParents")
-    public AnimalDTO createAnimal(@RequestBody @Valid AnimalDTO animalDTO);
+    AnimalDTO createAnimal(@RequestBody @Valid AnimalDTO animalDTO);
 
     @PostMapping("/createAnimalWithParents")
-    public AnimalWithParentsDTO createAnimal(@RequestBody @Valid AnimalWithParentsDTO animalDTO);
+    AnimalWithParentsDTO createAnimal(@RequestBody @Valid AnimalWithParentsDTO animalDTO);
 
     @GetMapping
-    public List<AnimalDTO> getAnimals();
+    List<AnimalDTO> getAnimals();
 }

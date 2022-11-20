@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fe7f19d1-4c19-4aec-b474-be718516a43a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zoo-web-page/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../zoo-web-page/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zoo-web-page/src/pages/searchAnimal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../zoo-web-page/src/pages/searchAnimal.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2Fj0rZvCzN0P6U9SwwOsNcIp9GM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OneDrive - Universidad Icesi (@icesi.edu.co)/Universidad/6 semestre/Papu net/SpringZooProject/Spring-zoo-project/spring-zoo-backend&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;show.run.dashboard.notification&quot;: &quot;false&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;684a9462a9d89eaaab992f484e385ffc&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\OneDrive - Universidad Icesi (@icesi.edu.co)\Universidad\6 semestre\Papu net\SpringZooProject\Spring-zoo-project\src\test" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="co.edu.icesi.zoowebpage.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ZooWebPageApplication (1)">
+    <configuration name="AnimalServiceTest.searchByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spring-zoo-project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.edu.icesi.zoowebpage.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="co.edu.icesi.zoowebpage.service" />
+      <option name="MAIN_CLASS_NAME" value="co.edu.icesi.zoowebpage.service.AnimalServiceTest" />
+      <option name="METHOD_NAME" value="searchByName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateAnimalIntegrationTest.cantCreateAnimalWrongParams" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spring-zoo-project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.edu.icesi.zoowebpage.integration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="co.edu.icesi.zoowebpage.integration" />
+      <option name="MAIN_CLASS_NAME" value="co.edu.icesi.zoowebpage.integration.CreateAnimalIntegrationTest" />
+      <option name="METHOD_NAME" value="cantCreateAnimalWrongParams" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetAnimalIntegrationTest.getAnimalUsingId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spring-zoo-project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.edu.icesi.zoowebpage.integration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="co.edu.icesi.zoowebpage.integration" />
+      <option name="MAIN_CLASS_NAME" value="co.edu.icesi.zoowebpage.integration.GetAnimalIntegrationTest" />
+      <option name="METHOD_NAME" value="getAnimalUsingId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetAnimalIntegrationTest.getAnimalUsingName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spring-zoo-project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.edu.icesi.zoowebpage.integration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="co.edu.icesi.zoowebpage.integration" />
+      <option name="MAIN_CLASS_NAME" value="co.edu.icesi.zoowebpage.integration.GetAnimalIntegrationTest" />
+      <option name="METHOD_NAME" value="getAnimalUsingName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetAnimalIntegrationTest.throwsExceptionAnimalUsingName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spring-zoo-project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.edu.icesi.zoowebpage.integration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="co.edu.icesi.zoowebpage.integration" />
+      <option name="MAIN_CLASS_NAME" value="co.edu.icesi.zoowebpage.integration.GetAnimalIntegrationTest" />
+      <option name="METHOD_NAME" value="throwsExceptionAnimalUsingName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZooWebPageApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="zoo-web-page" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="co.edu.icesi.zoowebpage.ZooWebPageApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZooWebPageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Spring-zoo-project" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="co.edu.icesi.zoowebpage.ZooWebPageApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AnimalServiceTest.searchByName" />
+        <item itemvalue="JUnit.GetAnimalIntegrationTest.getAnimalUsingId" />
+        <item itemvalue="JUnit.GetAnimalIntegrationTest.throwsExceptionAnimalUsingName" />
+        <item itemvalue="JUnit.GetAnimalIntegrationTest.getAnimalUsingName" />
+        <item itemvalue="JUnit.CreateAnimalIntegrationTest.cantCreateAnimalWrongParams" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fe7f19d1-4c19-4aec-b474-be718516a43a" name="Changes" comment="" />
+      <created>1664990393927</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664990393927</updated>
+      <workItem from="1664990404065" duration="28000" />
+      <workItem from="1665689267473" duration="168000" />
+      <workItem from="1665689448114" duration="152000" />
+      <workItem from="1665689611149" duration="3084000" />
+      <workItem from="1665693593413" duration="612000" />
+      <workItem from="1666411173625" duration="3000" />
+      <workItem from="1666455926424" duration="169000" />
+      <workItem from="1666480210535" duration="866000" />
+      <workItem from="1666481100091" duration="36000" />
+      <workItem from="1666481340418" duration="19143000" />
+      <workItem from="1666501912722" duration="4957000" />
+      <workItem from="1666506892571" duration="806000" />
+      <workItem from="1666532215865" duration="2913000" />
+      <workItem from="1666726475798" duration="472000" />
+      <workItem from="1668902861404" duration="3496000" />
+      <workItem from="1668906586801" duration="261000" />
+      <workItem from="1668906860444" duration="4608000" />
+      <workItem from="1668911537827" duration="150000" />
+      <workItem from="1668949742333" duration="7265000" />
+      <workItem from="1668966951153" duration="599000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate:hibernate-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:javax.validation:validation-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/UsersDemo" />
+    </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/co/edu/icesi/zoowebpage/controller/AnimalControllerTest.java</url>
+          <line>127</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
