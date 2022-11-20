@@ -67,8 +67,10 @@ public class ToucanServiceImpl implements ToucanService {
         toucanAndParents.add(toucan);
         Toucan father = getParent(toucan.getFatherName());
         Toucan mother = getParent(toucan.getMotherName());
-        toucanAndParents.add(father);
-        toucanAndParents.add(mother);
+        if(father != null)
+            toucanAndParents.add(father);
+        if(mother != null)
+            toucanAndParents.add(mother);
         return toucanAndParents;
     }//End getToucanParents
 
