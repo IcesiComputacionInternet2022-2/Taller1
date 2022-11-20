@@ -1,7 +1,9 @@
 package co.edu.icesi.Zootopia.api;
 
 import co.edu.icesi.Zootopia.DTO.AnimalDTO;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import javax.validation.Valid;
 import java.util.List;
@@ -16,7 +18,7 @@ public interface AnimalAPI {
     @GetMapping("/{id}")
     public AnimalDTO getAnimalUsingId(@PathVariable UUID id);
     @PostMapping()
-    public AnimalDTO createAnimal(@RequestBody @Valid AnimalDTO animalDTO);
+    public ResponseEntity<AnimalDTO> createAnimal(@RequestBody  @Valid AnimalDTO animalDTO);
 
     @GetMapping
     public List<AnimalDTO> getAnimals();
