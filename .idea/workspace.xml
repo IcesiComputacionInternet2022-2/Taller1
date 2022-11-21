@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a128c95-efa5-499b-9c5f-60a3ef49f86c" name="Changes" comment="Some fixes but still do not clear all the null pointers">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/src/test/java/com/co/edu/icesi/zooWeb/integration/GetSwanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/test/java/com/co/edu/icesi/zooWeb/integration/GetSwanTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/src/test/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/src/test/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/GetSwanTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/test-classes/com/co/edu/icesi/zooWeb/integration/GetSwanTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoo-Web/target/test-classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/zoo-Web/target/test-classes/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +34,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/sebas/Downloads/TallerJWT"
   }
 }]]></component>
   <component name="RunManager" selected="JUnit.All in rest-zoo-registers">
@@ -139,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666546006398</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Some fixes but still do not clear all the null pointers">
+      <created>1666547196509</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666547196509</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

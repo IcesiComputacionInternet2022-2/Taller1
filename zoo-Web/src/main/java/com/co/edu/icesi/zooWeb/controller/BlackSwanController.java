@@ -9,6 +9,7 @@ import com.co.edu.icesi.zooWeb.mapper.BlackSwanMapper;
 import com.co.edu.icesi.zooWeb.service.BlackSwanService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,29 +20,33 @@ import static com.co.edu.icesi.zooWeb.constants.BlackSwanStandards.*;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin(origins = "*")
 public class BlackSwanController implements BlackSwanAPI {
 
 
     private BlackSwanService blackSwanService;
     private BlackSwanMapper blackSwanMapper;
 
-
+    @CrossOrigin(origins = "*")
     @Override
     public List<BlackSwanDTO> getSwan(String swanName) {
         return blackSwanService.getSwan(swanName).stream().map(blackSwanMapper::fromBlackSwan).collect(Collectors.toList());
     }
 
+    @CrossOrigin(origins = "*")
     @Override
     public BlackSwanDTO createSwan(BlackSwanDTO blackSwanDTO) {
         validateBlackSwan(blackSwanDTO);
         return blackSwanMapper.fromBlackSwan(blackSwanService.createSwan(blackSwanMapper.fromBlackSwanDTO(blackSwanDTO)));
     }
 
+    @CrossOrigin(origins = "*")
     @Override
     public List<BlackSwanDTO> getSwans() {
         return blackSwanService.getSwans().stream().map(blackSwanMapper::fromBlackSwan).collect(Collectors.toList());
     }
 
+    @CrossOrigin(origins = "*")
     @Override
     public BlackSwanDTO updateSwan(String swanName, BlackSwanDTO blackSwanDTO) {
         validateBlackSwan(blackSwanDTO);
