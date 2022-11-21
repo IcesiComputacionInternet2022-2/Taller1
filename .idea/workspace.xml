@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b18fa5e3-79a5-43ea-af35-0a36f7360fac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/icesi/zoo/controller/AnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/icesi/zoo/controller/AnimalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/icesi/zoo/model/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/icesi/zoo/model/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co/edu/icesi/zoo/constant/AnimalErrorCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/co/edu/icesi/zoo/constant/AnimalErrorCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co/edu/icesi/zoo/controller/AnimalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/co/edu/icesi/zoo/controller/AnimalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co/edu/icesi/zoo/model/Animal$AnimalBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/co/edu/icesi/zoo/model/Animal$AnimalBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co/edu/icesi/zoo/model/Animal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/co/edu/icesi/zoo/model/Animal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co/edu/icesi/zoo/service/impl/AnimalServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/co/edu/icesi/zoo/service/impl/AnimalServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,25 +53,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/jose/Documents/University/11/Compunet/Taller1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "spring.configuration.checksum": "d2cbe65f53da8607e64173c1a83394fe"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jose/Documents/University/11/Compunet/Taller1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d2cbe65f53da8607e64173c1a83394fe&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ZooWorkshop" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="zoo" />
@@ -97,6 +90,9 @@
       <option name="presentableId" value="Default" />
       <updated>1668837659032</updated>
       <workItem from="1668837660302" duration="18422000" />
+      <workItem from="1669006161217" duration="665000" />
+      <workItem from="1669008204015" duration="306000" />
+      <workItem from="1669008588274" duration="602000" />
     </task>
     <servers />
   </component>

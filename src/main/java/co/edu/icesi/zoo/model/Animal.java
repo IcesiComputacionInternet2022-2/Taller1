@@ -8,7 +8,7 @@ import org.hibernate.annotations.Type;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
@@ -28,7 +28,7 @@ public class Animal {
     private int age;
     private double weight;
     private double height;
-    private LocalDate arrivalDate;
+    private LocalDateTime arrivalDate;
     @Type(type="org.hibernate.type.UUIDCharType")
     @Nullable
     private UUID fatherId;
