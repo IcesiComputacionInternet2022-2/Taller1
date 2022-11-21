@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Get tatabros</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href = "@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<div th:align="center">
+    <br>
+    <h1>Tatabro's List</h1>
+    <br>
+    <table th:class="'table'">
+        <thead th:class="'thead-dark'">
+            <tr>
+                <th th:scope="col">ID</th>
+                <th th:scope="col">Name</th>
+                <th th:scope="col">Sex</th>
+                <th th:scope="col">Weight</th>
+                <th th:scope="col">Age</th>
+                <th th:scope="col">Height</th>
+                <th th:scope="col">Arrival Date</th>
+                <th th:scope="col">Father ID</th>
+                <th th:scope="col">Mother ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="tatabro: ${tatabros}">
+                <td th:text="${tatabro.id}"></td>
+                <td th:text="${tatabro.name}"></td>
+                <td th:text="${tatabro.sex}"></td>
+                <td th:text="${tatabro.weight}"></td>
+                <td th:text="${tatabro.age}"></td>
+                <td th:text="${tatabro.height}"></td>
+                <td th:text="${tatabro.arrivalDate}"></td>
+                <td th:text="${tatabro.fatherID}"></td>
+                <td th:text="${tatabro.motherID}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <button th:align="center" th:type="reset" th:onclick="|window.location.href='/index'|" th:class="'btn btn-primary'">Return to homepage</button>
+</div>
+</body>
+</html>

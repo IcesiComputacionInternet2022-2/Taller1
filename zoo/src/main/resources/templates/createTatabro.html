@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Create tatabro</title>
+  <meta th:http-equiv="Content-Type" th:content="'text/html; charset=UTF-8'" />
+  <link th:href = "@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<script th:src="@{${'//cdn.jsdelivr.net/npm/sweetalert2@11'}}"></script>
+<br>
+<h1 th:align="center">Create new tatabro</h1>
+<form action="#" th:action="@{/createTatabro}" th:object="${tatabroDTO}" th:method="post">
+  <div th:class="'col-md-4 mb-3'" th:style="'left: 34%'">
+    <label for="inputName">Name:</label>
+    <input th:type="text" th:class="'form-control'" id="inputName" th:aria-describedby="nameHelp" th:placeholder="'Enter tatabro name'" th:field="*{name}" required />
+    <small th:id="nameHelp" th:class="'text-muted'">
+      Names are limited to 120 digits and can only contain letters and spaces.
+    </small>
+  </div>
+  <div th:class="'col-md-4 mb-3'" th:style="'left: 34%'">
+    <label for="inputSex">Sex:</label>
+    <input th:type="text" th:class="'form-control'" id="inputSex" th:aria-describedby="sexHelp" th:placeholder="'Enter tatabro sex'" th:field="*{sex}" required />
+    <small th:id="sexHelp" th:class="'text-muted'">
+      Tatabro's sex must be a character such as M/m (Male) or F/f (Female).
+    </small>
+  </div>
+  <div th:class="'col-md-4 mb-3'" th:style="'left: 34%'">
+    <label for="inputWeight">Weight:</label>
+    <input th:type="number" th:class="'form-control'" id="inputWeight" th:aria-describedby="weightHelp" th:placeholder="'Enter tatabro weight'" th:field="*{weight}" required />
+    <small th:id="weightHelp" th:class="'text-muted'">
+      Tatabro's weight must be a real number between 20 kg and 40 kg.
+    </small>
+  </div>
+  <div th:class="'col-md-4 mb-3'" th:style="'left: 34%'">
+    <label for="inputAge">Age:</label>
+    <input th:type="number" th:class="'form-control'" id="inputAge" th:aria-describedby="ageHelp" th:placeholder="'Enter tatabro age'" th:field="*{age}" required />
+    <small th:id="ageHelp" th:class="'text-muted'">
+      Tatabro's age must be an integer number between 15 and 20 years old.
+    </small>
+  </div>
+  <div th:class="'col-md-4 mb-3'" th:style="'left: 34%'">
+    <label for="inputHeight">Height:</label>
+    <input th:type="number" th:class="'form-control'" id="inputHeight" th:aria-describedby="heightHelp" th:placeholder="'Enter tatabro height'" th:field="*{height}" required />
+    <small th:id="heightHelp" th:class="'text-muted'">
+      Tatabro's height must be a real number between 50 cm and 90 cm.
+    </small>
+  </div>
+  <div th:class="'col-md-4 mb-3'" th:style="'left: 34%'">
+    <label for="inputArrivalDate">Arrival Date:</label>
+    <input th:type="datetime-local" th:step="1" th:class="'form-control'" id="inputArrivalDate" th:aria-describedby="arrivalDateHelp" th:placeholder="'Enter tatabro arrival date'" th:field="*{arrivalDate}" required />
+    <small th:id="arrivalDateHelp" th:class="'text-muted'">
+      Tatabro's arrival date must be in the past or present.
+    </small>
+  </div>
+  <div th:class="'col-md-4 mb-3'" th:style="'left: 34%'">
+    <label for="inputFatherID">Father ID:</label>
+    <input th:type="text" th:class="'form-control'" id="inputFatherID" th:aria-describedby="fatherIDHelp" th:placeholder="'Enter tatabro father ID'" th:field="*{fatherID}" />
+    <small th:id="fatherIDHelp" th:class="'text-muted'">
+      UUID format.
+    </small>
+  </div>
+  <div th:class="'col-md-4 mb-3'" th:style="'left: 34%'">
+    <label for="inputMotherID">Mother ID:</label>
+    <input th:type="text" th:class="'form-control'" id="inputMotherID" th:aria-describedby="motherIDHelp" th:placeholder="'Enter tatabro mother ID'" th:field="*{motherID}" />
+    <small th:id="motherIDHelp" th:class="'text-muted'">
+      UUID format.
+    </small>
+  </div>
+  <div th:class="'col-md-4 mb-3'" th:align="center" th:style="'left: 34%'">
+    <button th:type="submit" th:class="'btn btn-primary'">Create tatabro</button>
+    <button th:type="reset" th:onclick="|window.location.href='/createTatabroPage'|" th:class="'btn btn-primary'">Reset</button>
+    <button th:type="reset" th:onclick="|window.location.href='/index'|" th:class="'btn btn-primary'">Return to homepage</button>
+  </div>
+</form>
+<script>
+  function showAlert(button, status, message) {
+    Swal.fire({
+      position: 'center',
+      icon: status,
+      title: message,
+      confirmButtonText: button
+    });
+  }
+</script>
+<span th:if="${tatabroResponse != null}">
+  <script th:if="${tatabroResponse == true}" th:inline="javascript">
+    showAlert('OK', 'success', 'Tatabro sucesssfully created!');
+  </script>
+  <script th:if="${tatabroResponse == false}" th:inline="javascript">
+    showAlert('Retry', 'error', /*[[${message}]]*/);
+  </script>
+</span>
+</body>
+</html>

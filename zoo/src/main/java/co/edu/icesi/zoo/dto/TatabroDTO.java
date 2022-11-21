@@ -40,7 +40,7 @@ public class TatabroDTO {
 
     @NotNull(message = "Attribute 'arrivalDate' cannot be null.")
     @PastOrPresent(message = "The arrival date cannot be after the current date and time.")
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'hh:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime arrivalDate;
 
     private UUID fatherID;

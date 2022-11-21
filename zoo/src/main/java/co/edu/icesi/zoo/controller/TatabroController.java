@@ -16,8 +16,8 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class TatabroController implements TatabroAPI {
 
-    public final TatabroService tatabroService;
-    public final TatabroMapper tatabroMapper;
+    private final TatabroService tatabroService;
+    private final TatabroMapper tatabroMapper;
 
     @Override
     public TatabroDTO getTatabroByID(UUID tatabroId) {

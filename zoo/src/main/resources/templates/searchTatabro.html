@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Search tatabro</title>
+    <meta th:http-equiv="Content-Type" th:content="'text/html; charset=UTF-8'" />
+    <link th:href = "@{/css/bootstrap.min.css}" th:rel="stylesheet">
+</head>
+<body>
+<script th:src="@{${'//cdn.jsdelivr.net/npm/sweetalert2@11'}}"></script>
+<br>
+<h1 th:align="center">Search Tatabro</h1>
+<form action="#" th:action="@{/searchTatabro}" th:method="get">
+    <div th:class="'col-md-4 mb-3'" th:style="'left: 34%'">
+        <label for="searchName">Name: </label>
+        <input th:type="search" th:class="'form-control'" id="searchName" th:name="tatabroName" th:placeholder="'Enter tatabro name'" required/>
+    </div>
+    <div th:class="'col-md-4 mb-3'" th:style="'left: 34%'" th:align="center">
+        <button th:type="submit" th:class="'btn btn-primary'">Search tatabro</button>
+        <button th:type="reset" th:onclick="|window.location.href='/searchTatabroPage'|" th:class="'btn btn-primary'">Reset</button>
+        <button th:type="reset" th:onclick="|window.location.href='/index'|" th:class="'btn btn-primary'">Return to homepage</button>
+    </div>
+</form>
+<br>
+<h1 th:align="center">Tatabro</h1>
+<table th:class="'table table-bordered table-sm mt-2'">
+    <thead th:class="'thead-dark'">
+        <tr th:align="center">
+            <th th:scope="col">ID</th>
+            <th th:scope="col">Name</th>
+            <th th:scope="col">Sex</th>
+            <th th:scope="col">Weight</th>
+            <th th:scope="col">Age</th>
+            <th th:scope="col">Height</th>
+            <th th:scope="col">Arrival Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:align="center">
+            <td th:text="${tatabroParentsDTO.id}"></td>
+            <td th:text="${tatabroParentsDTO.name}"></td>
+            <td th:text="${tatabroParentsDTO.sex}"></td>
+            <td th:text="${tatabroParentsDTO.weight}"></td>
+            <td th:text="${tatabroParentsDTO.age}"></td>
+            <td th:text="${tatabroParentsDTO.height}"></td>
+            <td th:text="${tatabroParentsDTO.arrivalDate}"></td>
+        </tr>
+    </tbody>
+</table>
+<h1 th:align="center" th:if="${tatabroParentsDTO.father != null}">Father</h1>
+<table th:class="'table table-bordered table-sm mt-2'">
+    <thead th:class="'thead-dark'">
+    <tr th:align="center" th:if="${tatabroParentsDTO.father != null}">
+        <th th:scope="col">ID</th>
+        <th th:scope="col">Name</th>
+        <th th:scope="col">Sex</th>
+        <th th:scope="col">Weight</th>
+        <th th:scope="col">Age</th>
+        <th th:scope="col">Height</th>
+        <th th:scope="col">Arrival Date</th>
+        <th th:scope="col">Father ID</th>
+        <th th:scope="col">Mother ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:align="center" th:if="${tatabroParentsDTO.father != null}">
+        <td th:text="${tatabroParentsDTO.father.id}"></td>
+        <td th:text="${tatabroParentsDTO.father.name}"></td>
+        <td th:text="${tatabroParentsDTO.father.sex}"></td>
+        <td th:text="${tatabroParentsDTO.father.weight}"></td>
+        <td th:text="${tatabroParentsDTO.father.age}"></td>
+        <td th:text="${tatabroParentsDTO.father.height}"></td>
+        <td th:text="${tatabroParentsDTO.father.arrivalDate}"></td>
+        <td th:text="${tatabroParentsDTO.father.fatherID}"></td>
+        <td th:text="${tatabroParentsDTO.father.motherID}"></td>
+    </tr>
+    </tbody>
+</table>
+<h1 th:align="center" th:if="${tatabroParentsDTO.mother != null}">Mother</h1>
+<table th:class="'table table-bordered table-sm mt-2'">
+    <thead th:class="'thead-dark'">
+    <tr th:align="center" th:if="${tatabroParentsDTO.mother != null}">
+        <th th:scope="col">ID</th>
+        <th th:scope="col">Name</th>
+        <th th:scope="col">Sex</th>
+        <th th:scope="col">Weight</th>
+        <th th:scope="col">Age</th>
+        <th th:scope="col">Height</th>
+        <th th:scope="col">Arrival Date</th>
+        <th th:scope="col">Father ID</th>
+        <th th:scope="col">Mother ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:align="center" th:if="${tatabroParentsDTO.mother != null}">
+        <td th:text="${tatabroParentsDTO.mother.id}"></td>
+        <td th:text="${tatabroParentsDTO.mother.name}"></td>
+        <td th:text="${tatabroParentsDTO.mother.sex}"></td>
+        <td th:text="${tatabroParentsDTO.mother.weight}"></td>
+        <td th:text="${tatabroParentsDTO.mother.age}"></td>
+        <td th:text="${tatabroParentsDTO.mother.height}"></td>
+        <td th:text="${tatabroParentsDTO.mother.arrivalDate}"></td>
+        <td th:text="${tatabroParentsDTO.mother.fatherID}"></td>
+        <td th:text="${tatabroParentsDTO.mother.motherID}"></td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    function showAlert(message) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: message,
+            confirmButtonText: 'Retry'
+        });
+    }
+</script>
+<span th:if="${tatabroResponse != null}">
+  <script th:if="${tatabroResponse == false}" th:inline="javascript">
+    showAlert(/*[[${message}]]*/);
+  </script>
+</span>
+</body>
+</html>

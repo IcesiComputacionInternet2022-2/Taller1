@@ -42,6 +42,7 @@ public class TatabroServiceImpl implements TatabroService {
     public Tatabro createTatabro(Tatabro tatabro) {
         validateParents(Optional.ofNullable(tatabro.getFatherID()), Optional.ofNullable(tatabro.getMotherID()));
         validateUniqueName(tatabro.getName());
+        tatabro.setSex(tatabro.getSex().toUpperCase());
         return tatabroRepository.save(tatabro);
     }
 

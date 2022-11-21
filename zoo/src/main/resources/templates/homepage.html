@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Homepage</title>
+  <meta th:http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link th:href = "@{/css/bootstrap.min.css}" th:rel="stylesheet">
+</head>
+<body>
+<div th:align="center" th:style="'position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%)'">
+  <h1>Homepage</h1>
+  <br>
+  <button th:onclick="|window.location.href='/createTatabroPage'|" th:class="'btn btn-primary'">Create tatabro</button>
+  <button th:onclick="|window.location.href='/searchTatabroPage'|" th:class="'btn btn-primary'">Search tatabro</button>
+  <button th:onclick="|window.location.href='/getTatabros'|" th:class="'btn btn-primary'">List tatabros</button>
+</div>
+</body>
+</html>
