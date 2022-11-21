@@ -30,11 +30,17 @@ public class AnimalServiceImpl implements AnimalService {
     }
 
     @Override
+    public Animal getAnimal(String animalName) {
+        return animalRepository.findByName(animalName).orElse(null);
+    }
+
+    @Override
     public Animal createAnimal(Animal animal) {
         validateWeight(animal.getWeight());
         validateAge(animal.getAge());
         validateHeight(animal.getHeight());
         validateParentsGender(animal.getFatherId(), animal.getMotherId());
+        validateNameUniqueness(animal.getName());
         return animalRepository.save(animal);
     }
 

@@ -38,6 +38,16 @@ public class AnimalController implements AnimalAPI{
         Animal animal = animalService.getAnimal(animalId);
         AnimalNoParentsDTO father = animalMapper.fromAnimalToNoParentsDTO(animalService.getAnimal(animal.getFatherId()));
         AnimalNoParentsDTO mother = animalMapper.fromAnimalToNoParentsDTO(animalService.getAnimal(animal.getMotherId()));
+
+        return animalMapper.fromAnimalToSearchDTO(animal, father, mother);
+    }
+
+    @Override
+    public AnimalSearchDTO getAnimal(String animalName) {
+        Animal animal = animalService.getAnimal(animalName);
+        AnimalNoParentsDTO father = animalMapper.fromAnimalToNoParentsDTO(animalService.getAnimal(animal.getFatherId()));
+        AnimalNoParentsDTO mother = animalMapper.fromAnimalToNoParentsDTO(animalService.getAnimal(animal.getMotherId()));
+
         return animalMapper.fromAnimalToSearchDTO(animal, father, mother);
     }
 
