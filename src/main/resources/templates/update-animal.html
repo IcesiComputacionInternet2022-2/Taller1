@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4acb9baec3.js" crossorigin="anonymous"></script>
+    <title>UPDATE ANIMAL</title>
+</head>
+<body>
+<h1 id="title-create">
+    <i class="fa-solid fa-paw fa-beat"></i>
+    <b>
+        Actualizar un Animal
+    </b>
+    <i class="fa-solid fa-paw fa-beat"></i>
+</h1>
+<form action="#" th:action="@{/animals/update}"
+      th:object="${animal}" method="post">
+    <div class="row" style="padding-left: 50px">
+        <div class="form-goup col-md-5">
+            <div class="mb-3">
+                <label for="ID" class="form-label">ID Animal</label>
+                <input type="text" class="form-control" id="ID" placeholder="ID Animal" style="font-family: 'Comic Sans MS'">
+            </div>
+        </div>
+        <div class="form-goup col-md-5">
+            <div class="mb-3">
+                <label for="fatherID" class="form-label">ID Padre</label>
+                <input type="text" class="form-control" id="fatherID" placeholder="ID Animal Padre" style="font-family: 'Comic Sans MS'">
+            </div>
+        </div>
+        <div class="form-goup col-md-5">
+            <div class="mb-3">
+                <label for="motherID" class="form-label">ID Madre</label>
+                <input type="text" class="form-control" id="motherID" placeholder="ID Animal Madre" style="font-family: 'Comic Sans MS'">
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-left: 50px">
+        <div class="col-md-2 mt-1">
+            <input type="submit" name="action" class="btn btn-primary" value="Actualizar Animal">
+        </div>
+        <div class="col-md-1 mt-1">
+            <input type="reset" class="btn btn-secondary" value="Limpiar">
+        </div>
+        <div class="col-md-1 mt-1">
+            <input type="submit" name="action" class="btn btn-danger" value="Cancelar">
+        </div>
+    </div>
+</form>
+</body>
+</html>

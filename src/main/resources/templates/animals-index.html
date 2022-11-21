@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4acb9baec3.js" crossorigin="anonymous"></script>
+    <title>ANIMALES</title>
+</head>
+<body>
+<div th:switch="animals" class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div th:if="${animals.isEmpty()}" class="alert alert-warning">
+                No hay animales registrados en el sistema!
+            </div>
+            <div th:if="${!animals.isEmpty()}">
+                <h2>
+                    <i class="fa-solid fa-paw fa-beat"></i>
+                    Zoologico
+                    <i class="fa-solid fa-paw fa-beat"></i>
+                </h2>
+            </div>
+            <table class="table table-striperd table-responsive-md">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Genero</th>
+                    <th>Peso</th>
+                    <th>Edad</th>
+                    <th>Altura</th>
+                    <th>Fecha de Llegada</th>
+                    <th>ID Padre</th>
+                    <th>ID Madre</th>
+                    <th>Editar Animal</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="animal : ${animals}">
+                    <td th:text="${animal.id}"></td>
+                    <td th:text="${animal.name}"></td>
+                    <td th:text="${animal.sex}"></td>
+                    <td th:text="${animal.weight}"></td>
+                    <td th:text="${animal.age}"></td>
+                    <td th:text="${animal.height}"></td>
+                    <td th:text="${animal.arrivalDate}"></td>
+                    <td th:text="${animal.father}"></td>
+                    <td th:text="${animal.mother}"></td>
+                    <td><a th:href="@{/animals/edit/{id}(id=${animal.id})}"
+                           class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                </tr>
+                </tbody>
+            </table>
+            <a href="/animals/add" type="button" class="btn btn-primary"> <i class="fa-solid fa-paw"></i> Añadir Animal <i class="fa-solid fa-paw"></i></a>
+            <a href="/animals/edit" type="button" class="btn btn-primary"> <i class="fa-solid fa-paw"></i> Editar Animal <i class="fa-solid fa-paw"></i></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

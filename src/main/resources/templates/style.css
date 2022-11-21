@@ -1,0 +1,20 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Comic Sans MS";
+}
+
+#title-create{
+    padding: 50px;
+    color: blue;
+}
+
+#title-principal{
+    margin: auto;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+

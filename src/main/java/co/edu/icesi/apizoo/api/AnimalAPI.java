@@ -6,19 +6,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@RequestMapping("/animals")
+//@RequestMapping("/animals")
 public interface AnimalAPI{
 
-    @GetMapping("/{animalID}")
+//    @GetMapping("/{animalID}")
     AnimalDTO getAnimalById(@PathVariable UUID animalID);
 
-    @GetMapping
+//    @GetMapping
     List<AnimalDTO> getAnimals();
 
-    @PostMapping()
+//    @PostMapping()
     AnimalDTO createAnimal(@RequestBody AnimalDTO animalDTO);
 
-    @PatchMapping("/{animalID}")
+//    @PatchMapping("/{animalID}")
     AnimalDTO updateAnimal (@RequestBody AnimalDTO animalDTO, @PathVariable String animalID);
 }
 
