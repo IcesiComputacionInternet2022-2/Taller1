@@ -11,6 +11,7 @@ import co.edu.icesi.zoo.model.Animal;
 import co.edu.icesi.zoo.service.AnimalService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
@@ -22,6 +23,7 @@ import static co.edu.icesi.zoo.constant.AnimalErrorCode.*;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class AnimalController implements AnimalAPI{
 
     private final int NAME_MAX_LENGTH = 120;
