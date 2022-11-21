@@ -36,19 +36,17 @@ public class AnimalController implements AnimalAPI{
     @Override
     public AnimalSearchDTO getAnimal(UUID animalId) {
         Animal animal = animalService.getAnimal(animalId);
-        AnimalNoParentsDTO father = animalMapper.fromAnimalToNoParentsDTO(animalService.getAnimal(animal.getFatherId()));
-        AnimalNoParentsDTO mother = animalMapper.fromAnimalToNoParentsDTO(animalService.getAnimal(animal.getMotherId()));
+        AnimalNoParentsDTO[] parents = validateParents(animal);
 
-        return animalMapper.fromAnimalToSearchDTO(animal, father, mother);
+        return animalMapper.fromAnimalToSearchDTO(animal, parents[0], parents[1]);
     }
 
     @Override
     public AnimalSearchDTO getAnimal(String animalName) {
         Animal animal = animalService.getAnimal(animalName);
-        AnimalNoParentsDTO father = animalMapper.fromAnimalToNoParentsDTO(animalService.getAnimal(animal.getFatherId()));
-        AnimalNoParentsDTO mother = animalMapper.fromAnimalToNoParentsDTO(animalService.getAnimal(animal.getMotherId()));
+        AnimalNoParentsDTO[] parents = validateParents(animal);
 
-        return animalMapper.fromAnimalToSearchDTO(animal, father, mother);
+        return animalMapper.fromAnimalToSearchDTO(animal, parents[0], parents[1]);
     }
 
     @Override
@@ -89,6 +87,20 @@ public class AnimalController implements AnimalAPI{
             System.out.println(LocalDateTime.now());
             throw new AnimalException(HttpStatus.BAD_REQUEST, new AnimalError(CODE_C3, CODE_C3.getErrorMessage()));
         }
+    }
+
+    private AnimalNoParentsDTO[] validateParents(Animal animal) {
+        AnimalNoParentsDTO[] parents = {null, null};
+
+        if (animal.getFatherId() != null) {
+            parents[0] = animalMapper.fromAnimalToNoParentsDTO(animalService.getAnimal(animal.getFatherId()));
+        }
+
+        if (animal.getMotherId() != null) {
+            parents[1] = animalMapper.fromAnimalToNoParentsDTO(animalService.getAnimal(animal.getMotherId()));
+        }
+
+        return parents;
     }
 
 }
