@@ -1,0 +1,3 @@
+INSERT INTO ostrich(id, name, gender, weight, age, height, arrival_date, father_id, mother_id) VALUES('5afba3a1-96ba-46eb-b9c1-9ac690953fb4', 'Ostrich Father', 1, 65.5, 35, 1.7, '2022-10-13T12:00:00', null, null);
+INSERT INTO ostrich(id, name, gender, weight, age, height, arrival_date, father_id, mother_id) VALUES('59b99314-ed1a-4678-ab05-463b186c10c3', 'Ostrich Mother', 0, 65.5, 35, 1.7, '2022-10-13T12:00:00', null, null);
+INSERT INTO ostrich(id, name, gender, weight, age, height, arrival_date, father_id, mother_id) VALUES('ff97d807-22f1-4d81-a514-6a300fc64585', 'Small Ostrich', 1, 65.5, 35, 1.7, '2022-10-13T12:00:00', '5afba3a1-96ba-46eb-b9c1-9ac690953fb4', '59b99314-ed1a-4678-ab05-463b186c10c3');

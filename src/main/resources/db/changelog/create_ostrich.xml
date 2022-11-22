@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
-
-    <!-- Refer to https://docs.liquibase.com/change-types/community/create-table.html -->
-
-    <changeSet id="33d4e9bc-7210-47c3-9617-c56ab7c0750d" author="carlos.pantoja" failOnError="true">
-
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+	<changeSet id="33d4e9bc-7210-47c3-9617-c56ab7c0750d" author="carlos.pantoja" failOnError="true">
         <createTable tableName="ostrich">
             <column name="id" type="UUID">
-                <constraints nullable="false" primaryKey="true" />
+                <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="name" type="varchar(120)" />
-            <column name="gender" type="int" />
-            <column name="weight" type="float" />
-            <column name="age" type="int" />
-            <column name="height" type="float" />
-            <column name="arrivalDate" type="datetime" />
-            <column name="fatherId" type="UUID" />
-            <column name="motherId" type="UUID" />
+            <column name="name" type="varchar(120)"/>
+            <column name="gender" type="int"/>
+            <column name="weight" type="float"/>
+            <column name="age" type="int"/>
+            <column name="height" type="float"/>
+            <column name="arrival_date" type="datetime"/>
+            <column name="father_id" type="UUID"/>
+            <column name="mother_id" type="UUID"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
